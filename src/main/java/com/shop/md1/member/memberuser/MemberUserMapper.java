@@ -1,5 +1,7 @@
 package com.shop.md1.member.memberuser;
 
-public interface MemberUserMapper {
+import com.shop.md1.member.MemberMapper;
+
+public interface MemberUserMapper{
 
 }

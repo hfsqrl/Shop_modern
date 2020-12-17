@@ -1,5 +1,7 @@
 package com.shop.md1.member.memberuser;
 
-public class MemberUserService {
+import com.shop.md1.member.MemberService;
+
+public class MemberUserService{
 
 }
