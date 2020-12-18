@@ -27,7 +27,7 @@ public class MemberUserService implements MemberService{
 	}
 	
 	@Override
-	public int setMemberJoin(MemberVO memberVO) throws Exception {
+	public Integer setMemberJoin(MemberVO memberVO) throws Exception {
 		// TODO Auto-generated method stub
 		return memberUserMapper.setMemberJoin(memberVO);
 	}

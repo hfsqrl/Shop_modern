@@ -66,7 +66,7 @@
 			  <div class="col-sm-12 join_input">
 			    <label class="col-sm-2 join_text" for="member_ask">비밀번호 확인 답변</label>
 			    <div class="col-sm-4">
-				   <input type="text" id="member_ask" name="member_ask" class="form-control empty">  
+				   <input type="text" id="member_answer" name="member_answer" class="form-control empty">  
 			       <div class="emptyResult"></div>
 			    </div>
 			     <br>
@@ -97,7 +97,7 @@
 			 <div class="col-sm-12 join_input">
 			    <label class="col-sm-2 join_text" for="date">생년월일</label>
 			    <div class="col-sm-4">
-			       <input type="date" id="date" name="member_date" class="form-contro lempty">
+			       <input type="date" id="date" name="member_birth" class="form-contro lempty">
 			       <div class="emptyResult"></div>
 			    </div>
 			     <br>
@@ -149,7 +149,6 @@
 			  </div>
 			  
 			  <h3 style="text-align: center;">추가정보</h3>
-			  <br>
 			  <hr>
 			
 			<div class="col-sm-12 join_input">
@@ -174,12 +173,14 @@
 			    <label class="col-sm-2 join_text" for="refund_info">환불 계좌 정보</label>
 			     <div class="col-sm-4">
 			       
-				   <h5>> 예금주</h5><input type="text" id="refund_name" name="member_refubd_name" class="form-control empty">  
+			       
+				   <h5>> 예금주</h5><input type="text" id="refund_name" name="member_refund_name" class="form-control empty">  
 			       <div class="emptyResult"></div>
-			   
+			   		
+			   		
 			       <h5>> 은행명</h5>
 			       <div class="col-sm-4">
-				  	 <select name="member_region">
+				  	 <select name="member_refund_bank">
   						<optgroup label="은행선택">
     					<option value="산업은행">산업은행</option>
     					<option value="기업은행">기업은행</option>
@@ -188,19 +189,34 @@
   						</optgroup>
 					  </select>
 			      	 <div class="emptyResult"></div>
-			    	</div>
-			     <br>
+			    	</div><br>
 			    
-				   <h5>> 계좌번호</h5><input type="text" id="refund_name" name="member_refubd_name" class="form-control empty">  
+			    <div>
+				   <h5>> 계좌번호</h5>
+				   <input type="text" id="refund_name" name="member_refund_account" class="form-control empty">  
 			       <div class="emptyResult"></div>
-			 		    
+			 	</div>
+			 	<br>  
 			    
-			    </div>
-		
-				
-			    
+				</div> 
 			 </div>
-	
+			 
+			<h3 style="text-align: center;">이용약관 동의</h3>
+			 <hr>
+			
+			<div>
+				<div> 
+					<h5>이용 약관에 동의하십니까?</h5>
+					<label><input type="checkbox" value=1 name="member_clause_agg"> 동의함</label>
+				</div>
+				<hr>
+				<div>
+					<h5>개인정보 수집 및 이용에 동의하십니까?</h5>
+					<label><input type="checkbox" value=1 name="member_pi_agg"> 동의함</label>
+				</div>
+			
+			</div>
+		
 					
 				
          		</form>
@@ -208,10 +224,19 @@
 					
 			</div>
 			<div style="text-align: center;">
-			<input type="button" id="btn" value="가입하기" class="checkButt" style= "width:110px; height:42px;">
+			<input type="button" id="joinBtn" value="가입하기" class="checkButt" style= "width:110px; height:42px;">
 			</div>
 			
 
 	
 </body>
+<script type="text/javascript">
+	$("#joinBtn").click(function() {
+		$("#frm").submit();
+			
+	});
+	
+
+</script>
+
 </html>

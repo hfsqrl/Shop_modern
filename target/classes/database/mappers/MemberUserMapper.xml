@@ -16,7 +16,7 @@
     		insert into member_info (member_id, member_pw, member_ask, member_answer, member_name, member_address, member_phone, member_sms_agg, member_email, 
     		member_email_agg, member_birth, member_region, member_refund_name, member_refund_bank, member_refund_account, member_clause_agg, member_pi_agg)
     		
-			values(#{member_id},#{member_pw},#{member_ask}',#{member_answer}',#{member_name},#{member_address},#{member_phone}, #{member_sms_agg},#{member_email},
+			values(#{member_id},#{member_pw},#{member_ask},#{member_answer},#{member_name},#{member_address},#{member_phone}, #{member_sms_agg},#{member_email},
 			#{member_email_agg}, #{member_birth},#{member_region},#{member_refund_name},#{member_refund_bank},#{member_refund_account},#{member_clause_agg}
 			,#{member_pi_agg})
     	</select>

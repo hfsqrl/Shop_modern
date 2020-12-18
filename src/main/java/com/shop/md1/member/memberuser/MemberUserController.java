@@ -84,7 +84,7 @@ public class MemberUserController {
 	public ModelAndView getMemberJoin(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		int result = memberUserService.setMemberJoin(memberVO);
+		Integer result = memberUserService.setMemberJoin(memberVO);
 		
 		
 		return mv;
