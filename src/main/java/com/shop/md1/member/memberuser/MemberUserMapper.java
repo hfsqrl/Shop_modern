@@ -1,7 +1,13 @@
 package com.shop.md1.member.memberuser;
 
-import com.shop.md1.member.MemberMapper;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface MemberUserMapper{
+import com.shop.md1.member.MemberMapper;
+import com.shop.md1.member.MemberVO;
+
+@Mapper
+public interface MemberUserMapper extends MemberMapper{
+
+	
 
 }

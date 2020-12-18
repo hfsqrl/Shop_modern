@@ -14,7 +14,7 @@ public class MemberVO {
 	private String member_answer;
 	private String member_name;
 	private String member_address;
-	private long member_phone;
+	private String member_phone;
 	private int member_sms_agg;
 	private String member_email;
 	private int member_email_agg;

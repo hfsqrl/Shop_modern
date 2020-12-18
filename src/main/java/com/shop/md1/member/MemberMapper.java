@@ -1,5 +1,13 @@
 package com.shop.md1.member;
 
+import java.util.List;
+
 public interface MemberMapper {
+	
+	public List<MemberVO> getMemberList(MemberVO memberVO) throws Exception;
+	
+	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception;
+	
+	public int setMemberJoin(MemberVO memberVO) throws Exception; 
 
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+   	<mapper namespace="com.shop.md1.member.memberuser.MemberUserMapper">
+   		<select id="getMemberList" parameterType="MemberVO" resultType="MemberVO">
+   			select * from member_info
+   		</select>
+   		
+    	<select id="getMemberLogin" parameterType="MemberVO" resultType="MemberVO">
+    		select * from member_info where member_id=#{member_id} and member_pw=#{member_pw}
+    	</select>
+    	
+    	<select id="setMemberJoin" parameterType="MemberVO" resultType="MemberVO">
+    		insert into member_info (member_id, member_pw, member_ask, member_answer, member_name, member_address, member_phone, member_sms_agg, member_email, 
+    		member_email_agg, member_birth, member_region, member_refund_name, member_refund_bank, member_refund_account, member_clause_agg, member_pi_agg)
+    		
+			values(#{member_id},#{member_pw},#{member_ask}',#{member_answer}',#{member_name},#{member_address},#{member_phone}, #{member_sms_agg},#{member_email},
+			#{member_email_agg}, #{member_birth},#{member_region},#{member_refund_name},#{member_refund_bank},#{member_refund_account},#{member_clause_agg}
+			,#{member_pi_agg})
+    	</select>
+    
+    </mapper>

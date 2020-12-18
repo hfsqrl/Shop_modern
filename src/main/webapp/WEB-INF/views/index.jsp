@@ -12,7 +12,19 @@
 <body>
 <h1>index</h1>
 
-<div id="LeftMenu">menu</div>
+<div id="LeftMenu">
+	<c:choose>
+		<c:when test="${empty member}">
+			<a href="../member/memberLogin">LOGIN</a> 
+			<a href="../member/memberJoin">JOIN</a>
+		</c:when>
+		
+		<c:otherwise>
+			<a href="./member/memberLogout">LOGOUT</a>
+			<a>MY PAGE</a>
+		</c:otherwise>
+	</c:choose>		
+</div>
 
 <div class="container">contents</div>
 </body>
