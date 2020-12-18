@@ -10,7 +10,6 @@
 <link href="./css/common/default.css" rel="stylesheet">
 </head>
 <body>
-<h1>index</h1>
 
 <div id="LeftMenu">menu</div>
 
