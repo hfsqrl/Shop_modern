@@ -9,10 +9,28 @@
 <c:import url="./template/bootstrap.jsp"></c:import>
 <link href="./css/common/default.css" rel="stylesheet">
 </head>
-<body>
-
-<div id="LeftMenu">menu</div>
-
-<div class="container">contents</div>
+<body id="main">
+<div class="in">
+	<div id="header">
+		<div class="inner">
+			<div class="menu_l">
+				menu
+			</div>
+			<div class="logo">
+				logo
+			</div>
+			<div class="menu_r">
+				qna
+			</div>
+		</div>
+	</div>
+	<div id="wrap">
+		<div class="container">
+			contents
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</div>
 </body>
 </html>
