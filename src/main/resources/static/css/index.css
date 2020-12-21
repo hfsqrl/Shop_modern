@@ -88,24 +88,75 @@
 	float: right;
 	width: 80.5%;
 	height: 100%;
-	background-color: #dfffce;
 }
 
+/* 
 #header {
 	position: absolute;
 	padding-top: 60px;
 	width: 100%;
 	z-index: 99;
-	background-color: blue;
 	opacity: 60%;
+}
+ */
+
+#header {
+	position: fixed;
+    display: block;
+    width: 80.5%;
+    height: auto;
+    z-index: 99;
+    text-align: center;
+    background: transparent;
+    padding-top: 60px;
 }
 
 #header * {
 	font-size: 12px;
 	line-height: 20px;
+	height: 20px;
 }
 
-#header .right_inner {
+#header .right {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 90%;
+    height: 20px;
+    margin: 0 auto;
+}
+
+#header .right .rightNav {
+	position: absolute;
+    display: inline-block;
+    right: 0px;
+    width: auto;
+    height: 20px;
+    text-align: right;
+}
+
+#header .right .rightNav .right_inner {
+	display: inline-block;
+	width: auto;
+	height: 20px;
+}
+
+#header .right_inner li {
+	position: relative;
+	display: inline-block;
+	margin-left: 12px;
+}
+
+#header .right_inner .line {
+	display: inline-block;
+	width: 1px;
+	height: 20px;
+    margin: 0 8px 0 20px;
+    border-right: 1px solid #000;
+    vertical-align: middle;
+} 
+
+/* #header .right_inner {
 	position: relative;
 	width: 90%;
 	height: 20px;
@@ -124,6 +175,64 @@
 	margin-left: 12px;
 }
 
+#header .right_inner .rightNav .line {
+	display: inline-block;
+	height: 20px;
+	margin: 0 8px 0 20px;
+	background-color: silver;
+	opacity: 20%;
+}
+ */
+
+#wrap .main_right .container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin-top: 80px;
+}
+
+.container .contents {
+	min-height: 975px;
+}
+
+.container .contents .inner_con {
+	display: block;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+.inner_con .swipe_images {
+	margin: 20px 0 60px;
+	width: 100%;
+	overflow: visible;
+	position: relative;
+	list-style: none;
+	padding: 0;
+	min-width: 1280px;
+}
+
+.inner_con .main-con {
+	display: flex;
+	padding: 0 28px 120px;
+	overflow: auto;
+	text-align: left;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1440px;
+	background-color: #0080ff;
+}
+
+#footer {
+	width: 100%;
+    height: 458px;
+	position: relative;
+	margin-top: 100px;
+	padding-top: 70px;
+	background-color: #fafafa;
+}
 
 
 

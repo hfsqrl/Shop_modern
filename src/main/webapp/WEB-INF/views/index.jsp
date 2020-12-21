@@ -81,23 +81,52 @@
 	<div class="main_right"> <!-- container_wrap -->
 		<div id="header"> <!-- #header -->
 			<div class="right"> <!-- Nav_inner -->
-				<div class="right_inner"> <!-- .header -->
-					<div class="rightNav"> <!-- right -->
+				<div class="rightNav"> <!-- .header -->
+					<div class="right_inner"> <!-- right -->
 						<ul> <!-- menu -->
 							<li>
+								<a href="#">
+									<img alt="" src="./images/index/cart.png">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img alt="" src="./images/index/member.png">
+								</a>
+							</li>
+							<span class="line">  </span>
+							<li>
+								<a href="#">
+									<img alt="" src="./images/index/lang.png">
+								</a>
 							</li>
 						</ul>
+					</div> <!-- right_inner -->
+				</div> <!-- rightNav -->
+			</div> <!-- right -->
+		</div> <!-- header -->
+		<div class="container">
+			<div class="contents">
+				<div class="inner_con">
+					<div class="swipe_images"> <!-- i-main -->
+						<div class="swipe_wrap">
+							<div class="swipe_slide">
+								<!-- <a href="#">
+									<img alt="" src="./images/index/swipe1.jpg">
+								</a> -->
+							</div>
+						</div>
+					</div>
+					<div class="main-con">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<div id="footer">
-				
-			</div>
+		<div id="footer">
+			
 		</div>
-	</div>
+	</div> <!-- main_right -->
 	
-</div>
+</div> <!-- wrap -->
 </body>
 </html>

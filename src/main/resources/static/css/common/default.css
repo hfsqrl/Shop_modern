@@ -34,12 +34,3 @@ a {
 	text-decoration: none;
 	color: #000;
 }
-
-#footer {
-	width: 100%;
-    height: 458px;
-	position: relative;
-	margin-top: 100px;
-	padding-top: 70px;
-	background: #fafafa;
-}
