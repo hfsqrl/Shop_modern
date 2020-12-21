@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +25,12 @@
 			<a href="./member/memberLogout">LOGOUT</a>
 			<a>MY PAGE</a>
 		</c:otherwise>
-	</c:choose>		
+	</c:choose>	
+	
+	
+		
 </div>
+<h1><spring:message code="hello.main"></spring:message></h1>
 
 <div class="container">contents</div>
 </body>
