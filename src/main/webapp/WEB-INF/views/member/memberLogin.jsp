@@ -41,4 +41,9 @@
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+	$("#btnJoin").click(function(){
+		location.href = "./memberJoin";
+		});
+</script>
 </html>
