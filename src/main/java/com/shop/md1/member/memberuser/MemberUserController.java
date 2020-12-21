@@ -3,10 +3,12 @@ package com.shop.md1.member.memberuser;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -73,7 +75,7 @@ public class MemberUserController {
 	}
 	
 	@GetMapping("memberJoin")
-	public ModelAndView getMemberJoin() throws Exception{
+	public ModelAndView getMemberJoin(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		return mv;
@@ -81,9 +83,14 @@ public class MemberUserController {
 	}
 	
 	@PostMapping("memberJoin")
-	public ModelAndView getMemberJoin(MemberVO memberVO) throws Exception{
+	public ModelAndView getMemberJoin(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
+		if(memberUserService.getMemberError(memberVO, bindingResult)) {
+			mv.setViewName("member/memberJoin");
+			return mv;
+		}
+	
 		Integer result = memberUserService.setMemberJoin(memberVO);
 		
 		

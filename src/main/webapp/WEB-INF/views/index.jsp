@@ -30,7 +30,7 @@
 	
 		
 </div>
-<h1><spring:message code="hello"></spring:message></h1>
+<h1><spring:message code="name"></spring:message></h1>
 
 <div class="container">contents</div>
 </body>

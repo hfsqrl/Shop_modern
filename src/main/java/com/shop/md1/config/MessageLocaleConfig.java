@@ -32,7 +32,8 @@ public class MessageLocaleConfig implements WebMvcConfigurer{
 		
 		return localeChangeInterceptor;
 	}
-
+	
+	//Interceptor 등록
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		

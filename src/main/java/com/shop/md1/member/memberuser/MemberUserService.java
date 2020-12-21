@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import com.shop.md1.member.MemberService;
 import com.shop.md1.member.MemberVO;
@@ -30,6 +31,17 @@ public class MemberUserService implements MemberService{
 	public Integer setMemberJoin(MemberVO memberVO) throws Exception {
 		// TODO Auto-generated method stub
 		return memberUserMapper.setMemberJoin(memberVO);
+	}
+	
+	public boolean getMemberError(MemberVO memberVO, BindingResult bindingResult) throws Exception{
+		
+		boolean result=false;
+		
+		if(bindingResult.hasErrors()) {
+			result = true;
+		}
+		
+		return result;
 	}
 
 	
