@@ -4,6 +4,19 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
    	<mapper namespace="com.shop.md1.member.memberuser.MemberUserMapper">
+   	
+   		<select id="getMemberEmail" parameterType="MemberVO" resultType="MemberVO">
+   			select member_email from member_info where member_email = #{member_email}
+   		</select>
+   	
+   		<select id="getMemberPhone" parameterType="MemberVO" resultType="MemberVO">
+   			select member_phone from member_info where member_phone = #{member_phone}
+   		</select>
+   		
+   		<select id="getMemberId" parameterType="MemberVO" resultType="MemberVO"> 
+   			select member_id from member_info where member_id = #{member_id} 
+   		</select>
+   	
    		<select id="getMemberList" parameterType="MemberVO" resultType="MemberVO">
    			select * from member_info
    		</select>
