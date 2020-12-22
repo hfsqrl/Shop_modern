@@ -2,7 +2,10 @@ package com.shop.md1.member;
 
 import java.sql.Date;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 import lombok.Data;
 
@@ -14,6 +17,9 @@ public class MemberVO {
 	private String member_id;
 	@NotEmpty
 	private String member_pw;
+	@Length(min = 8, max = 15)
+	private String member_pw2;
+	
 	@NotEmpty
 	private String member_ask;
 	@NotEmpty
@@ -26,6 +32,7 @@ public class MemberVO {
 	private String member_phone;
 	private int member_sms_agg;
 	@NotEmpty
+	@Email
 	private String member_email;
 	private int member_email_agg;
 	

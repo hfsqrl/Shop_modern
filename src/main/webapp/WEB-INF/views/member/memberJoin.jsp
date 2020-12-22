@@ -46,8 +46,8 @@
 			  <div class="col-sm-12 join_input">
 			    <label class="col-sm-2 join_text" for="pw2">비밀번호 확인</label>
 			    <div class="col-sm-4">
-			     <form:input type="password" path="member_pw" class="form-control" placeholder="특수문자 , 문자 , 숫자 포함  8~15자리 이내의 암호" />
-      			 
+			     <form:input type="password" path="member_pw2" class="form-control" placeholder="특수문자 , 문자 , 숫자 포함  8~15자리 이내의 암호" />
+      			 <form:errors path="member_pw2" cssClass="error"></form:errors>
 			    </div>
 			     <br>
 			     <hr>
@@ -102,7 +102,7 @@
 			 </div>
 			
 			 <div class="col-sm-12 join_input">
-			    <label class="col-sm-2 join_text" for="date">생년월일</label>
+			    <label class="col-sm-2 join_text" for="birth">생년월일</label>
 			    <div class="col-sm-4">
 			       <input type="date" id="date" name="member_birth" class="form-contro lempty">
 		
@@ -113,8 +113,7 @@
 			 
 			 <div class="col-sm-12 join_input">
 			    <label class="col-sm-2 join_text" for="phone">휴대전화 </label>
-			    <div class="col-sm-4">
-			       
+			    <div class="col-sm-4">			       
 			       <form:input path="member_phone" class="form-control empty" placeholder="ex) 010-xxxx-xxxx"/>
 			       <input type="button" id="btnPhone" value="중복확인" class="checkButt">		
       			 <form:errors path="member_phone" cssClass="error"></form:errors>
