@@ -107,26 +107,131 @@
 		</div> <!-- header -->
 		<div class="container">
 			<div class="contents">
-				<div class="inner_con">
+				<div class="inner_con"> <!-- i-cont -->
 					<div class="swipe_images"> <!-- i-main -->
 						<div class="swipe_wrap">
 							<div class="swipe_slide">
-								<!-- <a href="#">
-									<img alt="" src="./images/index/swipe1.jpg">
-								</a> -->
+								
+								<div class="slideshow-container">
+								
+								<div class="mySlides fade">
+								  <img src="./images/index/swipe1.jpg" style="width:100%" class="slides">
+								</div>
+								
+								<div class="mySlides fade">
+								  <img src="./images/index/swipe2.jpg" style="width:100%" class="slides">
+								</div>
+								
+								<div class="mySlides fade">
+								  <img src="./images/index/swipe3.jpg" style="width:100%" class="slides">
+								</div>
+								
+								<div class="mySlides fade">
+								  <img src="./images/index/swipe4.jpg" style="width:100%" class="slides">
+								</div>
+								
+								<div class="mySlides fade">
+								  <img src="./images/index/swipe5.jpg" style="width:100%" class="slides">
+								</div>
+								
+								<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+								<a class="next" onclick="plusSlides(1)">&#10095;</a>
+								
+								</div>
+								<br>
+								
+								<div style="text-align:center">
+								  <span class="dot" onclick="currentSlide(1)"></span> 
+								  <span class="dot" onclick="currentSlide(2)"></span> 
+								  <span class="dot" onclick="currentSlide(3)"></span> 
+								  <span class="dot" onclick="currentSlide(4)"></span> 
+								  <span class="dot" onclick="currentSlide(5)"></span> 
+								</div>
+
 							</div>
 						</div>
 					</div>
-					<div class="main-con">
+					<div class="main-con"> <!-- main-cont -->
+						<a href="#" class="image_box">
+							<img src="./images/index/main1.jpg">
+							<p class="inner_box">
+								<span class="p_title">Sample Sale</span>
+							</p>
+						</a>
+						<a href="#" class="image_box">
+							<img src="./images/index/main2.jpg">
+							<p class="inner_box">
+								<span class="p_title">Delivery</span>
+							</p>
+						</a>
+						<a href="#" class="image_box">
+							<img src="./images/index/main3.jpg">
+							<p class="inner_box">
+								<span class="p_title">Sesson Off</span>
+							</p>
+						</a>
+						<a href="#" class="image_box">
+							<img src="./images/index/main4.jpg">
+							<p class="inner_box">
+								<span class="p_title">Product</span>
+							</p>
+						</a>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div id="footer">
-			
+			<div id="footer">
+				<div class="footer">
+					<ul>
+						<div class="f_box box1">
+							<p class="cs">고객센터</p>
+							<p class="cs_num">1588-0000</p>
+							<p>Mon-Fri AM 11:00 – PM 6:00</p>
+							<p>Lunch time PM 13:00 – 14:00</p>
+							<p>Sat.Sun.Holiday OFF</p>
+							<p class="cs bank-info">은행정보</p>
+							<p>농협 000-0202-0123-11</p>
+							<p>국민 123456-30-876890</p>
+							<p>예금주 : (주)SIST</p>
+						</div>
+						<div class="f_box box2">
+							
+						</div>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div> <!-- main_right -->
 	
 </div> <!-- wrap -->
+
+<script type="text/javascript">
+	var slideIndex = 1;
+	showSlides(slideIndex);
+	
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	}
+	
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	}
+	
+	function showSlides(n) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("dot");
+	  if (n > slides.length) {slideIndex = 1}    
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+	      slides[i].style.display = "none";  
+	  }
+	  for (i = 0; i < dots.length; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";  
+	  dots[slideIndex-1].className += " active";
+	}
+</script>
+
 </body>
 </html>
