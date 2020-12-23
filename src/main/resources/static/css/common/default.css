@@ -19,6 +19,9 @@ body {
     text-align: center;
     line-height: 20px;
     box-sizing: border-box;
+    text-decoration: none;
+    text-decoration-color: #000; 
+     
 }
 
 div, p, ul, li {
@@ -32,5 +35,6 @@ div, p, ul, li {
 
 a {
 	text-decoration: none;
+	text-decoration-line: none;
 	color: #000;
 }

@@ -178,7 +178,7 @@
 						</a>
 					</div>
 				</div>
-			</div>
+			</div> <!-- contents -->
 			<div id="footer">
 				<div class="footer">
 					<ul>
@@ -194,12 +194,21 @@
 							<p>예금주 : (주)SIST</p>
 						</div>
 						<div class="f_box box2">
-							
+							<p class="cs">주식회사 모던이프</p>
+							<p>대표이사 : 노경한 | 이메일 : asdf@gmail.com</p>
+							<p>서울특별시 마포구 월드컵북로21 풍성빌딩 2,3,4층</p>
+							<p>사업자등록번호 : 8858800485 <a href="#">[사업자정보확인]</a> | 통신판매업신고번호 : 2017-수원팔달-0059호</p>
+							<p class="shopinfo">
+								<a href="#">회사소개</a>
+								<a href="#">이용약관</a>
+								<a href="#">이용안내</a>
+								<a href="#">개인정보처리방침</a>
+							</p>
 						</div>
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div> <!-- container -->
 	</div> <!-- main_right -->
 	
 </div> <!-- wrap -->
