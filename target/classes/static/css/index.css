@@ -184,7 +184,7 @@
 }
  */
 
-/* #wrap  */.main_right .container {
+.main_right .container {
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -411,11 +411,20 @@
 
 #footer .footer .f_box {
 	float: left;
+	text-align: left;
 }
 
 #footer .footer .box1 {
 	margin-right: 8%;
-	text-align: left;
+}
+
+.box2 .shopinfo {
+	width: 100%;
+	height: 24px;
+}
+
+.box2 .shopinfo > a {
+	margin-right: 8px;
 }
 
 #footer .footer .cs {
