@@ -20,6 +20,18 @@
 	</properties>
 
 	<dependencies>
+	
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+   			<groupId>javax.validation</groupId>
+   			<artifactId>validation-api</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+		<dependency>
+   			<groupId>org.hibernate.validator</groupId>
+    		<artifactId>hibernate-validator</artifactId>
+		</dependency>
 		
 		<!--tomcat-jasper for JSP in Sprng boot -->
 		<dependency>
