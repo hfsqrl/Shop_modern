@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.join_input{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.join_input2{
+	padding-top: 10px;
+	padding-bottom: 25px;
+}
+
+.textAgg{
+	overflow: auto;
+	
+}

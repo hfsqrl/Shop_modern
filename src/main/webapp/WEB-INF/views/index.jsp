@@ -17,14 +17,14 @@
 			<div class="leftNav">
 				<div class="navContent">
 					<ul class="home">
-						<a href="#">
+						<a href="${pageContext.request.contextPath}/">
 							<span class="goHome">home</span>
 						</a>
 					</ul>
 					<ul class="membership">
 						<li class="membership_li">
-							<a href="#"><span>login</span></a>
-							<a href="#"><span>join</span></a>
+							<a href="${pageContext.request.contextPath}/member/memberLogin"><span>login</span></a>
+							<a href="${pageContext.request.contextPath}/member/memberJoin"><span>join</span></a>
 							<a href="#"><span>my page</span></a>
 							<a href="#"><span>order</span></a>
 						</li>
