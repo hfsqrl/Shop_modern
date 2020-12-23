@@ -226,8 +226,8 @@
 					<input type="button" id="joinBtn" value="가입하기" class="checkButt" style= "width:110px; height:42px;">
 				</div>
 			</div>
-					
-		</div>
+			<c:import url="../template/footer.jsp"></c:import>
+		</div> <!-- container -->
 	</div>
 </div>
 
