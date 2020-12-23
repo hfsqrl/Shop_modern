@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="header"> <!-- #header -->
 	<div class="right"> <!-- Nav_inner -->
 		<div class="rightNav"> <!-- .header -->
@@ -12,11 +12,13 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
-							<img alt="" src="../images/index/member.png">
-						</a>
+						<c:if test="${not empty member}">
+							<a href="#">
+								<img alt="" src="../images/index/member.png">
+							</a>
+						</c:if>
 					</li>
-					<span class="line">  </span>
+					<span class="line"></span>
 					<li>
 						<a href="#">
 							<img alt="" src="../images/index/lang.png">
