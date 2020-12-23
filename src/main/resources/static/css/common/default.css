@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+    padding: 0;
+}
+
+body {
+	position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-family: 'futura-pt','malgun gothic',arial,sans-serif;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: subpixel-antialiased !important;
+    text-rendering: optimizelegibility;
+    text-align: center;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+
+div, p, ul, li {
+    position: relative;
+    display: block;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}

@@ -1,2 +1,457 @@
 @charset "UTF-8";
 
+#wrap {
+	position: relative;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+}
+
+.menu_left {
+	position: fixed;
+	float: left;
+	margin-top: 60px;
+	width: 18%;
+	height: 80%;
+	color: #000;
+	z-index: 99;
+}
+
+.menu_left .leftNav {
+	position: relative;
+	height: 100%;
+	margin-left: 15%;
+}
+
+.leftNav .navContent {
+	position: relative;
+	height: 766px;
+}
+
+.leftNav .navContent .home {
+	margin-bottom: 15px;
+	width: 255px;
+	height: 20px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.leftNav .navContent .home .goHome {
+	position: relative;
+    float: left;
+}
+
+.leftNav .navContent .membership {
+	margin-bottom: 40px;
+	width: 255px;
+	height: 40px;
+}
+
+.leftNav .navContent .membership .membership_li {
+	position: relative;
+	float: left;
+}
+
+.leftNav .navContent .membership span {
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 11px;
+	padding-right: 10px;
+	width: auto;
+	height: 20px;
+	font-weight: 400;
+}
+
+.leftNav .navContent .category {
+	width: 255px;
+	height: 336px;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.leftNav .navContent .category > li {
+	width: 255px;
+	height: 24px;
+}
+
+.leftNav .navContent .category span {
+	display: inline-block;
+	width: auto;
+	height: 24px;
+	position: relative;
+	float: left;
+}
+
+.main_right {
+	position: relative;
+	float: right;
+	width: 80.5%;
+	height: 100%;
+}
+
+/* 
+#header {
+	position: absolute;
+	padding-top: 60px;
+	width: 100%;
+	z-index: 99;
+	opacity: 60%;
+}
+ */
+
+#header {
+	position: fixed;
+    display: block;
+    width: 80.5%;
+    height: auto;
+    z-index: 99;
+    text-align: center;
+    background: transparent;
+    padding-top: 60px;
+}
+
+#header * {
+	font-size: 12px;
+	line-height: 20px;
+	height: 20px;
+}
+
+#header .right {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 90%;
+    height: 20px;
+    margin: 0 auto;
+}
+
+#header .right .rightNav {
+	position: absolute;
+    display: inline-block;
+    right: 0px;
+    width: auto;
+    height: 20px;
+    text-align: right;
+}
+
+#header .right .rightNav .right_inner {
+	display: inline-block;
+	width: auto;
+	height: 20px;
+}
+
+#header .right_inner li {
+	position: relative;
+	display: inline-block;
+	margin-left: 12px;
+}
+
+#header .right_inner .line {
+	display: inline-block;
+	width: 1px;
+	height: 20px;
+    margin: 0 8px 0 20px;
+    border-right: 1px solid #000;
+    vertical-align: middle;
+} 
+
+/* #header .right_inner {
+	position: relative;
+	width: 90%;
+	height: 20px;
+	max-width: 1530px;
+	margin: 0 auto;
+	background-color: orange;
+}
+
+#header .right_inner .rightNav {
+	float: right;
+}
+
+#header .right_inner li {
+	position: relative;
+	display: inline-block;
+	margin-left: 12px;
+}
+
+#header .right_inner .rightNav .line {
+	display: inline-block;
+	height: 20px;
+	margin: 0 8px 0 20px;
+	background-color: silver;
+	opacity: 20%;
+}
+ */
+
+#wrap .main_right .container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin-top: 80px;
+	padding-right: 0px;
+}
+
+.container .contents {
+	min-height: 975px;
+}
+
+.container .contents .inner_con {
+	display: block;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+.inner_con .swipe_images {
+	margin: 20px 0 60px;
+	width: 100%;
+	overflow: visible;
+	position: relative;
+	list-style: none;
+	padding: 0;
+}
+
+.inner_con .swipe_images .swipe_wrap {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	box-sizing: content-box;
+	overflow: visible;
+}
+
+.inner_con .swipe_wrap .swipe_slide {
+	padding: 0 40px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.inner_con .main-con {
+	display: flex;
+	padding: 0 28px 120px;
+	overflow: auto;
+	text-align: left;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1440px;
+	flex-wrap: wrap;
+}
+
+.inner_con .image_box {
+	width: 50%;
+	padding: 60px 40px;
+	display: inline-block;
+	position: relative;
+	height: auto;
+	margin: 0 0;
+	vertical-align: top;
+	box-sizing: border-box;
+	float: left;
+}
+
+.inner_con .image_box span {
+	display: block;
+	width: 100%;
+	height: 18px;
+	color: #111;
+	line-height: 1.5;
+	padding-bottom: 0px;
+	text-decoration: none;
+}
+
+.inner_con .image_box .p_title {
+	width: 100%;
+	height: 21px;
+	margin: 4px 0 10px;
+	font-size: 14px;
+}
+
+.inner_con img {
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+.inner_con .image_box .inner_box {
+	color: #000;
+	position: relative;
+	display: block;
+	margin-top: 8px;
+	width: 100%;
+	height: 53px;
+	text-align: center;
+	padding: 0 0;
+	font-size: 12px;
+	overflow: auto;
+}
+
+.mySlides {
+	display: none
+
+}
+
+.slides {
+	vertical-align: middle;
+}
+
+/* Slideshow container */
+.slideshow-container {
+	width: 100%;
+	position: relative;
+	margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	display: block;
+}
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.2);
+	text-decoration: none;
+	color: white;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+	background-color: #717171;
+}
+
+.fade {
+	opacity: 1;
+}
+
+/* Fading animation
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+} */
+
+@-webkit-keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+@keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+	.prev, .next {font-size: 11px}
+}
+
+
+
+#footer {
+	width: 100%;
+    height: 420px;
+	position: relative;
+	margin-top: 100px;
+	padding-top: 70px;
+	background-color: #fafafa;
+}
+
+#footer * {
+	font-size: 12px;
+	line-height: 24px;
+	color: #555;
+}
+
+#footer .footer {
+	position: relative;
+	width: 95%;
+	margin: 0 auto;
+	vertical-align: top;
+}
+
+#footer .footer ul {
+	width: 100%;
+	height: 293px;
+}
+
+#footer .footer .f_box {
+	float: left;
+}
+
+#footer .footer .box1 {
+	margin-right: 8%;
+	text-align: left;
+}
+
+#footer .footer .cs {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 4px;
+}
+
+#footer .footer .box1 .cs_num {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#footer .footer .bank-info {
+	margin-top: 45px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
