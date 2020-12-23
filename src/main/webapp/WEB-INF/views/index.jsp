@@ -23,10 +23,19 @@
 					</ul>
 					<ul class="membership">
 						<li class="membership_li">
-							<a href="${pageContext.request.contextPath}/member/memberLogin"><span>login</span></a>
-							<a href="${pageContext.request.contextPath}/member/memberJoin"><span>join</span></a>
-							<a href="#"><span>my page</span></a>
-							<a href="#"><span>order</span></a>
+						  <c:choose>
+						  	<c:when test="${empty member}">
+							 <a href="${pageContext.request.contextPath}/member/memberLogin"><span>login</span></a>
+							 <a href="${pageContext.request.contextPath}/member/memberJoin"><span>join</span></a>
+
+							</c:when>
+							
+							<c:otherwise>
+							 <a href="${pageContext.request.contextPath}/member/memberLogout"><span>logout</span></a>
+							 <a href="#"><span>my page</span></a>
+							 <a href="#"><span>order</span></a>
+							</c:otherwise>
+						 </c:choose>	
 						</li>
 						<li class="membership_li">
 							<a href="#"><span>notice</span></a>

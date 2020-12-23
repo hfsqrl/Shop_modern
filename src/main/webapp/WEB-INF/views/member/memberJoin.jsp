@@ -234,7 +234,7 @@
 					
 								
          		</form:form>
-         						<div style="text-align: center;">
+         		<div style="text-align: center;">
 					<input type="button" id="joinBtn" value="가입하기" class="checkButt" style= "width:110px; height:42px;">
 				</div>
 			</div>
