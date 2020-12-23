@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootstrap.jsp"></c:import>
+<link href="../css/common/default.css" rel="stylesheet">
+<link href="../css/index.css" rel="stylesheet">
+<link href="../css/member.css" rel="stylesheet">
 <style type="text/css">
 	.error{
 		color: red;
@@ -16,13 +19,17 @@
 </head>
 <body>
 	
-	<h1>member join</h1>	
+	<c:import url="../template/leftmenu.jsp"></c:import>
+	
+	<div class="main_right">
+	<c:import url="../template/header.jsp"></c:import>
+	
 	<div class="container">
-	<div style="padding: 0;">
+	<div style="padding: 0; text-align: left;">
 		<form:form modelAttribute="memberVO" id="frm" class="form-horizontal">
 		
-			<h3 style="text-align: center;">Join</h3>
-			  <hr>
+			<h3 style="text-align: left;">Join</h3>
+			
 			 
 			 <div class="col-sm-12 join_input">
 			    <label class="col-sm-2 join_text" for="id">아이디</label>
@@ -31,7 +38,7 @@
       			 <form:errors path="member_id" cssClass="error"></form:errors>
 			    </div>
 			    <br>
-			    <hr>
+			   
 			 </div>
 			
 			 <div class="col-sm-12 join_input">
@@ -40,7 +47,7 @@
 			       <input type="password" id="pw" name="member_pw" class="form-control empty" placeholder="특수문자 , 문자 , 숫자 포함  8~15자리 이내의 암호">
 			    </div>
 			     <br>
-			     <hr>
+			     
 			 </div>
 		
 			  <div class="col-sm-12 join_input">
@@ -50,7 +57,7 @@
       			 <form:errors path="member_pw2" cssClass="error"></form:errors>
 			    </div>
 			     <br>
-			     <hr>
+			     
 			 </div>
 			
 			 <div class="col-sm-12 join_input">
@@ -67,7 +74,7 @@
       			 <form:errors path="member_ask" cssClass="error"></form:errors>
 			    </div>
 			     <br>
-			     <hr>
+			    
 			 </div>
 		
 			  <div class="col-sm-12 join_input">
@@ -77,7 +84,7 @@
       			 <form:errors path="member_answer" cssClass="error"></form:errors>
 			    </div>
 			     <br>
-			     <hr>
+			     
 			 </div>
 			 
 			 <div class="col-sm-12 join_input">
@@ -87,7 +94,7 @@
       			 <form:errors path="member_name" cssClass="error"></form:errors>
 			    </div>
 			    <br>
-			     <hr>
+			     
 			 </div>
 			
 			 <div class="col-sm-12 join_input">
@@ -98,7 +105,7 @@
       			 <form:errors path="member_address" cssClass="error"></form:errors>
 			    </div>
 			    <br>
-			     <hr>
+			     
 			 </div>
 			
 			 <div class="col-sm-12 join_input">
@@ -108,7 +115,7 @@
 		
 			    </div>
 			     <br>
-			     <hr>
+			     
 			 </div>
 			 
 			 <div class="col-sm-12 join_input">
@@ -118,7 +125,7 @@
       			 <form:errors path="member_phone" cssClass="error"></form:errors>
 			    </div>
 			     <br>
-			     <hr>
+			     
 			 </div>
 			 
 			  <div class="col-sm-12 join_input">
@@ -129,7 +136,7 @@
 	  				
 				   </div>
 				   <br>
-			     <hr> 
+			    
 			  </div>
 			  
 		
@@ -140,21 +147,22 @@
       			 <form:errors path="member_email" cssClass="error"></form:errors>
 				    </div>
 				  <br>
-			     <hr>
+			    
 			  </div>
 			 
-			  <div class="col-sm-12 join_input">
+			  <div class="col-sm-12 join_input2">
 			     <label class="col-sm-2 join_text" for="email_agg">이메일 수신여부</label>
 				   <div class="col-sm-4">
 					<label><input type="checkbox" value=1 name="member_email_agg"> 동의함</label><br>
 	  				
 				   </div>
 				    <br>
-			     <hr>  				
+			       				
 			  </div>
 			  
-			  <h3 style="text-align: center;">추가정보</h3>
-			  <hr>
+			  <div style="text-align:left; padding: 20px 0;" >
+			  	<span style="font-size: 24px;">추가정보</span>
+			  </div>
 			
 			<div class="col-sm-12 join_input">
 			    <label class="col-sm-2 join_text" for="name">지역</label>
@@ -171,7 +179,7 @@
 			    
 			 </div>
 			  <br>
-			  <hr>
+			 
 			  
 			 <div class="col-sm-12 join_input">
 			    <label class="col-sm-2 join_text" for="refund_info">환불 계좌 정보</label>
@@ -205,17 +213,20 @@
 				</div> 
 			 </div>
 			 
-			<h3 style="text-align: center;">이용약관 동의</h3>
-			 <hr>
+			
+			 
 			
 			<div>
+				<h3 style="text-align: left;">이용약관 동의</h3>
 				<div> 
-					<h5>이용 약관에 동의하십니까?</h5>
+					<h5>이용 약관에 동의하십니까?</h5>					
+					<c:import url="../template/aggText.jsp"></c:import><br>					
 					<label><input type="checkbox" value=1 name="member_clause_agg"> 동의함</label>
 				</div>
-				<hr>
+				
 				<div>
 					<h5>개인정보 수집 및 이용에 동의하십니까?</h5>
+					<c:import url="../template/aggText2.jsp"></c:import><br>
 					<label><input type="checkbox" value=1 name="member_pi_agg"> 동의함</label>
 				</div>
 			
@@ -223,12 +234,15 @@
 					
 								
          		</form:form>
+         						<div style="text-align: center;">
+					<input type="button" id="joinBtn" value="가입하기" class="checkButt" style= "width:110px; height:42px;">
+				</div>
 			</div>
 					
 			</div>
-			<div style="text-align: center;">
-			<input type="button" id="joinBtn" value="가입하기" class="checkButt" style= "width:110px; height:42px;">
+
 			</div>
+
 			
 
 	
