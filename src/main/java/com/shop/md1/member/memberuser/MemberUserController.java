@@ -111,5 +111,22 @@ public class MemberUserController {
 		
 	}
 	
+	@GetMapping("jusoPopup")
+	public ModelAndView jusoPopup() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/jusoPopup");
+		return mv;
+		
+	}
+	
+	@PostMapping("jusoPopup")
+	public ModelAndView goJusoPopup() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/jusoPopup");
+		return mv;
+	}
+	
 
 }
