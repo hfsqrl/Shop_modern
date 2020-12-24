@@ -2,6 +2,8 @@ package com.shop.md1.member.memberuser;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -44,8 +46,19 @@ public class MemberUserController {
 	}
 	
 	@PostMapping("memberLogin")
-	public ModelAndView getMemberLogin(MemberVO memberVO, HttpSession session) throws Exception{
+	public ModelAndView getMemberLogin(MemberVO memberVO, HttpSession session, HttpServletResponse response ,String remember) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+	
+		
+		if(remember != null) {
+			Cookie cookie = new Cookie("remember", memberVO.getMember_id());
+			response.addCookie(cookie);
+		}else {
+			Cookie cookie = new Cookie("remember", "");
+			cookie.setMaxAge(0);
+			response.addCookie(cookie);
+		}
 		
 		memberVO = memberUserService.getMemberLogin(memberVO);
 		

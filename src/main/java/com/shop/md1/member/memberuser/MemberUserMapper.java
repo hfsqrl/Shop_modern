@@ -14,5 +14,7 @@ public interface MemberUserMapper extends MemberMapper{
 	
 	public MemberVO getMemberEmail(MemberVO memberVO) throws Exception;
 	
+	public MemberVO getMemberAddress(MemberVO memberVO) throws Exception;
+	
 
 }

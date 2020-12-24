@@ -33,7 +33,7 @@
 					 <div class="col-sm-12 join_input">
 					 	<label class="col-sm-2 join_text" for="id">아이디</label>
 					 	<div class="col-sm-4"> 
-						 	<form:input path="member_id" class="form-control input" placeholder="숫자와 문자 포함   6~12자리" id="id"/>
+						 	<form:input path="member_id" class="form-control input" placeholder="숫자와 문자 포함 6~12자리" id="id"/>
 			      			<form:errors path="member_id" cssClass="error"></form:errors>
 					 	</div>
 					 </div>
@@ -41,7 +41,7 @@
 					 <div class="col-sm-12 join_input">
 					    <label class="col-sm-2 join_text" for="pw">비밀번호</label>
 					    <div class="col-sm-4">
-					       <input type="password" id="pw" name="member_pw" class="form-control empty" placeholder="특수문자 , 문자 , 숫자 포함  8~15자리 이내의 암호">
+					       <input type="password" id="pw" name="member_pw" class="form-control empty" placeholder="특수문자, 문자, 숫자 포함 8~15자리 이내의 암호">
 					    </div>
 					 </div>
 					 <br>
@@ -49,7 +49,7 @@
 					  <div class="col-sm-12 join_input">
 					    <label class="col-sm-2 join_text" for="pw2">비밀번호 확인</label>
 					    <div class="col-sm-4">
-					     <form:input type="password" id="pw2" path="member_pw2" class="form-control input" placeholder="특수문자 , 문자 , 숫자 포함  8~15자리 이내의 암호" />
+					     <form:input type="password" id="pw2" path="member_pw2" class="form-control input" placeholder="특수문자 ,문자 , 숫자 포함 8~15자리 이내의 암호" />
 		      			 <form:errors path="member_pw2" cssClass="error"></form:errors>
 					    </div>
 					     <br>
@@ -198,7 +198,7 @@
 						    	
 						    <div>
 							   <h5>> 계좌번호</h5>
-							   <input type="text" id="refund_name" name="member_refund_account" class="form-control empty" >  
+							   <input type="text" id="refund_name" name="member_refund_account" class="form-control empty" placeholder="'-' 를 제외한 숫자만 입력해주세요.">  
 						       <div class="emptyResult"></div>
 						 	</div>
 						 	<br>
@@ -210,13 +210,13 @@
 						<div> 
 							<h5>이용 약관에 동의하십니까?</h5>					
 							<c:import url="../template/aggText.jsp"></c:import><br>					
-							<label><input type="checkbox" value=1 name="member_clause_agg"> 동의함</label>
+							<label><input type="checkbox" value=1 name="member_clause_agg" id="check1"> 동의함</label>
 						</div>
 						
 						<div>
 							<h5>개인정보 수집 및 이용에 동의하십니까?</h5>
 							<c:import url="../template/aggText2.jsp"></c:import><br>
-							<label><input type="checkbox" value=1 name="member_pi_agg"> 동의함</label>
+							<label><input type="checkbox" value=1 name="member_pi_agg" id="check2"> 동의함</label>
 						</div>
 					
 					</div>
@@ -245,13 +245,17 @@
 	//유효성 검사 정규식
 	
 	$("#joinBtn").click(function() {
-		
-		if(idExpCheck && pwExpCheck && phoneExpCheck && emailExpCheck){
-			$("#frm").submit();
-		}else {
-			$("#frm").submit();
-			alert("필수 항목을 입력 및 입력 형식을 지켜주세요.")
+		var check1 = $("#check1").prop("checked");
+		var check2 = $("#check2").prop("checked")
+
+		if(check1 && check2) {
+				$("#frm").submit();
+				
+		}else{
+			alert("이용약관 및 개인정보 수집 동의를 체크해주세요.")
 		}
+		
+		
 	});
 	
 	//회원가입 유효성 검사
