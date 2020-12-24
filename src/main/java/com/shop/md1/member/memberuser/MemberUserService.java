@@ -70,7 +70,7 @@ public class MemberUserService implements MemberService{
 		//주소 중복검사 
 		MemberVO mv4 = memberUserMapper.getMemberAddress(memberVO);
 		if(mv4 != null) {
-			bindingResult.rejectValue("member_address", "address.equal");
+			bindingResult.rejectValue("roadFullAddr", "address.equal");
 		}
 		
 		

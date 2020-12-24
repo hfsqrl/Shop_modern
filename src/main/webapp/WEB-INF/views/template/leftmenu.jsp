@@ -21,7 +21,7 @@
 							
 						  <c:otherwise>
 						    <a href="${pageContext.request.contextPath}/member/memberLogout"><span>logout</span></a>
-							<a href="#"><span>my page</span></a>
+							<a href="${pageContext.request.contextPath}/member/memberPage"><span>my page</span></a>
 							<a href="#"><span>order</span></a>							
 						  </c:otherwise>
 						</c:choose>

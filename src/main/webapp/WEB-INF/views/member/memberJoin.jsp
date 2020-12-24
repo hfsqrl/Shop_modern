@@ -96,7 +96,10 @@
 					 <div class="col-sm-12 join_input">
 					    <label class="col-sm-2 join_text" for="roadFullAddr">주소</label>
 					    <div class="col-sm-4">
-					    	<input type="button" id="address_btn" value="도로명 주소" onclick="goPopup();">				    
+					    	<div class="addrBtn">
+					    		<input type="button" id="address_btn" value="도로명 주소" onclick="goPopup();">
+					    	</div>
+					    					    
 					     <form:input path="roadFullAddr" id="roadFullAddr" class="form-control empty"/>
 		      			 <form:errors path="roadFullAddr" cssClass="error"></form:errors>
 					    </div>
@@ -224,7 +227,7 @@
 									
          		</form:form>
   					<div style="text-align: center;">
-					<input type="button" id="joinBtn" value="가입하기" class="checkButt" style= "width:110px; height:42px;">
+					<input type="button" id="joinBtn" value="가입하기" class="checkButt">
 				</div>
 			</div>
 			<c:import url="../template/footer.jsp"></c:import>

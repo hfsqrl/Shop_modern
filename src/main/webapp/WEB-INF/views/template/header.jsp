@@ -14,7 +14,7 @@
 					</li>
 					<li>
 						<c:if test="${not empty member}">
-							<a href="#">
+							<a href="${pageContext.request.contextPath}/member/memberPage">
 								<img alt="" src="../images/index/member.png">
 							</a>
 						</c:if>

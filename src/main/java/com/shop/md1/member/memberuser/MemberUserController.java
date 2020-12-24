@@ -128,5 +128,13 @@ public class MemberUserController {
 		return mv;
 	}
 	
+	@GetMapping("memberPage")
+	public ModelAndView getMemberPage() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("Member Page");
+		
+		return mv;
+	}
+	
 
 }
