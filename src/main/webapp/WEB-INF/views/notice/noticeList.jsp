@@ -98,6 +98,9 @@
 									<td></td>
 									<td></td>
 								</tr>
+								<tr>
+									<td colspan="3" class="last-td"></td>
+								</tr>
 							</tbody>
 						</table>
 					</div>

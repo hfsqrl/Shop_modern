@@ -59,16 +59,22 @@
 }
 
 .board_body .table-notice tr {
-	/* border-bottom:  */
+	border-bottom: 1px solid #d7d5d5;
+	height: 50px;
 }
 
 .board_body .table-notice td {
-	
+	border-left: 1px solid #d7d5d5;
+	padding: 15px 15px;
 }
 
 .tn-list {
 	height: 200px;
 }
+
+.board_body .table-notice .last-td {
+	height: 59px;
+} /* */
 
 
 
