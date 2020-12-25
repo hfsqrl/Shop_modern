@@ -27,7 +27,7 @@
 						</p>
 					</div>
 					<div class="board_body">
-						<table class="board_table">
+						<table class="table table-bordered board_table">
 							<thead class="table-head">
 								<tr>
 									<th style="width: 60px;">no.</th>
@@ -35,74 +35,18 @@
 									<th style="width: 140px">posted by</th>
 								</tr>
 							</thead>
-							<tbody class="table-notice tn-bold">
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-							</tbody>
-							<tbody class="table-notice tn-list">
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td colspan="3" class="last-td"></td>
-								</tr>
+							<tbody class="table-list">
+								<c:forEach items="${list}" var="vo">
+									<tr>
+										<td>${vo.board_num}</td>
+										<td>${vo.board_title}</td>
+										<td>${vo.board_writer}</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
+					</div>
+					<div class="search">
 					</div>
 				</div>
 			
