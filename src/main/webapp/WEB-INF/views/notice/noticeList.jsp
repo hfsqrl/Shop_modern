@@ -18,13 +18,88 @@
 	<div class="main_right"> <!-- container_wrap -->
 		<c:import url="../template/header.jsp"></c:import>
 		<div class="container">
-			<div class="contents">
+			<div class="contents cont-notice">
 			
 				<div class="board_shape">
 					<div class="board_name">
 						<p class="name_text">
 							notice
 						</p>
+					</div>
+					<div class="board_body">
+						<table class="board_table">
+							<thead class="table-head">
+								<tr>
+									<th style="width: 60px;">no.</th>
+									<th style="width: 824px;">title</th>
+									<th style="width: 140px">posted by</th>
+								</tr>
+							</thead>
+							<tbody class="table-notice tn-bold">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+							<tbody class="table-notice tn-list">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			

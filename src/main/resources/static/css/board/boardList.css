@@ -1,9 +1,16 @@
 @charset "UTF-8";
 
+.cont-notice {
+	padding-top: 40px;
+	width: 90%;
+	margin: 0 auto;
+}
+
 .contents .board_shape {
 	width: 100%;
 	height: 778px;
 	margin: 0 0 10px 0;
+	text-transform: uppercase;
 }
 
 .contents .board_shape .board_name {
@@ -15,5 +22,60 @@
 	width: 100%;
 	height: 60px;
 	font-size: 14px;
-	text-transform: uppercase;
+	font-weight: 600px;
 }
+
+.contents .board_shape .board_body .board_table {
+	position: relative;
+	margin: 10px 0 0;
+	border: 1px solid #d7d5d5;
+	line-height: 1.5;
+	width: 100%;
+	height: 649px;
+}
+
+.board_body .board_table .table-head {
+	border: 1px solid #dfdfdf;
+	color: #555;
+	font-size: 12px;
+	background-color: #fafafa;
+}
+
+.board_body .table-head th {
+	text-align: center;
+	padding: 15px 0;
+	height: 48px;
+	border-left: 1px solid #dfdfdf;
+	font-weight: 400;
+}
+
+.board_body .table-notice {
+	text-align: center;
+	width: 100%;
+}
+
+.tn-bold {
+	height: 400px;
+}
+
+.board_body .table-notice tr {
+	/* border-bottom:  */
+}
+
+.board_body .table-notice td {
+	
+}
+
+.tn-list {
+	height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
