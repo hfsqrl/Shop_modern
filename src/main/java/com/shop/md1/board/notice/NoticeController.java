@@ -25,10 +25,26 @@ public class NoticeController {
 		
 		List<BoardVO> ar = noticeService.getList(pager);
 		
-		mv.addObject("list", ar);
+		/* mv.addObject("list", ar); */
 		mv.addObject("pager", pager);
+		mv.addObject("list", ar);
 		
 		mv.setViewName("notice/noticeList");
+		return mv;
+	}
+	
+	@GetMapping("noticeWrite")
+	public ModelAndView setInsert(BoardVO boardVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("notice write");
+		mv.setViewName("notice/noticeWrite");
+		return mv;
+	}
+	
+	@GetMapping("noticeSelect")
+	public ModelAndView getOne(BoardVO boardVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
 		return mv;
 	}
 

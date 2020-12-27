@@ -47,6 +47,7 @@
 						</table>
 					</div>
 					<div class="search">
+						<input type="text">
 					</div>
 				</div>
 			

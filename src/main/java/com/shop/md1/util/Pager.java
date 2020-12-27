@@ -22,20 +22,20 @@ public class Pager {
 		this.perPage=10;
 	}
 	
-	public long getCurPage() {
-		if(this.curPage==0) {
-			this.curPage=1;
-		}
-		
-		return this.curPage;
-	}
-	
 	public void setCurPage(long curPage) {
 		if(curPage==0) {
 			this.curPage=1;
 		} else {
 			this.curPage = curPage;
 		}
+	}
+	
+	public long getCurPage() {
+		if(this.curPage==0) {
+			this.curPage=1;
+		}
+		
+		return this.curPage;
 	}
 	
 	public String getSearch() {
