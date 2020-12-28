@@ -19,31 +19,29 @@
 		
 		<div class="container">
 				<div class="text-center">
-				<h3 style="margin-top: 60px;">회원로그인</h3>
+				<h3 style="margin-top: 60px;">MEMBER LOGIN</h3>
 				<form action="./memberLogin" method="post" class="form-horizontal" style="padding: 20px;">
 				<div>
-					<input type="text" name="member_id" value="${cookie.remember.value}" class="login2" placeholder="아이디" style="width:430px; height:42px;">
+					<input type="text" name="member_id" value="${cookie.remember.value}" class="login2" placeholder="MEMBER ID" style="width:430px; height:42px;">
 				</div>	
 				<br>	
 				<div>
-					<input type="password" name="member_pw" class="login2" width="430" height="42" placeholder="비밀번호" style="width:430px; height:42px;">
+					<input type="password" name="member_pw" class="login2" width="430" height="42" placeholder="MEMBER PW" style="width:430px; height:42px;">
 				</div>
 				<br>
 				
 				<div>
 				<div class="checkbox" style="text-align: center;">
-				 	 <label><input type="checkbox" name="remember">아이디저장</label>
-				 	 <div class="idpw">
-				 		<a href="#">아이디 찾기</a> 
-				 		ㅣ
-				 		<a href="#">비밀번호 찾기</a>
+				 	 <label><input type="checkbox" name="remember">REMEMBER</label> ㅣ 
+				 	 <div class="idpw" style="text-align:center; display: inline-block;">
+				 		<a href="#">FORGOT ID</a> ㅣ <a href="#">FORGOT PW</a>
 				 	</div>
 				</div>
 				</div>
-					
-				<button type="submit" style="text-align:center; width:430px; height:58px;" id="btnLog">로그인</button>
+				<br>
+				<button type="submit" style="text-align:center; width:430px; height:42px; background-color: white;" id="btnLog">LOGIN</button>
 				<div></div><br>
-				<button type="button" style="text-align:center; width:430px; height:58px;" id="btnJoin">회원가입</button>
+				<button type="button" style="text-align:center; width:430px; height:42px; background-color: white;" id="btnJoin">JOIN</button>
 				</form>
 			</div>
 			<c:import url="../template/footer.jsp"></c:import>

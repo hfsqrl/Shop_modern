@@ -3,6 +3,7 @@ package com.shop.md1.member;
 import java.sql.Date;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
