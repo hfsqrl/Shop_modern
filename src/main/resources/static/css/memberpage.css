@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+#myOrder {
+    position: relative;
+    text-align: center;
+    border-top: 1px solid #000;
+    width: 1100px;
+}
+
+
+
+#wrap {
+    font-weight: 500;
+    font-size: 12px;
+    color: #999;
+    text-align: left;
+}
+
+.myList {
+	display: inline-block;
+	padding-left: 140px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	position: relative; 
+    z-index: 999999;
+}
+
+.line {
+	border-top: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+.line2 {	
+    padding: 30px 20px 30px 00px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
+	
+}
+
+.text{
+	font-weight: 500;
+    font-size: 12px;
+    color: #999;
+    text-align: left;
+   
+}
+
+#etc_wrap{
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid black;
+	width: 1100px;
+}
+
+.left{
+	padding-left: 10px;
+	display: inline-block;
+	padding-right: 450px;
+	position: relative; 
+    z-index: 999999;
+}
+
+.right{
+	padding-left: 10px;
+	display: inline-block;
+	border-left:1px solid #ccc;
+}
+
+.myPage_btn {
+    text-align: center;
+    margin-top: 15px;
+   
+}
+
+.myPage_btn ul li {
+    float: left;
+    width: 10.28571428571429%;
+    text-align: center;
+   
+}
+
+.myPage_btn ul li a {
+    display: block;
+    width: 95%;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    padding: 40px 0;
+    text-transform: uppercase;
+    color: #555;
+    position: relative; 
+    z-index: 999999;
+    
+}
+
+
+
