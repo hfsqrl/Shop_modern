@@ -33,7 +33,7 @@
 								<ul>
 									<li>
 										<strong>NAME</strong>
-										<input type="text" style="border: none;" name="member_name">									
+										<input type="text" style="border: none;" name="member_name">																	
 									</li>
 									
 									<li>
@@ -54,14 +54,15 @@
 					</div>
 						
 				</form>
-				
-				<input type="text" value="${search.member_id}">
+								
 			</div> <!-- contents -->
 			<c:import url="../template/footer.jsp"></c:import>
 		</div> <!-- container -->
 	</div> <!-- main_right -->
 </div> <!-- wrap -->
+
 <script type="text/javascript">
+
 	$("#searchBtn").click(function(){
 			$("#frm").submit();
 		})

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -175,9 +176,20 @@ public class MemberUserController {
 		
 		memberVO = memberUserService.getMemberSearchId(memberVO);
 		
-		mv.addObject("search", memberVO);
-		mv.setViewName("member/memberSearchId");
+		String message = "입력한 정보가 틀립니다.입력한 정보를 확인해주세요.";
 		
+		if(memberVO != null) {
+			mv.addObject("search", memberVO);			
+			mv.setViewName("redirect:./memberSearchView");
+			mv.setViewName("member/memberSearchView");
+			
+		}else {
+			mv.addObject("msg", message);
+			mv.addObject("path", "./memberSearchId");
+			mv.setViewName("common/result");
+		}
+		
+
 		return mv;
 		
 	}
@@ -187,6 +199,23 @@ public class MemberUserController {
 		ModelAndView mv = new ModelAndView();
 		
 		return mv;	
+	}
+	
+	@PostMapping("memberSearchPw")
+	public ModelAndView getMemberSearchPw(@ModelAttribute MemberVO member, HttpServletResponse response) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		return mv;
+		
+	}
+	
+	@GetMapping("memberSearchView")
+	public ModelAndView getMemberSearchView() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchView");
+		return mv;
+			
 	}
 	
 

@@ -1,7 +1,11 @@
 package com.shop.md1.member.memberuser;
 
+import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.mail.HtmlEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
@@ -106,6 +110,9 @@ public class MemberUserService implements MemberService{
 		// TODO Auto-generated method stub
 		return memberUserMapper.getMemberSearchId(memberVO);
 	}
+	
+
+	
 
 
 	
