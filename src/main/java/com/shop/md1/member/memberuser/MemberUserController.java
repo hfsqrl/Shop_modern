@@ -105,6 +105,8 @@ public class MemberUserController {
 		}
 	
 		Integer result = memberUserService.setMemberJoin(memberVO);
+		String message = "회원가입이 완료되었습니다.";
+		
 		mv.setViewName("redirect:../");
 		
 		return mv;

@@ -234,6 +234,7 @@
 	$("#modBtn").click(function() {
 	
 		$("#frm").submit();
+		alert("회원 정보 수정이 완료되었습니다.");
 								
 	});
 	
