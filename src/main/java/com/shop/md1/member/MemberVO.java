@@ -3,6 +3,7 @@ package com.shop.md1.member;
 import java.sql.Date;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
@@ -33,7 +34,7 @@ public class MemberVO {
 	@NotEmpty
 	private String member_name;
 	@NotEmpty
-	private String member_address;
+	private String roadFullAddr;
 	@NotEmpty
 	@Pattern(regexp = "^\\d{3}-\\d{3,4}-\\d{4}$")
 	private String member_phone;

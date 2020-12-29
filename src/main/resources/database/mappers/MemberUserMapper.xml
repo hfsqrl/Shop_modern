@@ -5,6 +5,10 @@
     
    	<mapper namespace="com.shop.md1.member.memberuser.MemberUserMapper">
    	
+   		<select id="getMemberAddress" parameterType="MemberVO" resultType="MemberVO">
+   			select roadFullAddr from member_info where roadFullAddr = #{roadFullAddr}
+   		</select>
+   	
    		<select id="getMemberEmail" parameterType="MemberVO" resultType="MemberVO">
    			select member_email from member_info where member_email = #{member_email}
    		</select>

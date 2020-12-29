@@ -26,14 +26,14 @@
 		
 		<div class="container">
 			<div style="padding: 0; text-align: left;">
-				<form:form modelAttribute="memberVO" id="frm" class="form-horizontal">
+				<form:form modelAttribute="memberVO" id="frm" class="form-horizontal" method="post" name="form">
 				
 					<h3 style="text-align: left;">Join</h3>
 					 
 					 <div class="col-sm-12 join_input">
 					 	<label class="col-sm-2 join_text" for="id">아이디</label>
 					 	<div class="col-sm-4"> 
-						 	<form:input path="member_id" class="form-control input" placeholder="숫자와 문자 포함   6~12자리" id="id"/>
+						 	<form:input path="member_id" class="form-control input" placeholder="숫자와 문자 포함 6~12자리" id="id"/>
 			      			<form:errors path="member_id" cssClass="error"></form:errors>
 					 	</div>
 					 </div>
@@ -41,7 +41,7 @@
 					 <div class="col-sm-12 join_input">
 					    <label class="col-sm-2 join_text" for="pw">비밀번호</label>
 					    <div class="col-sm-4">
-					       <input type="password" id="pw" name="member_pw" class="form-control empty" placeholder="특수문자 , 문자 , 숫자 포함  8~15자리 이내의 암호">
+					       <input type="password" id="pw" name="member_pw" class="form-control empty" placeholder="특수문자, 문자, 숫자 포함 8~15자리 이내의 암호">
 					    </div>
 					 </div>
 					 <br>
@@ -49,7 +49,7 @@
 					  <div class="col-sm-12 join_input">
 					    <label class="col-sm-2 join_text" for="pw2">비밀번호 확인</label>
 					    <div class="col-sm-4">
-					     <form:input type="password" id="pw2" path="member_pw2" class="form-control input" placeholder="특수문자 , 문자 , 숫자 포함  8~15자리 이내의 암호" />
+					     <form:input type="password" id="pw2" path="member_pw2" class="form-control input" placeholder="특수문자 ,문자 , 숫자 포함 8~15자리 이내의 암호" />
 		      			 <form:errors path="member_pw2" cssClass="error"></form:errors>
 					    </div>
 					     <br>
@@ -94,16 +94,20 @@
 					 </div>
 					
 					 <div class="col-sm-12 join_input">
-					    <label class="col-sm-2 join_text" for="member_address">주소</label>
+					    <label class="col-sm-2 join_text" for="roadFullAddr">주소</label>
 					    <div class="col-sm-4">
-					    	<input type="button" id="address_btn" value="도로명 주소">				    
-					     <form:input path="member_address" class="form-control empty"/>
-		      			 <form:errors path="member_address" cssClass="error"></form:errors>
+					    	<div class="addrBtn">
+					    		<input type="button" id="address_btn" value="도로명 주소" onclick="goPopup();">
+					    	</div>
+					    					    
+					     <form:input path="roadFullAddr" id="roadFullAddr" class="form-control empty"/>
+		      			 <form:errors path="roadFullAddr" cssClass="error"></form:errors>
 					    </div>
 					    <br>
 					     
 					 </div>
-					
+						
+						
 					 <div class="col-sm-12 join_input">
 					    <label class="col-sm-2 join_text" for="birth">생년월일</label>
 					    <div class="col-sm-4">
@@ -198,7 +202,7 @@
 						    	
 						    <div>
 							   <h5>> 계좌번호</h5>
-							   <input type="text" id="refund_name" name="member_refund_account" class="form-control empty" >  
+							   <input type="text" id="refund_name" name="member_refund_account" class="form-control empty" placeholder="'-' 를 제외한 숫자만 입력해주세요.">  
 						       <div class="emptyResult"></div>
 						 	</div>
 						 	<br>
@@ -210,29 +214,26 @@
 						<div> 
 							<h5>이용 약관에 동의하십니까?</h5>					
 							<c:import url="../template/aggText.jsp"></c:import><br>					
-							<label><input type="checkbox" value=1 name="member_clause_agg"> 동의함</label>
+							<label><input type="checkbox" value=1 name="member_clause_agg" id="check1"> 동의함</label>
 						</div>
 						
 						<div>
 							<h5>개인정보 수집 및 이용에 동의하십니까?</h5>
 							<c:import url="../template/aggText2.jsp"></c:import><br>
-							<label><input type="checkbox" value=1 name="member_pi_agg"> 동의함</label>
+							<label><input type="checkbox" value=1 name="member_pi_agg" id="check2"> 동의함</label>
 						</div>
 					
 					</div>
 									
          		</form:form>
   					<div style="text-align: center;">
-					<input type="button" id="joinBtn" value="가입하기" class="checkButt" style= "width:110px; height:42px;">
+					<input type="button" id="joinBtn" value="가입하기" class="checkButt">
 				</div>
 			</div>
 			<c:import url="../template/footer.jsp"></c:import>
 		</div> <!-- container -->
 	</div>
 </div>
-
-			
-
 	
 </body>
 <script type="text/javascript">
@@ -245,13 +246,17 @@
 	//유효성 검사 정규식
 	
 	$("#joinBtn").click(function() {
-		
-		if(idExpCheck && pwExpCheck && phoneExpCheck && emailExpCheck){
-			$("#frm").submit();
-		}else {
-			$("#frm").submit();
-			alert("필수 항목을 입력 및 입력 형식을 지켜주세요.")
+		var check1 = $("#check1").prop("checked");
+		var check2 = $("#check2").prop("checked")
+
+		if(check1 && check2) {
+				$("#frm").submit();
+				
+		}else{
+			alert("이용약관 및 개인정보 수집 동의를 체크해주세요.")
 		}
+		
+		
 	});
 	
 	//회원가입 유효성 검사
@@ -313,8 +318,51 @@
 	});	
 	//회원가입 유효성 검사
 
+	//도로명 주소
 	
+	function goPopup(){
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.
+	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	var pop = window.open("md1/member/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
 	
+	// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+}
+
+
+function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+		document.form.roadFullAddr.value = roadFullAddr;
+		document.form.roadAddrPart1.value = roadAddrPart1;
+		document.form.roadAddrPart2.value = roadAddrPart2;
+		document.form.addrDetail.value = addrDetail;
+		document.form.engAddr.value = engAddr;
+		document.form.jibunAddr.value = jibunAddr;
+		document.form.zipNo.value = zipNo;
+		document.form.admCd.value = admCd;
+		document.form.rnMgtSn.value = rnMgtSn;
+		document.form.bdMgtSn.value = bdMgtSn;
+		document.form.detBdNmList.value = detBdNmList;
+		/** 2017년 2월 추가제공 **/
+		document.form.bdNm.value = bdNm;
+		document.form.bdKdcd.value = bdKdcd;
+		document.form.siNm.value = siNm;
+		document.form.sggNm.value = sggNm;
+		document.form.emdNm.value = emdNm;
+		document.form.liNm.value = liNm;
+		document.form.rn.value = rn;
+		document.form.udrtYn.value = udrtYn;
+		document.form.buldMnnm.value = buldMnnm;
+		document.form.buldSlno.value = buldSlno;
+		document.form.mtYn.value = mtYn;
+		document.form.lnbrMnnm.value = lnbrMnnm;
+		document.form.lnbrSlno.value = lnbrSlno;
+		/** 2017년 3월 추가제공 **/
+		document.form.emdNo.value = emdNo;
+		
+}
+	
+	//도로명 주소
 
 </script>
 

@@ -67,6 +67,12 @@ public class MemberUserService implements MemberService{
 			bindingResult.rejectValue("member_email", "email.equal");
 		}
 		
+		//주소 중복검사 
+		MemberVO mv4 = memberUserMapper.getMemberAddress(memberVO);
+		if(mv4 != null) {
+			bindingResult.rejectValue("roadFullAddr", "address.equal");
+		}
+		
 		
 		return result;
 	}

@@ -15,3 +15,23 @@
 	
 }
 
+#address_btn{
+	background: white;
+	color: black;
+	width: 130px;
+	height: 35px;
+		
+}
+
+#joinBtn{
+	background: white;
+	color: black;
+	width: 700px;
+	height: 35px;
+}
+
+.addrBtn{
+	padding-bottom: 10px;
+}
+
+
