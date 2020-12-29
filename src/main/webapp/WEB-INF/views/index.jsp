@@ -78,7 +78,7 @@
 						<a href="#" class="image_box">
 							<img src="./images/index/main3.jpg">
 							<p class="inner_box">
-								<span class="p_title">Sesson Off</span>
+								<span class="p_title">Season Off</span>
 							</p>
 						</a>
 						<a href="#" class="image_box">

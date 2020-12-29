@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.contents .board_shape {
+	width: 100%;
+	height: 778px;
+	margin: 0 0 10px 0;
+}
+
+.contents .board_shape .board_name {
+	text-align: center;
+}
+
+.contents .board_shape .name_text {
+	padding-bottom: 40px;
+	width: 100%;
+	height: 60px;
+	font-size: 14px;
+	text-transform: uppercase;
+}
