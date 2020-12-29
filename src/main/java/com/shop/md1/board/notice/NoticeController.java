@@ -25,9 +25,9 @@ public class NoticeController {
 		
 		List<BoardVO> ar = noticeService.getList(pager);
 		
-		/* mv.addObject("list", ar); */
 		mv.addObject("pager", pager);
 		mv.addObject("list", ar);
+		mv.addObject("board", "notice");
 		
 		mv.setViewName("notice/noticeList");
 		return mv;

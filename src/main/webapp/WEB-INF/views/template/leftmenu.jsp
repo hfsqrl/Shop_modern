@@ -71,8 +71,20 @@
 					<li>
 						<a href="#"><span>MADE BY OURSELVES</span></a>
 					</li>
-					
-	
+				</ul>
+				<ul class="cs-list">
+					<li>
+						<p class="cs-title">고객센터	1588-0000</p>
+						<p>MON-FRI AM 11:00 – PM 6:00</p>
+						<p>LUNCH TIME PM 13:00 – 14:00</p>
+						<p>SAT.SUN.HOLIDAY OFF</p>
+					</li>
+					<li class="bank">
+						<p class="cs-title">은행정보</p>
+						<p>농협 317-0011-4079-11</p>
+						<p>국민 242437-04-006967</p>
+						<p>예금주 : (주) 모던이프</p>
+					</li>
 				</ul>
 			</div>
 		</div>
