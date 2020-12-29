@@ -12,15 +12,15 @@
 							<img alt="" src="../images/index/cart.png">
 						</a>
 					</li>
-					<li>
-						<c:if test="${not empty member}">
-							<a href="${pageContext.request.contextPath}/member/memberPage">
+					<c:if test="${not empty member}">
+						<li>
+							<a href="#">
 								<img alt="" src="../images/index/member.png">
 							</a>
-						</c:if>
-					</li>
-					<span class="line"></span>
-					<li>
+						</li>
+					</c:if>
+					<span class="line" style="vertical-align: middle;"> </span>
+					<li style="float: right;">
 						 <div class="dropdown" style="float: left;">
 						 	<img class="dropbtn" alt="" src="../images/index/lang.png">  						
 	  						<div class="dropdown-content">

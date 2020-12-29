@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+.main_right .con-sel {
+	width: auto;
+	height: 1679px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.con-sel .cont-sel {
+	position: relative;
+	min-height: 700px;
+	width: 90%;
+	max-width: 1530px;
+	margin: 0 auto;
+	padding: 120px 0 0 0;
+}
+
+.contents .select-box {
+	width: 100%;
+	height: 824px;
+	border: 1px solid #ddd;
+	position: relative;
+	margin: 0 0 30px 0;
+	text-transform: uppercase;
+}
+
+.contents .select-box .select-wrap {
+	position: relative;
+	margin: 40px auto;
+	width: 92%;
+	height: 742px;
+}
+
+.contents .select-wrap .board-top {
+	width: 100%;
+	height: 111px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #ddd;
+	text-align: left;
+}
+
+.contents .select-wrap .board-contents {
+	width: 100%;
+	height: 556px;
+	padding: 80px 0;
+	font-size: 12px;
+	text-align: left;
+}
+
+.contents .select-wrap .re-list {
+	width: 100%;
+	height: 75px;
+	padding-top: 40px;
+}
+
+.contents .select-wrap .re-list a {
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+

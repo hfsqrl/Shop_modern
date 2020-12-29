@@ -41,9 +41,18 @@ public class NoticeController {
 		return mv;
 	}
 	
+//	public ModelAndView setInsert()
+	
 	@GetMapping("noticeSelect")
 	public ModelAndView getOne(BoardVO boardVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		
+		boardVO = noticeService.getOne(boardVO);
+		
+		System.out.println("notice select");
+		
+		mv.addObject("vo", boardVO);
+		mv.setViewName("board/boardSelect");
 		
 		return mv;
 	}
