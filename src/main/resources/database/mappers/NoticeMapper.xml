@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shop.md1.board.notice.NoticeMapper">
+	<sql id="getSearch">
+		<choose>
+			<when test="kind == 'board_title'">
+				board_title
+			</when>
+			<when test="kind == 'board_writer'">
+				 board_writer
+			</when>
+			<otherwise>
+				board_contents
+			</otherwise>
+		</choose>
+		like concat('%', #{search}, '%') and board_num>0 
+	</sql>
+	
+	<select id="getOne" parameterType="NoticeVO" resultType="NoticeVO">
+		select * from notice where board_num = #{board_num}
+	</select>
+	
+	<select id="getCount" resultType="Long" parameterType="Pager">
+		select count(board_num) from notice where
+		<include refid="getSearch"></include>
+	</select>
+	
+	<select id="getList" resultType="NoticeVO" parameterType="Pager">
+		select * from notice where
+		<include refid="getSearch"></include>
+		order by board_num asc
+		limit #{startRow}, #{perPage}
+	</select>
+
+	<insert id="setInsert" parameterType="NoticeVO">
+		insert into notice (board_title, board_writer, board_contents) 
+		values (#{board_title}, #{board_writer}, #{board_contents})
+	</insert>
+
+</mapper>

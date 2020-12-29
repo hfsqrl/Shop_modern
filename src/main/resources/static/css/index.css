@@ -83,6 +83,33 @@
 	float: left;
 }
 
+.leftNav .navContent .cs-list {
+	margin: 50px 0 0 0;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+.leftNav .navContent .cs-list * {
+	font-size: 11px;
+	line-height: 18px;
+}
+
+.leftNav .navContent .cs-list li {
+	width: 255px;
+	height: 82px;
+}
+
+.cs-list .cs-title {
+	width: 255px;
+	height: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.bank {
+	margin-top: 18px;
+}
+
 .main_right {
 	position: relative;
 	float: right;

@@ -10,7 +10,11 @@
 		<typeAlias type="java.util.List" alias="List"/>
 		
 		<typeAlias type="com.shop.md1.member.MemberVO" alias="MemberVO"/>
-	
+		
+		<typeAlias type="com.shop.md1.board.BoardVO" alias="BoardVO"/>
+		<typeAlias type="com.shop.md1.board.notice.NoticeVO" alias="NoticeVO"/>
+		
+		<typeAlias type="com.shop.md1.util.Pager" alias="Pager"/>
 		
 	</typeAliases>	
 

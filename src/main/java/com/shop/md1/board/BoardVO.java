@@ -12,6 +12,6 @@ public class BoardVO {
 	private String board_title;
 	@NotEmpty
 	private String board_writer;
-	private String contents;
+	private String board_contents;
 
 }
