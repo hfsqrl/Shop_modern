@@ -20,37 +20,31 @@
 		<c:import url="../template/header.jsp"></c:import>
 		<div class="container">
 			<div class="contents">
-				<form action="./memberSearchPw" method="post">
+			
+				<form action="./memberSearchPw" method="get">
 					<div class="member_findid">
 						<div class="findid">
 							<h4>비밀번호 재설정</h4>
 							
 							<fieldset>
 								<ul>
-									<li>
-										<strong>NAME</strong>
-										<input type="text" style="border: none;">									
-									</li>
-									
+								
 									<li>
 										<strong>ID</strong>
-										<input type="text" style="border: none;" id="id">									
+										<input type="text" style="border: none;" id="id" name="member_id">									
 									</li>
 									
-									<li>
-										<strong>PHONE</strong>
-										<input type="text" style="border: none;">									
-									</li>
+
 									
 									<li>
 										<strong>EMAIL</strong>
-										<input type="text" style="border: none;" id="email">									
+										<input type="text" style="border: none;" id="email" name="member_email">									
 									</li>
 								</ul>
 							</fieldset>
 						</div>
 							<div style="padding-top: 20px;">
-								<input type="button" class="searchBtn" value="FIND PW">
+								<input type="submit" class="searchBtn" value="FIND PW">
 							</div>
 					</div>
 						

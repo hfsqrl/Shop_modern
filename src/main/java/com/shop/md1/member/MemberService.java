@@ -2,6 +2,7 @@ package com.shop.md1.member;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public interface MemberService {
@@ -17,5 +18,4 @@ public interface MemberService {
 	public MemberVO getMemberSearchId(MemberVO memberVO) throws Exception;
 	
 
-	
 }

@@ -194,20 +194,7 @@ public class MemberUserController {
 		
 	}
 	
-	@GetMapping("memberSearchPw")
-	public ModelAndView getMemberSearchPw() throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		return mv;	
-	}
-	
-	@PostMapping("memberSearchPw")
-	public ModelAndView getMemberSearchPw(@ModelAttribute MemberVO member, HttpServletResponse response) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		return mv;
-		
-	}
+
 	
 	@GetMapping("memberSearchView")
 	public ModelAndView getMemberSearchView() throws Exception{
