@@ -34,7 +34,7 @@
 				<div class="checkbox" style="text-align: center;">
 				 	 <label><input type="checkbox" name="remember">REMEMBER</label> ㅣ 
 				 	 <div class="idpw" style="text-align:center; display: inline-block;">
-				 		<a href="#">FORGOT ID</a> ㅣ <a href="#">FORGOT PW</a>
+				 		<a href="./memberSearchId">FORGOT ID</a> ㅣ <a href="./memberSearchPw">FORGOT PW</a>
 				 	</div>
 				</div>
 				</div>

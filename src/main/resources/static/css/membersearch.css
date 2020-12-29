@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+
+
+.member_findid{
+	border: 1px solid #ccc;
+    padding: 30px 0;
+    width: 1200px;
+    
+}
+
+.findid {
+    width: 340px;
+    margin: 0 auto;
+}
+
+.findid li {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #000;
+    text-align: left;
+    line-height: 30px;
+}
+
+.findid li strong {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 50px;
+    font-weight: normal;
+    text-align: left;
+    line-height: 30px;
+    padding-left: 3px;
+}
+
+.searchBtn{
+	background: white;
+	color: black;
+	width: 340px;
+	height: 35px;
+	
+}

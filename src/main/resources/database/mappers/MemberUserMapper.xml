@@ -5,6 +5,10 @@
     
    	<mapper namespace="com.shop.md1.member.memberuser.MemberUserMapper">
    	
+   		<select id="getMemberSearchId" parameterType="MemberVO" resultType="MemberVO">
+   			select * from member_info where member_name=#{member_name} and member_email=#{member_email} and member_phone = #{member_phone}
+   		</select>
+   	
    		<select id="setMemberUpdate" parameterType="MemberVO" resultType="MemberVO">
    			update member_info set member_pw=#{member_pw}, member_ask=#{member_ask}, member_answer=#{member_answer}, member_name=#{member_name}, roadFullAddr=#{roadFullAddr}, 
    			member_phone=#{member_phone}, member_sms_agg=#{member_sms_agg}, member_email=#{member_email}, member_email_agg=#{member_email_agg} , member_birth=#{member_birth}, 

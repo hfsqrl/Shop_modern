@@ -100,6 +100,12 @@ public class MemberUserService implements MemberService{
 		// TODO Auto-generated method stub
 		return memberUserMapper.setMemberUpdate(memberVO);
 	}
+	
+	@Override
+	public MemberVO getMemberSearchId(MemberVO memberVO) throws Exception {
+		// TODO Auto-generated method stub
+		return memberUserMapper.getMemberSearchId(memberVO);
+	}
 
 
 	

@@ -11,5 +11,8 @@ public interface MemberMapper {
 	public Integer setMemberJoin(MemberVO memberVO) throws Exception;
 	
 	public Integer setMemberUpdate(MemberVO memberVO) throws Exception;
+	
+	public MemberVO getMemberSearchId(MemberVO memberVO) throws Exception;
+	
 
 }

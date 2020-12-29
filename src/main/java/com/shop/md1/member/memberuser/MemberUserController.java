@@ -161,5 +161,33 @@ public class MemberUserController {
 		return mv;
 	}
 	
+	@GetMapping("memberSearchId")
+	public ModelAndView getMemberSearchId() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchId");
+		return mv;
+	}
+	
+	@PostMapping("memberSearchId")
+	public ModelAndView getMemberSearchId(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		memberVO = memberUserService.getMemberSearchId(memberVO);
+		
+		mv.addObject("search", memberVO);
+		mv.setViewName("member/memberSearchId");
+		
+		return mv;
+		
+	}
+	
+	@GetMapping("memberSearchPw")
+	public ModelAndView getMemberSearchPw() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		return mv;	
+	}
+	
 
 }
