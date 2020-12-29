@@ -142,7 +142,7 @@
 					
 					<ul>
 						<li>
-							<a href="#">
+							<a href="./memberUpdate">
 							<span>PROFILE</span><br>
 							회원정보								
 							</a>

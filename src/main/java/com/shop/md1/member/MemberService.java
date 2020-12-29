@@ -9,5 +9,7 @@ public interface MemberService {
 	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception;
 	
 	public Integer setMemberJoin(MemberVO memberVO) throws Exception;
-
+	
+	public Integer setMemberUpdate(MemberVO memberVO) throws Exception;
+	
 }

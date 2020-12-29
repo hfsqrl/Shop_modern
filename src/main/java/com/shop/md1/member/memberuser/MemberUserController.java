@@ -136,5 +136,28 @@ public class MemberUserController {
 		return mv;
 	}
 	
+	@GetMapping("memberUpdate")
+	public ModelAndView setMemberUpdate(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		return mv;
+	}
+	
+	@PostMapping("memberUpdate")
+	public ModelAndView setMemberUpdate(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		if(memberUserService.getMemberUpdateError(memberVO, bindingResult)) {
+			mv.setViewName("member/memberUpdate");
+			return mv;
+			
+		}
+		
+		Integer result = memberUserService.setMemberUpdate(memberVO);
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+	
 
 }
