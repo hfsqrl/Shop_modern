@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,6 +19,11 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	@ModelAttribute(name = "board")
+	public String getBoard() {
+		return "notice";
+	}
+	
 	@GetMapping("noticeList")
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -27,7 +33,7 @@ public class NoticeController {
 		
 		mv.addObject("pager", pager);
 		mv.addObject("list", ar);
-		mv.addObject("board", "notice");
+//		mv.addObject("board", "notice");
 		
 		mv.setViewName("notice/noticeList");
 		return mv;
@@ -37,13 +43,22 @@ public class NoticeController {
 	public ModelAndView setInsert(BoardVO boardVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("notice write");
-		mv.setViewName("notice/noticeWrite");
+		mv.setViewName("board/boardWrite");
 		return mv;
 	}
+	
+//	public ModelAndView setInsert()
 	
 	@GetMapping("noticeSelect")
 	public ModelAndView getOne(BoardVO boardVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		
+		boardVO = noticeService.getOne(boardVO);
+		
+		System.out.println("notice select");
+		
+		mv.addObject("vo", boardVO);
+		mv.setViewName("board/boardSelect");
 		
 		return mv;
 	}

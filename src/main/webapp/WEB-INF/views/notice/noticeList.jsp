@@ -31,18 +31,18 @@
 							<thead class="table-head">
 								<tr>
 									<th style="width: 6%;">no.</th>
-									<%-- <c:choose>
-										<c:when test="${board ne notice}">
-											<th style="width: 18%;">product</th>
-										</c:when>
-									</c:choose> --%>
+								<%-- <c:choose>
+									<c:when test="${board ne notice}">
+										<th style="width: 18%;">product</th>
+									</c:when> --%>
+									
 									<th style="width: 80%;">title</th>
 									<th style="width: 14%;">posted by</th>
-									<%-- <c:choose>
-										<c:when test="${board ne notice}">
-											<th style="width: 12%;">date</th>
-										</c:when>
-									</c:choose> --%>
+									<%-- 
+									<c:when test="${board ne notice}">
+										<th style="width: 12%;">date</th>
+									</c:when>
+								</c:choose> --%>
 								</tr>
 							</thead>
 							<tbody class="table-list">
@@ -54,7 +54,7 @@
 												<td style="width: 18%;"></td>
 											</c:when>
 										</c:choose> --%>
-										<td><a href="${board}Select?num=${vo.board_num}">${vo.board_title}</td>
+										<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title}</td>
 										<td>${vo.board_writer}</td>
 										<%-- <c:choose>
 											<c:when test="${board ne notice}">
@@ -77,6 +77,11 @@
 						<div class="input-group">
 							<input type="text" class="text" id="search" name="search">
 							<a href="#" class="search-btn">SEARCH</a>
+							<c:if test="${member.member_id eq 'admin'}">
+								<div class="write-btn" id="btn-write">
+									Write
+								</div>
+							</c:if>				
 						</div>
 					</div>
 					<div class="page">
@@ -101,6 +106,14 @@
 		</div> <!-- container -->
 	</div> <!-- main_right -->
 </div> <!-- wrap -->
+
+<script type="text/javascript">
+
+	$("#btn-write").click(function(){
+		location.href="${pageContext.request.contextPath}/${board}/${board}Write"
+	})
+
+</script>
 
 </body>
 </html>
