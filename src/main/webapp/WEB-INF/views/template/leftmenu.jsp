@@ -15,21 +15,22 @@
 					<li class="membership_li">
 						<c:choose>
 						  <c:when test="${empty member}">
-							<a href="${pageContext.request.contextPath}/member/memberLogin"><span>login</span></a>
-							<a href="${pageContext.request.contextPath}/member/memberJoin"><span>join</span></a>
+							<a href="${pageContext.request.contextPath}/member/memberLogin"><span>LOGIN</span></a>
+							<a href="${pageContext.request.contextPath}/member/memberJoin"><span>JOIN</span></a>
 						  </c:when>
 							
 						  <c:otherwise>
-						    <a href="${pageContext.request.contextPath}/member/memberLogout"><span>logout</span></a>
-							<a href="${pageContext.request.contextPath}/member/memberPage"><span>my page</span></a>
+						    <a href="${pageContext.request.contextPath}/member/memberLogout"><span>LOGOUT</span></a>
+						    <a href="${pageContext.request.contextPath}/member/memberUpdate"><span>MODIFY</span></a>
+							<a href="${pageContext.request.contextPath}/member/memberPage"><span>MY PAGE</span></a>
 							<a href="#"><span>order</span></a>							
 						  </c:otherwise>
 						</c:choose>
 					</li>
 					<li class="membership_li">
-						<a href="${pageContext.request.contextPath}/notice/noticeList"><span>notice</span></a>
-						<a href="#"><span>q&a</span></a>
-						<a href="#"><span>review</span></a>
+						<a href="${pageContext.request.contextPath}/notice/noticeList"><span>NOTICE</span></a>
+						<a href="#"><span>Q&A</span></a>
+						<a href="#"><span>REVIEW</span></a>
 					</li>
 				</ul>
 				<ul class="category">
