@@ -107,6 +107,18 @@ public class MemberUserService implements MemberService{
 		return memberUserMapper.getMemberSearchId(memberVO);
 	}
 	
+	@Override
+	public MemberVO getMemberSearchPw(MemberVO memberVO) throws Exception {
+		// TODO Auto-generated method stub
+		return memberUserMapper.getMemberSearchPw(memberVO);
+	}
+	
+	@Override
+	public int setMemberPw(MemberVO memberVO) throws Exception {
+		// TODO Auto-generated method stub
+		return memberUserMapper.setMemberPw(memberVO);
+	}
+	
 	
 
 

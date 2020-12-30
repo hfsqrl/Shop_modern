@@ -206,18 +206,58 @@ public class MemberUserController {
 	public ModelAndView getMemberSearchPw(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("member/memberSearchPw");
+		memberVO = memberUserService.getMemberSearchPw(memberVO);
+		
+		String message = "입력한 정보가 틀립니다.입력한 정보를 확인해주세요.";
+		
+		if(memberVO != null) {
+			mv.addObject("vo", memberVO);
+			mv.setViewName("redirect:./memberSearchPwView");
+			mv.setViewName("member/memberSearchPwView");
+			
+		}else {
+			mv.addObject("msg", message);
+			mv.addObject("path", "./memberSearchPw");
+			mv.setViewName("common/result");
+			
+		}
+		
+		
 		return mv;
 		
 	}
-	
-
 	
 	@GetMapping("memberSearchView")
 	public ModelAndView getMemberSearchView() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("member/memberSearchView");
+		return mv;
+			
+	}
+	
+	@GetMapping("memberSearchPwView")
+	public ModelAndView getMemberSearchPwView(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchPwView");
+		return mv;
+			
+	}
+	
+	@PostMapping("memberSearchPwView")
+	public ModelAndView getMemberSearchPwView(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		if(memberUserService.getMemberUpdateError(memberVO, bindingResult)) {
+			mv.setViewName("member/memberUpdate");
+			return mv;
+			
+		}
+		
+		int result = memberUserService.setMemberPw(memberVO);
+		
+		mv.setViewName("member/memberSearchPwView");
 		return mv;
 			
 	}

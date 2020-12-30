@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.md1.member.memberuser.MemberUserVO;
+
 public interface MemberService {
 	
 	public List<MemberVO> getMemberList(MemberVO memberVO) throws Exception;
@@ -17,5 +19,8 @@ public interface MemberService {
 	
 	public MemberVO getMemberSearchId(MemberVO memberVO) throws Exception;
 	
-
+	public MemberVO getMemberSearchPw(MemberVO memberVO) throws Exception;
+	
+	public int setMemberPw(MemberVO memberVO) throws Exception;
+	
 }
