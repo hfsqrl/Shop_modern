@@ -182,6 +182,7 @@ public class MemberUserController {
 			mv.addObject("search", memberVO);			
 			mv.setViewName("redirect:./memberSearchView");
 			mv.setViewName("member/memberSearchView");
+			mv.setViewName("member/memberSearchPw");
 			
 		}else {
 			mv.addObject("msg", message);

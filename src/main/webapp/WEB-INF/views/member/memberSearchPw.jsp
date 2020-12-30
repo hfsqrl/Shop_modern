@@ -31,7 +31,7 @@
 								
 									<li>
 										<strong>ID</strong>
-										<input type="text" style="border: none;" id="id" name="member_id">									
+										<input type="text" style="border: none;" id="id" name="member_id" value="${search.member_id}">									
 									</li>
 									
 									<li>
