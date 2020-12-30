@@ -251,7 +251,7 @@
 
 		if(check1 && check2) {
 				$("#frm").submit();
-				alert("회원가입이 완료되었습니다.")
+				
 		}else{
 			alert("이용약관 및 개인정보 수집 동의를 체크해주세요.")
 		}

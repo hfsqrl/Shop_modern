@@ -232,9 +232,7 @@
 	//유효성 검사 정규식
 	
 	$("#modBtn").click(function() {
-	
 		$("#frm").submit();
-		alert("회원 정보 수정이 완료되었습니다.");
 								
 	});
 	

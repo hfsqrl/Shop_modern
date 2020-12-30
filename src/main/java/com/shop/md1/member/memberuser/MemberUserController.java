@@ -194,6 +194,23 @@ public class MemberUserController {
 		
 	}
 	
+	@GetMapping("memberSearchPw")
+	public ModelAndView getMemberSearchPw() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchPw");
+		return mv;
+	}
+	
+	@PostMapping("memberSearchPw")
+	public ModelAndView getMemberSearchPw(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchPw");
+		return mv;
+		
+	}
+	
 
 	
 	@GetMapping("memberSearchView")
