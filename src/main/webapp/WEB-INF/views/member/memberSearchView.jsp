@@ -43,7 +43,7 @@
 									
 									<li>
 										<strong>ID</strong>
-										<input type="text" style="border: none;" name="member_email" value="${search.member_id}">									
+										<input type="text" style="border: none;" name="member_id" value="${search.member_id}" id="id">									
 									</li>
 								</ul>
 							</fieldset>

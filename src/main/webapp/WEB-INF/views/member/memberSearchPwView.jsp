@@ -10,7 +10,7 @@
 <c:import url="../template/bootstrap.jsp"></c:import>
 <link href="../css/common/default.css" rel="stylesheet">
 <link href="../css/index.css" rel="stylesheet">
-<link href="../css/membersearch.css" rel="stylesheet">
+<link href="../css/member/membersearch.css" rel="stylesheet">
 <style type="text/css">
 	.pwCheck0 {
 		color: red;
@@ -45,6 +45,8 @@
 							<h4>비밀번호 재설정</h4>
 							<h5>
 								형식에 맞는 비밀번호로 재설정해주세요.
+								<br>
+								특수문자 ,문자 , 숫자 포함 8~15자리 이내의 암호
 							</h5>	
 							<fieldset>
 								<ul>
