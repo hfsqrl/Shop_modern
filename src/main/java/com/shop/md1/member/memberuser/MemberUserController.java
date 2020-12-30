@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -105,6 +106,8 @@ public class MemberUserController {
 		}
 	
 		Integer result = memberUserService.setMemberJoin(memberVO);
+		String message = "회원가입이 완료되었습니다.";
+		
 		mv.setViewName("redirect:../");
 		
 		return mv;
@@ -134,6 +137,89 @@ public class MemberUserController {
 		System.out.println("Member Page");
 		
 		return mv;
+	}
+	
+	@GetMapping("memberUpdate")
+	public ModelAndView setMemberUpdate(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		return mv;
+	}
+	
+	@PostMapping("memberUpdate")
+	public ModelAndView setMemberUpdate(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		if(memberUserService.getMemberUpdateError(memberVO, bindingResult)) {
+			mv.setViewName("member/memberUpdate");
+			return mv;
+			
+		}
+		
+		Integer result = memberUserService.setMemberUpdate(memberVO);
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+	
+	@GetMapping("memberSearchId")
+	public ModelAndView getMemberSearchId() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchId");
+		return mv;
+	}
+	
+	@PostMapping("memberSearchId")
+	public ModelAndView getMemberSearchId(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		memberVO = memberUserService.getMemberSearchId(memberVO);
+		
+		String message = "입력한 정보가 틀립니다.입력한 정보를 확인해주세요.";
+		
+		if(memberVO != null) {
+			mv.addObject("search", memberVO);			
+			mv.setViewName("redirect:./memberSearchView");
+			mv.setViewName("member/memberSearchView");
+			
+		}else {
+			mv.addObject("msg", message);
+			mv.addObject("path", "./memberSearchId");
+			mv.setViewName("common/result");
+		}
+		
+
+		return mv;
+		
+	}
+	
+	@GetMapping("memberSearchPw")
+	public ModelAndView getMemberSearchPw() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchPw");
+		return mv;
+	}
+	
+	@PostMapping("memberSearchPw")
+	public ModelAndView getMemberSearchPw(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchPw");
+		return mv;
+		
+	}
+	
+
+	
+	@GetMapping("memberSearchView")
+	public ModelAndView getMemberSearchView() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchView");
+		return mv;
+			
 	}
 	
 

@@ -2,6 +2,7 @@ package com.shop.md1.member;
 
 import java.sql.Date;
 
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
@@ -25,6 +26,7 @@ public class MemberVO {
 	@NotEmpty
 	@Length(min = 8, max = 15)
 	@Pattern(regexp = "^.*(?=^.{8,15}$)(?=.*\\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$")
+	@Transient
 	private String member_pw2;
 	
 	@NotEmpty

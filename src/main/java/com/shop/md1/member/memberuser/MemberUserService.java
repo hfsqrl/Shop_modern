@@ -1,7 +1,7 @@
 package com.shop.md1.member.memberuser;
 
-import java.util.List;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
@@ -76,6 +76,38 @@ public class MemberUserService implements MemberService{
 		
 		return result;
 	}
+	
+	public boolean getMemberUpdateError(MemberVO memberVO, BindingResult bindingResult) throws Exception{
+		
+		boolean result=false;
+		//Annotation 검증
+		if(bindingResult.hasErrors()) {
+			result = true;
+		}
+		
+		//pw 일치 검증
+		if(!memberVO.getMember_pw().equals(memberVO.getMember_pw2())) {
+			bindingResult.rejectValue("member_pw2", "memberVO.member_pw.notEqual");
+			result = true;
+		}
+						
+		
+		return result;
+	}
+	
+	@Override
+	public Integer setMemberUpdate(MemberVO memberVO) throws Exception {
+		// TODO Auto-generated method stub
+		return memberUserMapper.setMemberUpdate(memberVO);
+	}
+	
+	@Override
+	public MemberVO getMemberSearchId(MemberVO memberVO) throws Exception {
+		// TODO Auto-generated method stub
+		return memberUserMapper.getMemberSearchId(memberVO);
+	}
+	
+	
 
 
 	

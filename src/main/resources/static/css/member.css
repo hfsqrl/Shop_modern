@@ -34,4 +34,18 @@
 	padding-bottom: 10px;
 }
 
+#modBtn{
+	background: white;
+	color: black;
+	width: 150px;
+	height: 35px;
+	
+}
 
+#delBtn{
+	background: white;
+	color: black;
+	width: 150px;
+	height: 35px;
+	
+}

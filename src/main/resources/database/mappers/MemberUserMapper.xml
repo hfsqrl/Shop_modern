@@ -5,6 +5,18 @@
     
    	<mapper namespace="com.shop.md1.member.memberuser.MemberUserMapper">
    	
+   		<select id="getMemberSearchId" parameterType="MemberVO" resultType="MemberVO">
+   			select * from member_info where member_name=#{member_name} and member_email=#{member_email} and member_phone = #{member_phone}
+   		</select>
+   	
+   		<select id="setMemberUpdate" parameterType="MemberVO" resultType="MemberVO">
+   			update member_info set member_pw=#{member_pw}, member_ask=#{member_ask}, member_answer=#{member_answer}, member_name=#{member_name}, roadFullAddr=#{roadFullAddr}, 
+   			member_phone=#{member_phone}, member_sms_agg=#{member_sms_agg}, member_email=#{member_email}, member_email_agg=#{member_email_agg} , member_birth=#{member_birth}, 
+   			member_region=#{member_region}, member_refund_name=#{member_refund_name}, member_refund_bank=#{member_refund_bank}, member_refund_account=#{member_refund_account} 
+   			where member_id = #{member_id};
+   			
+   		</select>
+   	
    		<select id="getMemberAddress" parameterType="MemberVO" resultType="MemberVO">
    			select roadFullAddr from member_info where roadFullAddr = #{roadFullAddr}
    		</select>
@@ -30,10 +42,10 @@
     	</select>
     	
     	<select id="setMemberJoin" parameterType="MemberVO" resultType="MemberVO">
-    		insert into member_info (member_id, member_pw, member_ask, member_answer, member_name, member_address, member_phone, member_sms_agg, member_email, 
+    		insert into member_info (member_id, member_pw, member_ask, member_answer, member_name, roadFullAddr, member_phone, member_sms_agg, member_email, 
     		member_email_agg, member_birth, member_region, member_refund_name, member_refund_bank, member_refund_account, member_clause_agg, member_pi_agg)
     		
-			values(#{member_id},#{member_pw},#{member_ask},#{member_answer},#{member_name},#{member_address},#{member_phone}, #{member_sms_agg},#{member_email},
+			values(#{member_id},#{member_pw},#{member_ask},#{member_answer},#{member_name},#{roadFullAddr},#{member_phone}, #{member_sms_agg},#{member_email},
 			#{member_email_agg}, #{member_birth},#{member_region},#{member_refund_name},#{member_refund_bank},#{member_refund_account},#{member_clause_agg}
 			,#{member_pi_agg})
     	</select>
