@@ -40,6 +40,18 @@
 	text-align: left;
 }
 
+.contents .select-wrap .board-top li {
+	width: 50%;
+	height: 20px;
+	margin: 0;
+}
+
+.contents .select-wrap .board-top .sel-title {
+	font-size: 14px;
+	padding-bottom: 30px;
+	height: 50px;
+}
+
 .contents .select-wrap .board-contents {
 	width: 100%;
 	height: 556px;
@@ -54,8 +66,11 @@
 	padding-top: 40px;
 }
 
-.contents .select-wrap .re-list a {
+.contents .select-wrap .re-list .btn {
 	float: right;
+    border: 1px solid #a5a5a5;
+    width: 80px;
+    border-radius: initial;
 }
 
 

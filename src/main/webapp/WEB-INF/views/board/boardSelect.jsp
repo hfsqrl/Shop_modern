@@ -24,7 +24,7 @@
 					<div class="select-wrap">
 						<div class="board-top">
 							<ul>
-								<li>${vo.board_title}</li>
+								<li class="sel-title">${vo.board_title}</li>
 								<li>posted by : ${vo.board_writer}</li>
 							</ul>
 						</div>
@@ -34,7 +34,9 @@
 							</div>
 						</div>
 						<div class="re-list">
-							<a href="" class="btn_000">list</a>
+							<div class="btn" id="golist">
+								<a href="">list</a>
+							</div>
 						</div>
 					</div>
 					<div class="reply-box">

@@ -10,7 +10,7 @@
 <c:import url="../template/bootstrap.jsp"></c:import>
 <link href="../css/common/default.css" rel="stylesheet">
 <link href="../css/index.css" rel="stylesheet">
-<link href="../css/membersearch.css" rel="stylesheet">
+<link href="../css/member/membersearch.css" rel="stylesheet">
 </head>
 <body>
 <div id="wrap">
