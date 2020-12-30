@@ -14,14 +14,22 @@
 <body>
 <div id="wrap">
 	<c:import url="../template/leftmenu.jsp"></c:import>
+	<!-- include summernote css/js -->
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 	
 	<div class="main_right"> <!-- container_wrap -->
 		<c:import url="../template/header.jsp"></c:import>
-		<div class="container">
-			<div class="contents">
+		<div class="container con-wr">
+			<div class="contents cont-wr">
 				
-				<div class="">
-					<!-- <div class></div> -->
+				<div class="write-box">
+					<div class="write-head">
+						<p class="title">Q&A</p>
+					</div>
+					<div class="">
+					</div>
+					
 				</div>
 			
 			</div> <!-- contents -->
