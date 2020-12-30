@@ -5,6 +5,10 @@
     
    	<mapper namespace="com.shop.md1.member.memberuser.MemberUserMapper">
    	
+   		<delete id="setMemberDelete" parameterType="MemberVO" >
+   			delete from member_info where member_id = #{member_id}
+   		</delete>
+   	
    		<update id="setMemberPw" parameterType="MemberVO">
    			update member_info set member_pw = #{member_pw} where member_id=#{member_id}
    		</update>

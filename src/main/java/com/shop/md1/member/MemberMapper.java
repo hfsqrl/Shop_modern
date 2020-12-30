@@ -22,6 +22,8 @@ public interface MemberMapper {
 	
 	public int setMemberPw(MemberVO memberVO) throws Exception;
 	
+	public Integer setMemberDelete(MemberVO memberVO) throws Exception;
+	
 	
 	
 

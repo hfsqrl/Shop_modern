@@ -25,7 +25,7 @@
 					<div class="member_findid">
 						<div class="findid">
 							<h4>비밀번호 재설정</h4>
-							
+							<h5>아이디, 이메일, 휴대전화로 비밀번호 재설정이 가능합니다.</h5>
 							<fieldset>
 								<ul>
 								

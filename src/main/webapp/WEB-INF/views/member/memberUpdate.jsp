@@ -15,6 +15,39 @@
 	.error {
 		color: red;
 	}
+	
+	.idCheck0 {
+		color: blue;
+	}
+	
+	.pwCheck0 {
+		color: blue;
+	}
+	
+	.phoneCheck0 {
+		color: blue;
+	}
+	
+	.emailCheck0 {
+		color: blue;
+	}
+	
+	.idCheck1 {
+		color: red;
+	}
+	
+	.pwCheck1 {
+		color: red;
+	}
+	
+	.phoneCheck1 {
+		color: red;
+	}
+	
+	.emailCheck1 {
+		color: red;
+	}	
+	
 </style>
 </head>
 <body>
@@ -35,6 +68,7 @@
 					 	<div class="col-sm-4"> 
 						 	<form:input path="member_id" class="form-control input" placeholder="숫자와 문자 포함 6~12자리" id="id" value="${member.member_id}" readonly="true"/>
 			      			<form:errors path="member_id" cssClass="error"></form:errors>
+			      			<div id="idResult"></div>
 					 	</div>
 					 </div>
 					 <br>
@@ -51,6 +85,7 @@
 					    <div class="col-sm-4">
 					     <form:input type="password" id="pw2" path="member_pw2" class="form-control input" placeholder="특수문자 ,문자 , 숫자 포함 8~15자리 이내의 암호" />
 		      			 <form:errors path="member_pw2" cssClass="error"></form:errors>
+		      			 <div id="pwResult"></div>
 					    </div>
 					     <br>
 					     
@@ -123,6 +158,7 @@
 					    <div class="col-sm-4">			       
 					       <form:input id="phone" path="member_phone" class="form-control empty" placeholder="ex) 010-xxxx-xxxx" value="${member.member_phone}"/>			      		
 		      			 <form:errors path="member_phone" cssClass="error"></form:errors>
+		      			 <div id="phoneResult"></div>
 					    </div>
 					     <br>
 					     
@@ -144,8 +180,9 @@
 					     <label class="col-sm-2 join_text" for="email">이메일</label>
 						   <div class="col-sm-4">					
 							<form:input id="email" path="member_email" class="form-control" placeholder="ex) aaa@email.com" value="${member.member_email}"/>				    
-		      			 <form:errors path="member_email" cssClass="error"></form:errors>
-						    </div>
+		      			 	<form:errors path="member_email" cssClass="error"></form:errors>
+		      			 	<div id="emailResult"></div>
+					  </div>
 						  <br>
 					    
 					  </div>
@@ -224,6 +261,14 @@
 </body>
 <script type="text/javascript">
 
+	$("#delBtn").click(function(){
+		var id = $("#id").val();
+		
+		location.href = "./memberDelete?member_id="+id;
+		alert("회원탈퇴를 완료하였습니다.")
+		
+	});
+
 	//유효성 검사 정규식
 	var passRule = /^[A-Za-z0-9]{6,12}$/;//아이디 정규식 숫자와 문자 포함 형태의 6~12자리 이내의 아이디 정규식
 	var regexPw = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;// 비밀번호 정규식 특수문자 / 문자 / 숫자 포함 형태의 8~15자리 이내의 암호 정규식
@@ -248,11 +293,13 @@
 		idExpCheck=false;
 		if(!passRule.test($("input[id='id']").val())) {
 			idExpCheck=false;
-		 	alert("형식에 맞지않는 아이디입니다.")
+			$("#idResult").html("형식에 맞지않는 아이디입니다.");
+			$("#idResult").removeClass("idCheck0").addClass("idCheck1");
 	    
 		}else{
 			idExpCheck=true;
-			alert("사용할 수 있는 아이디 형식입니다.")
+			$("#idResult").html("사용할 수 있는 형식의 아이디입니다.");
+			$("#idResult").removeClass("idCheck1").addClass("idCheck0");
 		}
 		
 	});
@@ -261,11 +308,13 @@
 		pwExpCheck=false;
 		if(!regexPw.test($("input[id='pw2']").val())) {
 			pwExpCheck=false;
-		 	alert("형식에 맞지않는 비밀번호입니다.")
+			$("#pwResult").html("형식에 맞지않는 비밀번호입니다.");
+			$("#pwResult").removeClass("pwCheck0").addClass("pwCheck1");
 	    
 		}else{
 			pwExpCheck=true;
-			alert("사용할 수 있는 비밀번호입니다.")
+			$("#pwResult").html("사용할 수 있는 형식의 비밀번호입니다.");
+			$("#pwResult").removeClass("pwCheck1").addClass("pwCheck0");
 		}
 	});
 	
@@ -273,11 +322,13 @@
 		phoneExpCheck=false;
 		if(!regExpPhone.test($("input[id='phone']").val())) {
 			phoneExpCheck=false;
-		 	alert("형식에 맞지않는 전화번호입니다.")
+			$("#phoneResult").html("형식에 맞지않는 전화번호입니다.");
+			$("#phoneResult").removeClass("phoneCheck0").addClass("phoneCheck1");
 	    
 		}else{
 			phoneExpCheck=true;
-			alert("사용할 수 있는 전화번호 형식입니다.")
+			$("#phoneResult").html("사용할 수 있는 형식의 전화번호입니다.");
+			$("#phoneResult").removeClass("phoneCheck1").addClass("phoneCheck0");
 		}
 	});
 	
@@ -286,11 +337,13 @@
 		emailExpCheck=false;
 		if(!regExpEmail.test($("input[id='email']").val())) {
 			emailExpCheck=false;
-		 	alert("형식에 맞지않는 이메일입니다.")
+			$("#emailResult").html("형식에 맞지않는 이메일입니다.");
+			$("#emailResult").removeClass("emailCheck0").addClass("emailCheck1");
 	    
 		}else{
 			emailExpCheck=true;
-			alert("사용할 수 있는 이메일 형식입니다.")
+			$("#emailResult").html("사용할 수 있는 형식의 이메일입니다.");
+			$("#emailResult").removeClass("emailCheck1").addClass("emailCheck0");
 		}
 	});	
 	//회원가입 유효성 검사

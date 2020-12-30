@@ -257,5 +257,16 @@ public class MemberUserController {
 			
 	}
 	
+	@GetMapping("memberDelete")
+	public ModelAndView setMemberDelete(MemberVO memberVO, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		Integer result = memberUserService.setMemberDelete(memberVO);
+		
+		session.invalidate();
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+	
 
 }

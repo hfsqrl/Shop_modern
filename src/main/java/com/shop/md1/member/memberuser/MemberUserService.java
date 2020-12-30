@@ -119,6 +119,12 @@ public class MemberUserService implements MemberService{
 		return memberUserMapper.setMemberPw(memberVO);
 	}
 	
+	@Override
+	public Integer setMemberDelete(MemberVO memberVO) throws Exception {
+		// TODO Auto-generated method stub
+		return memberUserMapper.setMemberDelete(memberVO);
+	}
+	
 	
 
 
