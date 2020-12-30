@@ -94,7 +94,7 @@ public class MemberUserService implements MemberService{
 		
 		return result;
 	}
-	
+				
 	@Override
 	public Integer setMemberUpdate(MemberVO memberVO) throws Exception {
 		// TODO Auto-generated method stub

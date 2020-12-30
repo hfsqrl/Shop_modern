@@ -237,7 +237,7 @@ public class MemberUserController {
 	}
 	
 	@GetMapping("memberSearchPwView")
-	public ModelAndView getMemberSearchPwView(MemberVO memberVO) throws Exception{
+	public ModelAndView getMemberSearchPwView() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("member/memberSearchPwView");
@@ -246,18 +246,13 @@ public class MemberUserController {
 	}
 	
 	@PostMapping("memberSearchPwView")
-	public ModelAndView getMemberSearchPwView(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
+	public ModelAndView getMemberSearchPwView(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
-		if(memberUserService.getMemberUpdateError(memberVO, bindingResult)) {
-			mv.setViewName("member/memberUpdate");
-			return mv;
-			
-		}
+	
 		
 		int result = memberUserService.setMemberPw(memberVO);
 		
-		mv.setViewName("member/memberSearchPwView");
+		mv.setViewName("redirect:./memberLogin");
 		return mv;
 			
 	}
