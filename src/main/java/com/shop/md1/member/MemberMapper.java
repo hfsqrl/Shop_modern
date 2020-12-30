@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.shop.md1.member.memberuser.MemberUserVO;
+
 public interface MemberMapper {
 	
 	public List<MemberVO> getMemberList(MemberVO memberVO) throws Exception;
@@ -15,6 +17,12 @@ public interface MemberMapper {
 	public Integer setMemberUpdate(MemberVO memberVO) throws Exception;
 	
 	public MemberVO getMemberSearchId(MemberVO memberVO) throws Exception;
+	
+	public MemberVO getMemberSearchPw(MemberVO memberVO) throws Exception;
+	
+	public int setMemberPw(MemberVO memberVO) throws Exception;
+	
+	public Integer setMemberDelete(MemberVO memberVO) throws Exception;
 	
 	
 	

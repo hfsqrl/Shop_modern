@@ -5,6 +5,18 @@
     
    	<mapper namespace="com.shop.md1.member.memberuser.MemberUserMapper">
    	
+   		<delete id="setMemberDelete" parameterType="MemberVO" >
+   			delete from member_info where member_id = #{member_id}
+   		</delete>
+   	
+   		<update id="setMemberPw" parameterType="MemberVO">
+   			update member_info set member_pw = #{member_pw} where member_id=#{member_id}
+   		</update>
+   	
+   		<select id="getMemberSearchPw" parameterType="MemberVO" resultType="MemberVO">
+   			select * from member_info where member_name=#{member_name} and member_email=#{member_email} and member_id = #{member_id}
+   		</select>
+   	
    		<select id="getMemberSearchId" parameterType="MemberVO" resultType="MemberVO">
    			select * from member_info where member_name=#{member_name} and member_email=#{member_email} and member_phone = #{member_phone}
    		</select>

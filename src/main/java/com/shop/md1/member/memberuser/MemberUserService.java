@@ -94,7 +94,7 @@ public class MemberUserService implements MemberService{
 		
 		return result;
 	}
-	
+				
 	@Override
 	public Integer setMemberUpdate(MemberVO memberVO) throws Exception {
 		// TODO Auto-generated method stub
@@ -105,6 +105,24 @@ public class MemberUserService implements MemberService{
 	public MemberVO getMemberSearchId(MemberVO memberVO) throws Exception {
 		// TODO Auto-generated method stub
 		return memberUserMapper.getMemberSearchId(memberVO);
+	}
+	
+	@Override
+	public MemberVO getMemberSearchPw(MemberVO memberVO) throws Exception {
+		// TODO Auto-generated method stub
+		return memberUserMapper.getMemberSearchPw(memberVO);
+	}
+	
+	@Override
+	public int setMemberPw(MemberVO memberVO) throws Exception {
+		// TODO Auto-generated method stub
+		return memberUserMapper.setMemberPw(memberVO);
+	}
+	
+	@Override
+	public Integer setMemberDelete(MemberVO memberVO) throws Exception {
+		// TODO Auto-generated method stub
+		return memberUserMapper.setMemberDelete(memberVO);
 	}
 	
 	

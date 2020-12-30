@@ -206,12 +206,26 @@ public class MemberUserController {
 	public ModelAndView getMemberSearchPw(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("member/memberSearchPw");
+		memberVO = memberUserService.getMemberSearchPw(memberVO);
+		
+		String message = "입력한 정보가 틀립니다.입력한 정보를 확인해주세요.";
+		
+		if(memberVO != null) {
+			mv.addObject("vo", memberVO);
+			mv.setViewName("redirect:./memberSearchPwView");
+			mv.setViewName("member/memberSearchPwView");
+			
+		}else {
+			mv.addObject("msg", message);
+			mv.addObject("path", "./memberSearchPw");
+			mv.setViewName("common/result");
+			
+		}
+		
+		
 		return mv;
 		
 	}
-	
-
 	
 	@GetMapping("memberSearchView")
 	public ModelAndView getMemberSearchView() throws Exception{
@@ -220,6 +234,38 @@ public class MemberUserController {
 		mv.setViewName("member/memberSearchView");
 		return mv;
 			
+	}
+	
+	@GetMapping("memberSearchPwView")
+	public ModelAndView getMemberSearchPwView() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberSearchPwView");
+		return mv;
+			
+	}
+	
+	@PostMapping("memberSearchPwView")
+	public ModelAndView getMemberSearchPwView(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+	
+		
+		int result = memberUserService.setMemberPw(memberVO);
+		
+		mv.setViewName("redirect:./memberLogin");
+		return mv;
+			
+	}
+	
+	@GetMapping("memberDelete")
+	public ModelAndView setMemberDelete(MemberVO memberVO, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		Integer result = memberUserService.setMemberDelete(memberVO);
+		
+		session.invalidate();
+		mv.setViewName("redirect:../");
+		return mv;
 	}
 	
 

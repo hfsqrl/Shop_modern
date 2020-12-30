@@ -21,11 +21,11 @@
 		<div class="container">
 			<div class="contents">
 			
-				<form action="./memberSearchPw" method="get">
+				<form action="./memberSearchPw" method="post">
 					<div class="member_findid">
 						<div class="findid">
 							<h4>비밀번호 재설정</h4>
-							
+							<h5>아이디, 이메일, 휴대전화로 비밀번호 재설정이 가능합니다.</h5>
 							<fieldset>
 								<ul>
 								
@@ -34,7 +34,10 @@
 										<input type="text" style="border: none;" id="id" name="member_id">									
 									</li>
 									
-
+									<li>
+										<strong>NAME</strong>
+										<input type="text" style="border: none;" id="name" name="member_name">									
+									</li>
 									
 									<li>
 										<strong>EMAIL</strong>
@@ -55,7 +58,7 @@
 		</div> <!-- container -->
 	</div> <!-- main_right -->
 </div> <!-- wrap -->
-
+	
 </body>
 <script type="text/javascript">
 
