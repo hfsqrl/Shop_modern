@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shop.md1.board.qna.QnaMapper">
+	<sql id="getSearch">
+		<choose>
+			<when test="kind == 'board_title'">
+				board_title
+			</when>
+			<when test="kind == 'board_writer'">
+				 board_writer
+			</when>
+			<otherwise>
+				board_contents
+			</otherwise>
+		</choose>
+		like concat('%', #{search}, '%') and board_num>0 
+	</sql>
+
+	<select id="getList" resultType="QnaVO" parameterType="Pager">
+			select * from qna where
+			<include refid="getSearch"></include>
+			order by board_num
+			limit #{startRow}, #{perPage}	
+	</select>
+
+</mapper>
