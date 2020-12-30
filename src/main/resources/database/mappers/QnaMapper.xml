@@ -18,12 +18,22 @@
 		</choose>
 		like concat('%', #{search}, '%') and board_num>0 
 	</sql>
+	
+	<insert id="setInsert" parameterType="QnaVO">
+		insert into qna (board_title, board_writer, board_contents, regDate, ref, step, depth, item_num) 
+		values (#{board_title}, #{board_writer}, #{board_contents}, sysdate(), 0, 0, 0, 1)
+	</insert>	
 
 	<select id="getList" resultType="QnaVO" parameterType="Pager">
 			select * from qna where
 			<include refid="getSearch"></include>
-			order by board_num
+			order by board_num desc
 			limit #{startRow}, #{perPage}	
+	</select>
+	
+	<select id="getCount" resultType="Long" parameterType="Pager">
+		select count(board_num) from qna where
+		<include refid="getSearch"></include>
 	</select>
 
 </mapper>

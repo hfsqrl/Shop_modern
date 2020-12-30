@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>NOTICE</title>
+<title>${board}</title>
 <c:import url="../template/bootstrap.jsp"></c:import>
 <link href="../css/common/default.css" rel="stylesheet">
 <link href="../css/index.css" rel="stylesheet">
