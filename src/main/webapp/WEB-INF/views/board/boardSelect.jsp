@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>select</title>
+<title>${board} select</title>
 <c:import url="../template/bootstrap.jsp"></c:import>
 <link href="../css/common/default.css" rel="stylesheet">
 <link href="../css/index.css" rel="stylesheet">
@@ -35,7 +35,7 @@
 						</div>
 						<div class="re-list">
 							<div class="btn" id="golist">
-								<a href="">list</a>
+								list
 							</div>
 						</div>
 					</div>
@@ -53,6 +53,14 @@
 		</div> <!-- container -->
 	</div> <!-- main_right -->
 </div> <!-- wrap -->
+
+<script type="text/javascript">
+
+	$("#golist").click(function(){
+		location.href="${pageContext.request.contextPath}/${board}/${board}List"
+	})
+
+</script>
 
 </body>
 </html>

@@ -19,9 +19,9 @@
 		<c:import url="../template/header.jsp"></c:import>
 		<div class="container">
 			<div class="contents">
-			
-				<div class="">
 				
+				<div class="">
+					<!-- <div class></div> -->
 				</div>
 			
 			</div> <!-- contents -->

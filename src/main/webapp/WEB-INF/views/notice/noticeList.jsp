@@ -77,6 +77,11 @@
 						<div class="input-group">
 							<input type="text" class="text" id="search" name="search">
 							<a href="#" class="search-btn">SEARCH</a>
+							<c:if test="${member.member_id eq 'admin'}">
+								<div class="write-btn" id="btn-write">
+									Write
+								</div>
+							</c:if>				
 						</div>
 					</div>
 					<div class="page">
@@ -101,6 +106,14 @@
 		</div> <!-- container -->
 	</div> <!-- main_right -->
 </div> <!-- wrap -->
+
+<script type="text/javascript">
+
+	$("#btn-write").click(function(){
+		location.href="${pageContext.request.contextPath}/${board}/${board}Write"
+	})
+
+</script>
 
 </body>
 </html>
