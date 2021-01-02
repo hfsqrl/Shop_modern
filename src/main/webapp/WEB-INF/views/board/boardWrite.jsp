@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Page</title>
+<title>${board} write Page</title>
 <c:import url="../template/bootstrap.jsp"></c:import>
 <link href="../css/common/default.css" rel="stylesheet">
 <link href="../css/index.css" rel="stylesheet">
@@ -27,7 +27,13 @@
 					<div class="write-head">
 						<p class="title">Q&A</p>
 					</div>
-					<div class="">
+					<div class="write-contents">
+						<textarea id="summernote" class="contents-area"></textarea>
+						<c:import url="./boardWriteAddFiles.jsp"></c:import>
+						<div class="go-btns">
+							<div class="btn go-list">LIST</div>
+							<div class="btn go-write">WRITE</div>
+						</div>
 					</div>
 					
 				</div>
@@ -37,6 +43,15 @@
 		</div> <!-- container -->
 	</div> <!-- main_right -->
 </div> <!-- wrap -->
+
+<script type="text/javascript">
+
+	$("#summernote").summernote({
+		height: 500,
+		lang: 'ko-KR'
+	});
+
+</script>
 
 </body>
 </html>

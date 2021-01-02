@@ -53,22 +53,22 @@
 						<input type="hidden" name="curPage" id="curPage" value=1>
 						
 						<div class="search">
-							<div class="search-box">
+							<div class="search-kind">
 								<select class="kind" id="kind" name="kind">
 									<option>제목</option>
 									<option>아이디</option>
 									<option>내용</option>
 								</select>
 							</div>
-							<div class="input-group">
+							<div class="search-box">
 								<input type="text" class="text" id="search" name="search">
 								<a href="#" class="search-btn">SEARCH</a>
-								<c:if test="${not empty member}">
-									<div class="write-btn" id="btn-write">
-										Write
-									</div>
-								</c:if>				
 							</div>
+							<c:if test="${not empty member}">
+								<div class="write-btn" id="btn-write">
+									Write
+								</div>
+							</c:if>				
 						</div>
 					</form>
 					<div class="page">

@@ -18,18 +18,17 @@
 
 .contents .select-box {
 	width: 100%;
-	height: 824px;
+	height: auto;
 	border: 1px solid #ddd;
 	position: relative;
 	margin: 0 0 30px 0;
-	text-transform: uppercase;
 }
 
 .contents .select-box .select-wrap {
 	position: relative;
 	margin: 40px auto;
 	width: 92%;
-	height: 742px;
+	height: 100%;
 }
 
 .contents .select-wrap .board-top {
@@ -38,6 +37,7 @@
 	padding-bottom: 40px;
 	border-bottom: 1px solid #ddd;
 	text-align: left;
+	text-transform: uppercase;
 }
 
 .contents .select-wrap .board-top li {
@@ -54,7 +54,7 @@
 
 .contents .select-wrap .board-contents {
 	width: 100%;
-	height: 556px;
+	height: 100%;
 	padding: 80px 0;
 	font-size: 12px;
 	text-align: left;
@@ -64,6 +64,7 @@
 	width: 100%;
 	height: 75px;
 	padding-top: 40px;
+	text-transform: uppercase;
 }
 
 .contents .select-wrap .re-list .btn {

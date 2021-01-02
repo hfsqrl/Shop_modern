@@ -1,24 +1,23 @@
 @charset "UTF-8";
 
-main_right .con-wr {
+.main_right .con-wr {
 	width: 90%;
-	height: auto;
-	margin: 0;
+	height: 100%;
+	margin: 0 auto;
 	padding: 0;
 }
 
-.con-wr .cont-wr {
+.cont-wr {
 	position: relative;
-	min-height: 700px;
-	width: 90%;
+	width: auto;
 	max-width: 1530px;
-	margin: 0 auto;
 	padding: 120px 0 0 0;
+	height: auto;
 }
 
 .contents .write-box {
 	width: 100%;
-	height: 1169px;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 }
@@ -29,6 +28,106 @@ main_right .con-wr {
 	text-align: center;
 	font-size: 14px;
 	padding-bottom: 40px;
-	color: #333;
-	
+	color: #333;	
 }
+
+.cont-wr .write-box .write-contents table {
+	width: 100%;
+	height: auto;
+}
+
+.cont-wr .write-box .write-contents tbody {
+	width: auto;
+	height: 50px;
+	font-size: 12px;
+	color: #333;
+	border: 1px solid #ddd;
+}
+
+table tbody tr {
+	border-bottom: 1px solid #ddd;
+}
+
+table tbody .files-last-tr {
+	border-bottom: none;
+}
+
+.cont-wr .write-box .write-contents .files-th {
+	padding: 15px 0 15px 18px;
+	width: 13%;
+	font-weight: 400;
+}
+
+.cont-wr .write-box .write-contents .td-files {
+	border-left: 1px solid #ddd;
+	padding: 0 15px;
+}
+
+.cont-wr .write-box .write-contents .input {
+	width: 75%;
+}
+
+.cont-wr .write-box .write-files .files {
+	margin: 0;
+	padding: 0;
+}
+
+.cont-wr .write-box .write-contents .delete {
+	width: 82px;
+	text-transform: uppercase;
+}
+
+.delete .btn-del {
+	cursor: pointer;
+	height: 30px;
+	line-height: 2.5;
+}
+
+.write-contents .files-attr td {
+	text-align: left;
+	width: 100%;
+}
+
+.write-contents .files-attr .write-radio * {
+	margin: 0;
+	font-weight: 400;
+}
+
+.write-contents .go-btns {
+	width: 100%;
+	height: 50px;
+	margin: 10px 0 40px;
+	padding: 10px 0;
+}
+
+.write-contents .go-btns .btn {
+	border: 1px solid #000;
+	border-radius: 0;
+	width: 82px;
+	height: 30px;
+	font-size: 12px;
+}
+
+.go-btns .go-list {
+	float: left;
+}
+
+.go-btns .go-write {
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

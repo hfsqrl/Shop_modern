@@ -37,15 +37,21 @@
 							<div class="btn" id="golist">
 								list
 							</div>
+							<div class="btn" id="goDelete">
+								delete
+							</div>
+							<div class="btn" id="goModify">
+								modify
+							</div>
 						</div>
 					</div>
-					<div class="reply-box">
+					<!-- <div class="reply-box">
 						<div class="comment-box">
 						
 						</div>
 						<div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			
 			</div> <!-- contents -->

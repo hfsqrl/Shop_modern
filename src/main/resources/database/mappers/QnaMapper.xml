@@ -19,6 +19,10 @@
 		like concat('%', #{search}, '%') and board_num>0 
 	</sql>
 	
+	<select id="getOne" parameterType="QnaVO" resultType="QnaVO">
+		select * from qna where board_num = #{board_num}
+	</select>
+	
 	<insert id="setInsert" parameterType="QnaVO">
 		insert into qna (board_title, board_writer, board_contents, regDate, ref, step, depth, item_num) 
 		values (#{board_title}, #{board_writer}, #{board_contents}, sysdate(), 0, 0, 0, 1)
