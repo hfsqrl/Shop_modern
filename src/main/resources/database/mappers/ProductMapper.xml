@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+   	<mapper namespace="com.shop.md1.product.ProductMapper">
+   		
+   		<select id="getOuterList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Outer'
+   		</select>
+   		
+   		<select id="getTopList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Top'
+   		</select>
+   		  		
+   		<select id="getShirtsList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Shirts'
+   		</select>
+   		
+   		 <select id="getPantsList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Pants'
+   		</select>
+   		
+   		<select id="getSuitList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Suit'
+   		</select>
+   		
+   	  	<select id="getAccList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Acc'
+   		</select>
+   		
+   		   		
+   	  	<select id="getBagShoesList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Bag/Shoes'
+   		</select>
+    	
+    
+    </mapper>

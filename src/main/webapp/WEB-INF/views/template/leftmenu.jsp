@@ -15,21 +15,22 @@
 					<li class="membership_li">
 						<c:choose>
 						  <c:when test="${empty member}">
-							<a href="${pageContext.request.contextPath}/member/memberLogin"><span>login</span></a>
-							<a href="${pageContext.request.contextPath}/member/memberJoin"><span>join</span></a>
+							<a href="${pageContext.request.contextPath}/member/memberLogin"><span>LOGIN</span></a>
+							<a href="${pageContext.request.contextPath}/member/memberJoin"><span>JOIN</span></a>
 						  </c:when>
 							
 						  <c:otherwise>
-						    <a href="${pageContext.request.contextPath}/member/memberLogout"><span>logout</span></a>
-							<a href="${pageContext.request.contextPath}/member/memberPage"><span>my page</span></a>
+						    <a href="${pageContext.request.contextPath}/member/memberLogout"><span>LOGOUT</span></a>
+						    <a href="${pageContext.request.contextPath}/member/memberUpdate"><span>MODIFY</span></a>
+							<a href="${pageContext.request.contextPath}/member/memberPage"><span>MY PAGE</span></a>
 							<a href="#"><span>order</span></a>							
 						  </c:otherwise>
 						</c:choose>
 					</li>
 					<li class="membership_li">
-						<a href="${pageContext.request.contextPath}/notice/noticeList"><span>notice</span></a>
-						<a href="${pageContext.request.contextPath}/qna/qnaList"><span>q&a</span></a>
-						<a href="#"><span>review</span></a>
+						<a href="${pageContext.request.contextPath}/notice/noticeList"><span>NOTICE</span></a>
+						<a href="#"><span>Q&A</span></a>
+						<a href="#"><span>REVIEW</span></a>
 					</li>
 				</ul>
 				<ul class="category">
@@ -41,25 +42,25 @@
 					</li>
 					<li>  </li>
 					<li>
-						<a href="#"><span>Outer</span></a>
+						<a href="${pageContext.request.contextPath}/product/outerList"><span>Outer</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Top</span></a>
+						<a href="${pageContext.request.contextPath}/product/topList"><span>Top</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Shirts</span></a>
+						<a href="${pageContext.request.contextPath}/product/shirtsList"><span>Shirts</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Pants</span></a>
+						<a href="${pageContext.request.contextPath}/product/pantsList"><span>Pants</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Suit</span></a>
+						<a href="${pageContext.request.contextPath}/product/suitList"><span>Suit</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Bag/Shoes</span></a>
+						<a href="${pageContext.request.contextPath}/product/bagShoesList"><span>Bag/Shoes</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Acc</span></a>
+						<a href="${pageContext.request.contextPath}/product/accList"><span>Acc</span></a>
 					</li>
 					<li>
 						<a href="#"><span>Sale</span></a>
