@@ -41,6 +41,10 @@ public class ProductService {
 		return productMapper.getAccList(productVO);
 	}
 	
+	public List<ProductVO> getBagShoesList(ProductVO productVO) throws Exception{
+		
+		return productMapper.getBagShoesList(productVO);
+	}
 	
 
 }

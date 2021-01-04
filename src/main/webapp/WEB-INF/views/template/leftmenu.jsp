@@ -57,7 +57,7 @@
 						<a href="${pageContext.request.contextPath}/product/suitList"><span>Suit</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Bag/Shoes</span></a>
+						<a href="${pageContext.request.contextPath}/product/bagShoesList"><span>Bag/Shoes</span></a>
 					</li>
 					<li>
 						<a href="${pageContext.request.contextPath}/product/accList"><span>Acc</span></a>

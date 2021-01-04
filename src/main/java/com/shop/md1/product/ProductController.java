@@ -102,6 +102,22 @@ public class ProductController {
 		
 	}
 	
+	@GetMapping("bagShoesList")
+	public ModelAndView getBagShoesList(ProductVO productVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		List<ProductVO> ar = productservice.getBagShoesList(productVO);
+		mv.addObject("list", ar);
+		mv.addObject("product", "Bag & Shoes");		
+		mv.addObject("product2", "bagShoes");
+		mv.setViewName("product/productList");
+		
+		
+		return mv;
+		
+	}
+	
+	
 	
 
 

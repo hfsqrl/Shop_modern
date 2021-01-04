@@ -32,7 +32,7 @@
 							
 							<li>
 								<span>></span>
-								<a href="./${product2}List">${product2}</a>
+								<a href="./${product2}List">${product}</a>
 							</li>
 						</ol>
 					</div>
@@ -57,7 +57,7 @@
 												<p class="icon_best">
 													<img src="../images/product/best_ico.gif">
 												</p>											
-												<hr style="width: 330px;">
+												<hr style="width: 170%;">
 											</li>
 											
 											<li class="price" style="display: block;">												
