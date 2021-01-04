@@ -42,7 +42,7 @@
 					</li>
 					<li>  </li>
 					<li>
-						<a href="#"><span>Outer</span></a>
+						<a href="${pageContext.request.contextPath}/product/outerList"><span>Outer</span></a>
 					</li>
 					<li>
 						<a href="#"><span>Top</span></a>
