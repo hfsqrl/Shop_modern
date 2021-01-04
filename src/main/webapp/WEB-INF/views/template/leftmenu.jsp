@@ -45,22 +45,22 @@
 						<a href="${pageContext.request.contextPath}/product/outerList"><span>Outer</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Top</span></a>
+						<a href="${pageContext.request.contextPath}/product/topList"><span>Top</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Shirts</span></a>
+						<a href="${pageContext.request.contextPath}/product/shirtsList"><span>Shirts</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Pants</span></a>
+						<a href="${pageContext.request.contextPath}/product/pantsList"><span>Pants</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Suit</span></a>
+						<a href="${pageContext.request.contextPath}/product/suitList"><span>Suit</span></a>
 					</li>
 					<li>
 						<a href="#"><span>Bag/Shoes</span></a>
 					</li>
 					<li>
-						<a href="#"><span>Acc</span></a>
+						<a href="${pageContext.request.contextPath}/product/accList"><span>Acc</span></a>
 					</li>
 					<li>
 						<a href="#"><span>Sale</span></a>

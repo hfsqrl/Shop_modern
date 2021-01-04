@@ -5,10 +5,29 @@
     
    	<mapper namespace="com.shop.md1.product.ProductMapper">
    		
-   		<select id="getProductList" parameterType="ProductVO" resultType="ProductVO">
-   			select * from item
+   		<select id="getOuterList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Outer'
    		</select>
    		
+   		<select id="getTopList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Top'
+   		</select>
+   		  		
+   		<select id="getShirtsList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Shirts'
+   		</select>
+   		
+   		 <select id="getPantsList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Pants'
+   		</select>
+   		
+   		<select id="getSuitList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Suit'
+   		</select>
+   		
+   	  	<select id="getAccList" parameterType="ProductVO" resultType="ProductVO">
+   			select * from item where item_category = 'Acc'
+   		</select>
     	
     
     </mapper>

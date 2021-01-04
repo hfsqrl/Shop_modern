@@ -32,7 +32,7 @@
 							
 							<li>
 								<span>></span>
-								<a href="./${product}List">${product}</a>
+								<a href="./${product2}List">${product2}</a>
 							</li>
 						</ol>
 					</div>
@@ -52,13 +52,12 @@
 									
 									<div class="description">
 										<ul>
-											<li class="name" style="width: 150px;">
+											<li class="name" style="width: 200px;">
 												<h5><a href="#">${dto.item_name}</a></h5>												
 												<p class="icon_best">
 													<img src="../images/product/best_ico.gif">
-												</p>
-												<br>
-												<hr style="width: 300px;">
+												</p>											
+												<hr style="width: 330px;">
 											</li>
 											
 											<li class="price" style="display: block;">												

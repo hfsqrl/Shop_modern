@@ -11,9 +11,36 @@ public class ProductService {
 	@Autowired
 	private ProductMapper productMapper;
 	
-	public List<ProductVO> getProductList(ProductVO productVO) throws Exception{
+	public List<ProductVO> getOuterctList(ProductVO productVO) throws Exception{
 		
-		return productMapper.getProductList(productVO);
+		return productMapper.getOuterList(productVO);
 	}
+	
+	public List<ProductVO> getTopList(ProductVO productVO) throws Exception{
+		
+		return productMapper.getTopList(productVO);
+	}
+	
+	public List<ProductVO> getShirtsList(ProductVO productVO) throws Exception{
+		
+		return productMapper.getShirtsList(productVO);
+	}
+	
+	public List<ProductVO> getPantsList(ProductVO productVO) throws Exception{
+		
+		return productMapper.getPantsList(productVO);
+	}
+	
+	public List<ProductVO> getSuitList(ProductVO productVO) throws Exception{
+		
+		return productMapper.getSuitList(productVO);
+	}
+	
+	public List<ProductVO> getAccList(ProductVO productVO) throws Exception{
+		
+		return productMapper.getAccList(productVO);
+	}
+	
+	
 
 }
