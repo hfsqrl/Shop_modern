@@ -20,4 +20,6 @@ public interface ProductMapper {
 	public List<ProductVO> getAccList(ProductVO productVO) throws Exception;
 	
 	public List<ProductVO> getBagShoesList(ProductVO productVO) throws Exception;
+	
+	public ProductVO getOneOuter(ProductVO productVO) throws Exception;
 }

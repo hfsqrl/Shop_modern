@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+.contents{
+	padding-top: 50px;
+}
+
+.product_detail {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0;
+    
+}
+
+.imgArea {
+    position: relative;
+    width: 40%;
+    float: left;
+}
+
+.thumbnail {
+    position: relative;
+    max-width: 100%;
+    text-align: left;
+    border: 0;
+}
+
+.thmubs {
+    width: 100%;
+    
+}
+
+img {
+    
+    vertical-align: top;
+}
+
+.detailArea {
+    position: relative;
+    width: 54%;
+    float: right;
+}
+
+.product_info {
+    padding-bottom: 30px;
+    text-align: left;
+}
+
+.name {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 16px;
+    line-height: 20px;
+    height: 20px;
+    font-weight: bold;
+    padding-bottom: 50px;
+}
+ 
+.tabs {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.tab_wrap .tabs li {
+    position: relative;
+    display: block;
+    float: left;
+    width: 30%;
+    
+}
+
+html ul.tabs li.active a, html ul.tabs li.active a:hover {
+    background: #000;
+    color: #fff;
+}
+
+.tab_wrap .tabs li:last-child a {
+    border-right: 1px solid #000;
+}
+
+.tab_wrap .tabs li a {
+    display: block;
+    border: 1px solid #000;
+    line-height: 35px;
+    color: #000;
+    text-align: center;    
+    
+}
+
+.tab_inner * {
+    font-size: 12px;
+    line-height: 22px;
+    color: #000;
+}
+
+.tab_container #tab1 table td {
+    padding: 8px 0;
+}
+
+.infoArea td {
+    vertical-align: middle;
+}
+

@@ -45,7 +45,7 @@
 								<c:forEach items="${list}" var="dto">
 								<li>
 									<div class="thumbnail">
-										<a href="#">
+										<a href="./getOneProduct?item_num=${dto.item_num}">
 											<img src="../images/product/${dto.item_image}">
 										</a>
 									</div>
@@ -53,7 +53,7 @@
 									<div class="description">
 										<ul>
 											<li class="name" style="width: 200px;">
-												<h5><a href="#">${dto.item_name}</a></h5>												
+												<h5><a href="./getOneProduct?item_num=${dto.item_num}">${dto.item_name}</a></h5>												
 												<p class="icon_best">
 													<img src="../images/product/best_ico.gif">
 												</p>											
