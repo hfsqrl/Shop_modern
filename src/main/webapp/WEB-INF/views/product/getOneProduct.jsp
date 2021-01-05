@@ -60,7 +60,7 @@
 														<table style="width:90%; border: currentColor; border-image: none; text-align: center; border-collapse: collapse; table-layout: fixed;" class="table table-hover">
 															<tbody>
 																<tr>
-																	<td style="border-bottom-color: rgb(0, 0, 0); border-bottom-width: 1px; border-bottom-style: solid;"></td>
+																	<td style=" border-bottom-color: rgb(0, 0, 0); border-bottom-width: 1px; border-bottom-style: solid;"></td>
 																	<td style="border-bottom-color: rgb(0, 0, 0); border-bottom-width: 1px; border-bottom-style: solid;">
 																		<span style="font-weight: bold;">어깨</span>
 																	</td>
@@ -152,7 +152,98 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 												
 											</div>
 										</div>
-									
+										<!-- 탭 종료 -->
+										
+										<!-- 상세 정보 내역 -->
+										<div>
+											<div style="margin:15px 0;"></div>
+											<div style="margin:15px 0;"></div>
+											<table class="prd_option" style="border: 0; width: 90%; border-bottom: black 1px solid;">
+												<caption>상품 옵션</caption>
+												<tbody></tbody>
+												<tbody>
+													<tr class="product_option">
+														<th style="width: 20%">size</th>
+														<td>
+															<select style="width: 100%; height: 26px;" id="selSize">
+																<option value=""></option>
+																<option value="M">M</option>
+																<option value="L">L</option>
+															</select>
+														</td>
+														
+													
+													</tr>
+												</tbody>
+												
+												<tbody>
+													<tr class="product_option">
+														<th style="width: 20%">color</th>
+														<td style="padding-top: 10px;">
+															<select style="width: 100%; height: 26px;" id="selColor">
+																<option value=""></option>
+																<option value="Black">Black</option>
+																<option value="Gray">Gray</option>
+															</select>
+														</td>
+														
+													
+													</tr>
+												</tbody>
+												
+												<tbody>
+													<tr class="product_option">
+														<th style="width: 20%">적립금</th>
+														<td style="padding-top: 10px; padding-bottom: 10px;">${dto.item_reserve} (1%)</td>													
+													</tr>
+												</tbody>
+												
+											</table>																							
+										</div>
+										<!-- 상세 정보 내역 끝-->	
+										<div class="totalProducts" style="display: none;">
+											<table style="width: 90%; border-bottom: black 1px solid;">
+												<tr>
+													<td style="padding-top: 12px; padding-bottom: 12px;">
+														<p class="product">
+															${dto.item_name}
+															<br>
+															-
+															<span class="color_choose"></span>
+														</p>
+													</td>
+													
+													<td>
+														<input type="number" style="width: 30%">
+													</td>
+													
+													<td>
+														<span>KRW ${dto.item_price}</span>
+														<br>
+														<span>(${dto.item_reserve}원)</span>
+													</td>
+												</tr>
+											</table>
+										
+										</div>
+										
+										<div class="totalPrice">
+											총 합계 금액
+											<span style="font-size: 12px;">(수량)</span>
+											:
+											<b class="total">
+												<strong>
+													<em>KRW </em>
+													
+												</strong>
+												(1개)
+											</b>
+										</div>
+										
+										<div class="product_action">
+											<a></a>
+											<a></a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -169,8 +260,8 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 <script type="text/javascript">
 
 	$("#act1").click(function(){
-		$(".act2").removeClass("active")
-		$(".act3").removeClass("active")
+		$(".act2").removeClass("active");
+		$(".act3").removeClass("active");
 		$("#act1").addClass("active");
 		$("#tab2").hide();
 		$("#tab3").hide();
@@ -178,8 +269,8 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 	});
 
 	$(".act2").click(function(){
-		$("#act1").removeClass("active")
-		$(".act3").removeClass("active")
+		$("#act1").removeClass("active");
+		$(".act3").removeClass("active");
 		$(".act2").addClass("active");
 		$("#tab1").hide();
 		$("#tab3").hide();
@@ -187,12 +278,22 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 	});
 
 	$(".act3").click(function(){
-		$("#act1").removeClass("active")
-		$(".act2").removeClass("active")
+		$("#act1").removeClass("active");
+		$(".act2").removeClass("active");
 		$(".act3").addClass("active");
 		$("#tab1").hide();
 		$("#tab2").hide();
 		$("#tab3").fadeIn();
+	});
+
+	$("#selColor").click(function(){
+		var size = $("#selSize").val();
+		var color = $("#selColor").val();
+
+		if(size != '' & color !=''){
+			$(".color_choose").html("<span>"+size+"/"+color+"</span>");
+			$(".totalProducts").fadeIn();
+		}
 	});
 
 	
