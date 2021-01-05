@@ -2,9 +2,12 @@ package com.shop.md1.board.notice;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.md1.board.BoardService;
 import com.shop.md1.board.BoardVO;
@@ -28,7 +31,7 @@ public class NoticeService implements BoardService {
 	}
 	
 	@Override
-	public int setInsert(BoardVO boardVO) throws Exception {
+	public int setInsert(BoardVO boardVO, MultipartFile [] files, HttpSession session) throws Exception {
 		
 		int result = noticeMapper.setInsert(boardVO);
 		

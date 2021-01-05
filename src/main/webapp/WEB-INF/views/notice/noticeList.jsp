@@ -60,12 +60,12 @@
 							<div class="search-box">
 								<input type="text" class="text" id="search" name="search">
 								<a href="#" class="search-btn">SEARCH</a>
-								<c:if test="${member.member_id eq 'admin'}">
-									<div class="write-btn" id="btn-write">
-										Write
-									</div>
-								</c:if>				
 							</div>
+							<c:if test="${member.member_id eq 'admin'}">
+								<div class="write-btn" id="btn-write">
+									Write
+								</div>
+							</c:if>				
 						</div>
 					</form>
 					<div class="page">

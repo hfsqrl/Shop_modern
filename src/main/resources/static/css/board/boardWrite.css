@@ -106,6 +106,9 @@ table tbody .files-last-tr {
 	width: 82px;
 	height: 30px;
 	font-size: 12px;
+	text-decoration: none;
+    text-decoration-color: black;
+    color: black;
 }
 
 .go-btns .go-list {
@@ -116,6 +119,21 @@ table tbody .files-last-tr {
 	float: right;
 }
 
+.title-category {
+	font-size: 12px;
+}
+
+.title-lab {
+	float: left;
+	padding-right: 15px;
+	font-weight: 400;
+	line-height: 2.8;
+}
+
+.sel-cate {
+	width: 390px;
+	font-size: 12px;
+}
 
 
 

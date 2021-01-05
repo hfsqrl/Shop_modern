@@ -22,6 +22,9 @@
 			
 				<div class="select-box">
 					<div class="select-wrap">
+						<form action="" id="frm">
+							<input type="hidden" value="${vo.board_num}" name="board_num">
+						</form>
 						<div class="board-top">
 							<ul>
 								<li class="sel-title">${vo.board_title}</li>
@@ -34,13 +37,13 @@
 							</div>
 						</div>
 						<div class="re-list">
-							<div class="btn" id="golist">
+							<div class="btn" id="golist" title="list">
 								list
 							</div>
-							<div class="btn" id="goDelete">
+							<div class="btn" id="goDelete" title="delete">
 								delete
 							</div>
-							<div class="btn" id="goModify">
+							<div class="btn" id="goModify" title="modify">
 								modify
 							</div>
 						</div>
@@ -64,6 +67,22 @@
 
 	$("#golist").click(function(){
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
+	})
+	
+	#(".btn").click(function(){
+		var board = '${board}'
+		var go = $(this).attr("title")
+
+		$("#frm").attr("action", board+go)
+
+		if(go=='delete') {
+			$("#frm").attr("method", "post")
+		}
+
+		
+
+		$("#frm").submit()
+		
 	})
 
 </script>

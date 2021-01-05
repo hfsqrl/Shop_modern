@@ -27,15 +27,39 @@
 					<div class="write-head">
 						<p class="title">Q&A</p>
 					</div>
-					<div class="write-contents">
-						<textarea id="summernote" class="contents-area"></textarea>
-						<c:import url="./boardWriteAddFiles.jsp"></c:import>
-						<div class="go-btns">
-							<div class="btn go-list">LIST</div>
-							<div class="btn go-write">WRITE</div>
+					<form action="./${board}Write" method="post" enctype="multipart/form-data">
+						<div class="title-box">
+							<div class="form-group title-category">
+								<label for="sel1" class="title-lab">문의 선택</label>
+								<select class="form-control sel-cate" id="sel1" name="board_title">
+									<option>상품 문의</option>
+									<option>배송 문의</option>
+									<option>교환 문의</option>
+									<option>반품 문의</option>
+									<option>무통장 입금 문의</option>
+									<option>배송전 취소/변경 문의</option>
+									<option>해외배송 문의 / Shipping Q&A</option>
+								</select>
+							</div>
 						</div>
-					</div>
-					
+						<div class="form-group writer-box">
+							<input type="hidden" class="form-control writer" id="writer" name="board_writer" value="${vo.board_writer}">
+						</div>					
+						<%-- <c:if test="${empty member}">
+							<div class="form-group writer-box">
+								<label for="writer">작성자</label>
+								<input type="hidden" class="form-control writer" id="writer" name="board_writer" value="${vo.board_writer}">
+							</div>
+						</c:if> --%>
+						<div class="write-contents">
+							<textarea id="summernote" class="contents-area" name="board_contents"></textarea>
+							<c:import url="./boardWriteAddFiles.jsp"></c:import>
+							<div class="go-btns">
+								<div class="btn go-list">LIST</div>
+								<div class="go-write"><button type="submit" class="btn btn-link" id="btn">WRITE</button></div>
+							</div>
+						</div>
+					</form>
 				</div>
 			
 			</div> <!-- contents -->
@@ -48,8 +72,24 @@
 
 	$("#summernote").summernote({
 		height: 500,
-		lang: 'ko-KR'
+		lang: 'ko-KR',
+		placeholder: '내용을 작성하세요.',
+		focus: true
 	});
+
+	$(".go-list").click(function() {
+		location.href="${pageContext.request.contextPath}/${board}/${board}List"
+	})
+
+	$("#btn").click(function(){
+		var contents = $(".contents-area").val()
+		if(contents.trim() == '') {
+			alert("내용을 입력해주세요.")
+		}
+
+		var summer = $(".contents-area").summernote('code')
+		alert(summer)
+	})
 
 </script>
 

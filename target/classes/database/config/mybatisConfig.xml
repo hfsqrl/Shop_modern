@@ -15,6 +15,7 @@
 		<typeAlias type="com.shop.md1.board.BoardVO" alias="BoardVO"/>
 		<typeAlias type="com.shop.md1.board.notice.NoticeVO" alias="NoticeVO"/>
 		<typeAlias type="com.shop.md1.board.qna.QnaVO" alias="QnaVO"/>
+		<typeAlias type="com.shop.md1.board.review.ReviewVO" alias="ReviewVO"/>
 		
 		<typeAlias type="com.shop.md1.product.ProductVO" alias="ProductVO"/>
 		

@@ -22,7 +22,7 @@
 				<div class="board_shape">
 					<div class="board_name">
 						<p class="name_text">
-							Q&A
+							review
 						</p>
 					</div>
 					<div class="board_body">
@@ -33,7 +33,6 @@
 									<th style="width: 13%;">product</th>
 									<th style="width: auto;">title</th>
 									<th style="width: 14%;">posted by</th>
-									<th style="width: 12%;">date</th>
 								</tr>
 							</thead>
 							<tbody class="table-list">
@@ -43,7 +42,6 @@
 										<td></td>
 										<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title}</td>
 										<td>${vo.board_writer}</td>
-										<td>${vo.regDate}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

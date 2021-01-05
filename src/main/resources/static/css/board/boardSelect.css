@@ -69,10 +69,17 @@
 
 .contents .select-wrap .re-list .btn {
 	float: right;
-    border: 1px solid #a5a5a5;
-    width: 80px;
+    border: 1px solid #000;
+    width: 82px;
     border-radius: initial;
     cursor: pointer;
+    height: 30px;
+    line-height: 1.2;
+    font-size: 12px;
+}
+
+#goDelete {
+	margin: 0 4px;
 }
 
 
