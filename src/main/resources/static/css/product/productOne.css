@@ -115,3 +115,28 @@ html ul.tabs li.active a, html ul.tabs li.active a:hover {
 .totalPrice b {
     font-weight: 500;
 }
+
+.buyBtn {
+    background: #000;
+    color: #fff;
+    width: 61%;
+}
+
+.cartBtn {
+    width: 29%;
+}
+
+.product_action a {
+    display: block;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 13px;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+}
+
+a {
+	text-decoration: none;
+}
