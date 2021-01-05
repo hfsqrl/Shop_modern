@@ -29,7 +29,7 @@
 					</li>
 					<li class="membership_li">
 						<a href="${pageContext.request.contextPath}/notice/noticeList"><span>NOTICE</span></a>
-						<a href="#"><span>Q&A</span></a>
+						<a href="${pageContext.request.contextPath}/qna/qnaList"><span>Q&A</span></a>
 						<a href="#"><span>REVIEW</span></a>
 					</li>
 				</ul>
