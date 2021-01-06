@@ -24,6 +24,7 @@
 					<div class="select-wrap">
 						<form action="" id="frm">
 							<input type="hidden" value="${vo.board_num}" name="board_num">
+							<h3>${board} num : ${vo.board_num}</h3>
 						</form>
 						<div class="board-top">
 							<ul>
@@ -37,24 +38,19 @@
 							</div>
 						</div>
 						<div class="re-list">
-							<div class="btn" id="golist" title="list">
+							<div class="btn" id="go-list" title="list">
 								list
 							</div>
-							<div class="btn" id="goDelete" title="delete">
-								delete
-							</div>
-							<div class="btn" id="goModify" title="modify">
-								modify
-							</div>
+							<c:if test="${member.member_id eq vo.board_writer}">
+								<div class="btn" id="go-delete" title="delete">
+									delete
+								</div>
+								<div class="btn" id="go-modify" title="Modify">
+									modify
+								</div>
+							</c:if>
 						</div>
 					</div>
-					<!-- <div class="reply-box">
-						<div class="comment-box">
-						
-						</div>
-						<div>
-						</div>
-					</div> -->
 				</div>
 			
 			</div> <!-- contents -->
@@ -65,26 +61,24 @@
 
 <script type="text/javascript">
 
-	$("#golist").click(function(){
+	$("#go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
 	})
 	
-	#(".btn").click(function(){
-		var board = '${board}'
-		var go = $(this).attr("title")
+	var board = '${board}'
+	var go = $(this).attr("title")
 
-		$("#frm").attr("action", board+go)
-
-		if(go=='delete') {
-			$("#frm").attr("method", "post")
-		}
-
-		
-
+	$("#frm").attr("action", board+go)
+	
+	$("#go-delete").click(function() {
+		$("#frm").attr("method", "post")
 		$("#frm").submit()
-		
 	})
-
+	
+	$("#go-modify").click(function() {
+		location.href="./${board}Modify?board_num=${vo.board_num}"
+	})
+	
 </script>
 
 </body>

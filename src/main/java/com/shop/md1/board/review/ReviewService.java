@@ -42,4 +42,10 @@ public class ReviewService implements BoardService {
 		return reviewMapper.getOne(boardVO);
 	}
 
+	@Override
+	public int setUpdate(BoardVO boardVO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

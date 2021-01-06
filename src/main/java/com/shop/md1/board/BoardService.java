@@ -15,5 +15,7 @@ public interface BoardService {
 	public int setInsert(BoardVO boardVO, MultipartFile [] files, HttpSession session) throws Exception;
 	
 	public BoardVO getOne(BoardVO boardVO) throws Exception;
+	
+	public int setUpdate(BoardVO boardVO) throws Exception;
 
 }

@@ -13,5 +13,7 @@ public interface BoardMapper {
 	public int setInsert(BoardVO boardVO) throws Exception;
 	
 	public BoardVO getOne(BoardVO boardVO) throws Exception;
+	
+	public int setUpdate(BoardVO boardVO) throws Exception;
 
 }

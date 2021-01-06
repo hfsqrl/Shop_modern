@@ -44,4 +44,10 @@ public class NoticeService implements BoardService {
 		return noticeMapper.getOne(boardVO);
 	}
 
+	@Override
+	public int setUpdate(BoardVO boardVO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

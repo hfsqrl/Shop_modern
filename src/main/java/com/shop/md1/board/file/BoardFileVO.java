@@ -1,4 +1,4 @@
-package com.shop.md1.board;
+package com.shop.md1.board.file;
 
 import lombok.Data;
 

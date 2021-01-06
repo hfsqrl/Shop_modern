@@ -21,6 +21,12 @@ public class QnaService implements BoardService {
 	private QnaMapper qnaMapper;
 	
 	@Override
+	public int setUpdate(BoardVO boardVO) throws Exception {
+		int result = qnaMapper.setUpdate(boardVO);
+		return result;
+	}
+	
+	@Override
 	public List<BoardVO> getList(Pager pager) throws Exception {
 		pager.makeRow();
 		
