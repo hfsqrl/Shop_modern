@@ -214,13 +214,25 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 													</td>
 													
 													<td>
-														<input type="number" style="width: 30%">
+														<div class="ea-box">
+															<input type="text" class="ea-num" style="width: 30%" value=1 id="prdCount" readonly="true">
+															<a href="#none" class="ea-up">
+																<img src="../images/icon/btn_count_up.gif">
+															</a>
+															<!-- <br> -->
+															<a href="#none" class="ea-down">
+																<img src="../images/icon/btn_count_down.gif">
+															</a>
+														</div>
 													</td>
 													
 													<td>
-														<span>KRW ${dto.item_price}</span>
+														
+														KRW <input type="text" value=89000 id="prdPrice" style="border: none; width: 60px;" readonly="true">원												
 														<br>
-														<span>(${dto.item_reserve}원)</span>
+														
+														<input type="text" value=900 id="prdReserve" style="border: none; width: 30px;" readonly="true">원
+														
 													</td>
 												</tr>
 											</table>
@@ -253,25 +265,212 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 								<div class="prdDetail">
 									<div class="tab">
 										<ul>
-											<li>
-												<a href="#">디테일</a>
+											<li id="sel1">
+												<a>디테일</a>
 											</li>
-											<li>
-												<a href="#">배송 및 교환 안내</a>
+											<li id="sel2">
+												<a>배송 및 교환 안내</a>
 											</li>
-											<li>
-												<a href="#">구매 후기</a>	
+											<li id="sel3">
+												<a>구매 후기</a>	
 											</li>
-											<li>
-												<a href="">상품 문의</a>
+											<li id="sel4">
+												<a>상품 문의</a>
 											</li>
 										</ul>
 									
 									</div>
 									<div class="cont">
-										<img src="../images/product/${dto.item_image}">
+										<img src="../images/product_cont/${dto.item_contents_image}">
 										<br>
-										<img src="../images/product/${dto.item_image}">									
+										<img src="../images/product_cont/${dto.item_contents_image2}">									
+									</div>
+									
+									<div class="guide_inner">
+										<ul>
+											<li class="title">배송안내</li>
+											<li class="inner">
+												<p>	
+													<span style="font-family: 돋움,dotum;">
+														<font face="Gulim">
+															<strong>
+																<span style="font-family: 돋움,dotum;">배송안내</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	7만원 이상 구매 시 무료배송, 7만원 미만의 경우 2,500원의 배송비가 추가됩니다.
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	(제주도 : 7만원 이상 구매 시 배송비 2,500원 할인되며, 7만원 미만의 경우 6,000원입니다)
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	CJ 택배로 발송되며, CJ택배로 발송시 배송기간은 2-3일(주말, 공휴일 제외) 소요될 수 있습니다.
+																</span>
+																
+															</strong>
+														</font>															
+													</span>
+												</p>
+												<br>
+												<br>
+												<p>	
+													<span style="font-family: 돋움,dotum;">
+														<font face="Gulim">
+															<strong>
+																<span style="font-family: 돋움,dotum;">택배발송</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 평일 PM 19:00 까지 결제 완료된 주문건에 한하여 거래처에 입고요청되어 입고 완료시 정상 발송됩니다.
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 택배발송 업무시간은 평일 PM 18:00 마감됩니다.
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 주문 후 평균적으로 2~3일정도 상품 입고기간이 소요됩니다.
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 택배 발송 시 알림톡을 통해 운송장번호가 발송됩니다. (알림톡 미발송시 문자발송)
+																</span>
+																
+															</strong>
+														</font>															
+													</span>
+												</p>
+										
+											</li>
+										</ul>
+										
+										<ul>
+											<li class="title">교환 및 반품안내</li>
+											<li class="inner">												
+												<p>	
+													<span style="font-family: 돋움,dotum;">
+														<font face="Gulim">
+															<strong>
+																<span style="font-family: 돋움,dotum;">교환 및 반품주소</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 경기도 수원시 팔달구 인계동 1031-2 성지빌딩 701호 모던이프
+																</span>																
+															</strong>
+														</font>															
+													</span>
+												</p>
+												<br>
+												<br>
+												<p>	
+													<span style="font-family: 돋움,dotum;">
+														<font face="Gulim">
+															<strong>
+																<span style="font-family: 돋움,dotum;">교환 및 반품안내</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 상품 수령 후 7일 이내 모던이프 Q&A 또는 고객센터(1522-4953) 로 접수
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 타택배(편의점, 우체국, 로젠 등) 이용 시 선불로 발송
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 모던이프와 계약된 CJ택배가 아닌 타택배(편의점, 우체국, 로젠 등) 로
+																	발송된 상품이 분실된 경우 책임을 지지 않습니다
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 택배 발송 시 알림톡을 통해 운송장번호가 발송됩니다. (알림톡 미발송시 문자발송)
+																</span>
+																
+															</strong>
+														</font>															
+													</span>
+												</p>
+												<br>
+												<br>
+												<p>	
+													<span style="font-family: 돋움,dotum;">
+														<font face="Gulim">
+															<strong>
+																<span style="font-family: 돋움,dotum;">불량사유에 포함되지 않는 항목</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 배송시 발생한 상품의 구김
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 재봉실밥 일부 정리가 안된 경우
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 단추가 다소 허술하게 마감된 경우
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 원단 특유의 냄새
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 원단 자체의 잡실이나 스크래치 / 패턴위치차이 / 빈티지함을 위한 디테일 차이
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 사이즈 측정방법에 따라 표기된 사이즈 오차범위 (±1~2cm)
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 모니터 해상도의 미세한 차이로 인한 색상&이미지 차이
+																</span>
+																<br>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	사소한 부분들은 불량사유가 될 수 없는 부분 안내드리겠습니다.
+																</span>
+																
+																
+															</strong>
+														</font>															
+													</span>
+												</p>
+										
+											</li>
+										</ul>
+										
+										<ul>
+											<li class="title">적립금 및 포인트 안내</li>
+											<li class="inner">												
+												<p>	
+													<span style="font-family: 돋움,dotum;">
+														<font face="Gulim">
+															<strong>
+																<span style="font-family: 돋움,dotum;">교환 및 반품주소</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 상품 수령후 2주안에 작성된 후기에 한하여 적립금이 지급됩니다.
+																</span>
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 3줄 이상의 후기 작성시 500 POINT
+																</span>	
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 단순 상품(옷만) 포토후기 작성시 1,000 POINT
+																</span>	
+																<br>
+																<span style="font-family: 돋움,dotum; font-weight: 400;">
+																	- 상품 착용(착용컷) 포토후기 작성시 2,000 POINT 
+																</span>																	
+															</strong>
+														</font>															
+													</span>
+												</p>
+												<br>
+												<br>
+											</li>
+										</ul>
 									</div>
 								</div> <!-- product detail-->
 							</div>
@@ -324,6 +523,73 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 			$(".color_choose").html("<span>"+size+"/"+color+"</span>");
 			$(".totalProducts").fadeIn();
 		}
+	});
+
+	$("#sel1").click(function(){
+		$("#sel2").removeClass("selected");
+		$("#sel3").removeClass("selected");
+		$("#sel4").removeClass("selected");
+		$("#sel1").addClass("selected");
+		$(".guide_inner").hide();
+		$(".cont").fadeIn();
+		
+	});
+
+	$("#sel2").click(function(){
+		$("#sel1").removeClass("selected");
+		$("#sel3").removeClass("selected");
+		$("#sel4").removeClass("selected");
+		$("#sel2").addClass("selected");
+		$(".cont").hide();
+		$(".guide_inner").fadeIn();
+	});
+
+	$("#sel3").click(function(){
+		$("#sel1").removeClass("selected");
+		$("#sel2").removeClass("selected");
+		$("#sel4").removeClass("selected");
+		$("#sel3").addClass("selected");
+		$(".cont").hide();
+		$(".guide_inner").hide();
+	});
+
+	$("#sel4").click(function(){
+		$("#sel1").removeClass("selected");
+		$("#sel2").removeClass("selected");
+		$("#sel3").removeClass("selected");
+		$("#sel4").addClass("selected");
+		$(".cont").hide();
+		$(".guide_inner").hide();
+	});
+
+	$(".ea-up").click(function(){
+		var count = $("#prdCount").val();
+		var price = $("#prdPrice").val();
+		var reserve = $("#prdReserve").val();
+
+		count++;
+		$("#prdCount").val(count);
+		$("#prdPrice").val(price*count);
+		$("#prdReserve").val(reserve*count);
+
+							
+		
+	});
+
+	$(".ea-down").click(function(){
+		var count = $("#prdCount").val();
+		var price = $("#prdPrice").val();
+		var reserve = $("#prdReserve").val();
+
+		var won = count*price;
+		
+		count--;
+		$("#prdCount").val(count);
+
+		var minus = won-price;
+
+		$("#prdPrice").val(minus);
+	
 	});
 
 	
