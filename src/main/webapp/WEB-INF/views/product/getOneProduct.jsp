@@ -17,9 +17,9 @@
 	
 	<div class="main_right"> <!-- container_wrap -->
 		<c:import url="../template/header.jsp"></c:import>
-		<div class="container">
-			<div class="contents">
-				<div class="detail_wrap">
+		<div class="container con-prd">
+			<div class="contents cont-prd">
+				<div class="detail_wrap detail-prd">
 					<div class="product_detail">
 						<!-- 이미지 -->
 						<div class="imgArea">
@@ -247,15 +247,45 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 									</div>
 								</div>
 							</div>
+							<!-- detail area 끝 -->
+							
+							<div class="detail_additional">
+								<div class="prdDetail">
+									<div class="tab">
+										<ul>
+											<li>
+												<a href="#">디테일</a>
+											</li>
+											<li>
+												<a href="#">배송 및 교환 안내</a>
+											</li>
+											<li>
+												<a href="#">구매 후기</a>	
+											</li>
+											<li>
+												<a href="">상품 문의</a>
+											</li>
+										</ul>
+									
+									</div>
+									<div class="cont">
+										<img src="../images/product/${dto.item_image}">
+										<br>
+										<img src="../images/product/${dto.item_image}">									
+									</div>
+								</div> <!-- product detail-->
+							</div>
 						</div>
-					</div>
 				</div>
-				
-			
+				<!-- detail wrap 끝 -->
 			</div> <!-- contents -->
+				
 			<c:import url="../template/footer.jsp"></c:import>
-		</div> <!-- container -->
-	</div> <!-- main_right -->
+			
+			</div> <!-- container -->
+		</div> <!-- main_right -->
+		
+	</div> <!-- wrap -->
 
 <script type="text/javascript">
 
