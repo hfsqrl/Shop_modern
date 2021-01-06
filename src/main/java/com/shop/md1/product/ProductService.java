@@ -46,5 +46,10 @@ public class ProductService {
 		return productMapper.getBagShoesList(productVO);
 	}
 	
+	public ProductVO getOneOuter(ProductVO productVO) throws Exception{
+		
+		return productMapper.getOneOuter(productVO);
+	}
+	
 
 }

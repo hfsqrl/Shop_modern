@@ -117,6 +117,19 @@ public class ProductController {
 		
 	}
 	
+	@GetMapping("getOneProduct")
+	public ModelAndView getOneOuter(ProductVO productVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		productVO = productservice.getOneOuter(productVO);
+		
+		mv.addObject("dto", productVO);
+		mv.setViewName("product/getOneProduct");
+		
+		return mv;
+		
+	}
+	
 	
 	
 

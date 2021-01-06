@@ -13,4 +13,6 @@ public class ProductVO {
 	private String item_color;
 	private long item_reserve;
 	private String item_image;
+	private String item_contents_image;
+	private String item_contents_image2;
 }
