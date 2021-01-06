@@ -1,4 +1,4 @@
-package com.shop.md1.board.qna;
+package com.shop.md1.board.review;
 
 import java.util.List;
 
@@ -15,32 +15,31 @@ import com.shop.md1.util.Pager;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class QnaService implements BoardService {
+public class ReviewService implements BoardService {
 	
 	@Autowired
-	private QnaMapper qnaMapper;
+	private ReviewMapper reviewMapper;
 	
 	@Override
 	public List<BoardVO> getList(Pager pager) throws Exception {
 		pager.makeRow();
 		
-		long totalCount = qnaMapper.getCount(pager);
+		long totalCount = reviewMapper.getCount(pager);
 		pager.makePage(totalCount);
 		
-		return qnaMapper.getList(pager);
+		return reviewMapper.getList(pager);
 	}
 	
 	@Override
-	public int setInsert(BoardVO boardVO, MultipartFile[] files, HttpSession session) throws Exception {
-		int result = qnaMapper.setInsert(boardVO);
-		
+	public int setInsert(BoardVO boardVO, MultipartFile [] files, HttpSession session) throws Exception {
+		int result = reviewMapper.setInsert(boardVO);
 		return result;
 	}
 	
 	@Override
 	public BoardVO getOne(BoardVO boardVO) throws Exception {
 
-		return qnaMapper.getOne(boardVO);
+		return reviewMapper.getOne(boardVO);
 	}
 
 }

@@ -21,8 +21,10 @@
 					</c:if>
 					<span class="line" style="vertical-align: middle;"> </span>
 					<li style="float: right;">
-						 <div class="dropdown" style="float: left;">
-						 	<img class="dropbtn" alt="" src="../images/index/lang.png">  						
+						 <div class="dropdown"><!-- style="float: left;" -->
+						 	<div class="dropbtn">
+						 		<img alt="" src="../images/index/lang.png"> 
+						 	</div> 						
 	  						<div class="dropdown-content">
 	    						<a href="/?lang=ko">KOR</a>
 	    						<a href="/?lang=en">ENG</a>
@@ -35,3 +37,4 @@
 		</div> <!-- rightNav -->
 	</div> <!-- right -->
 </div> <!-- header -->
+

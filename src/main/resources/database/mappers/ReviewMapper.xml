@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.shop.md1.board.qna.QnaMapper">
+<mapper namespace="com.shop.md1.board.review.ReviewMapper">
 	<sql id="getSearch">
 		<choose>
 			<when test="kind == 'board_title'">
@@ -19,21 +19,17 @@
 		like concat('%', #{search}, '%') and board_num>0 
 	</sql>
 	
-	<delete id="setDelete" parameterType="QnaVO">
-		delete qna where board_num = #{board_num}
-	</delete>
-	
-	<select id="getOne" parameterType="QnaVO" resultType="QnaVO">
-		select * from qna where board_num = #{board_num}
+	<select id="getOne" parameterType="ReviewVO" resultType="ReviewVO">
+		select * from reivew where board_num = #{board_num}
 	</select>
 	
-	<insert id="setInsert" parameterType="QnaVO">
-		insert into qna (board_title, board_writer, board_contents, regDate, ref, step, depth, item_num) 
-		values (#{board_title}, #{board_writer}, #{board_contents}, sysdate(), 0, 0, 0, 1)
+	<insert id="setInsert" parameterType="ReviewVO">
+		insert into review (board_title, board_writer, board_contents, item_num) 
+		values (#{board_title}, #{board_writer}, #{board_contents}, 1)
 	</insert>	
 
-	<select id="getList" resultType="QnaVO" parameterType="Pager">
-			select * from qna where
+	<select id="getList" resultType="ReviewVO" parameterType="Pager">
+			select * from review where
 			<include refid="getSearch"></include>
 			order by board_num desc
 			limit #{startRow}, #{perPage}	
