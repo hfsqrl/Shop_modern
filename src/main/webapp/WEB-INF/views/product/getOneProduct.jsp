@@ -580,15 +580,15 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 		var count = $("#prdCount").val();
 		var price = $("#prdPrice").val();
 		var reserve = $("#prdReserve").val();
-
+		var price2 = '${dto.item_price}';
+		var reserve2 = '${dto.item_reserve}';
 		
 		
 		count--;
 		$("#prdCount").val(count);
 
-		$("#prdPrice").val(minus);
-		$("#prdPrice").val(price-price);
-		$("#prdReserve").val(reserve-reserve);
+		$("#prdPrice").val(price-price2);
+		$("#prdReserve").val(reserve-reserve2);
 	
 	});
 
