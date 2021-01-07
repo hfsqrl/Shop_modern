@@ -209,7 +209,9 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 															${dto.item_name}
 															<br>
 															-
-															<span class="color_choose"></span>
+															<span class="color_choose">
+																
+															</span>
 														</p>
 													</td>
 													
@@ -223,8 +225,10 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 															<a href="#none" class="ea-down">
 																<img src="../images/icon/btn_count_down.gif">
 															</a>
+															
+
 														</div>
-													</td>
+													</td>	
 													
 													<td>
 														
@@ -233,6 +237,12 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 														
 														<input type="text" value=900 id="prdReserve" style="border: none; width: 30px;" readonly="true">원
 														
+													</td>
+													
+													<td>
+														<a href="#none" class="ea-del" style="line-height: 30px;">
+															<img src="../images/icon/btn_price_delete.gif">
+														</a>	
 													</td>
 												</tr>
 											</table>
@@ -253,8 +263,8 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 										</div>
 										
 										<div class="product_action">
-											<a class="buyBtn">BUY IT NOW</a>
-											<a class="cartBtn">ADD TO CART</a>
+											<a href="#" class="buyBtn">BUY IT NOW</a>
+											<a href="../cart/cartList" class="cartBtn">ADD TO CART</a>
 										</div>
 									</div>
 								</div>
@@ -265,7 +275,7 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 								<div class="prdDetail">
 									<div class="tab">
 										<ul>
-											<li id="sel1">
+											<li class="selected" id="sel1">
 												<a>디테일</a>
 											</li>
 											<li id="sel2">
@@ -609,6 +619,11 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 		$(".total").html("<b><strong><em>KRW "+(price-price2)+ "</em></strong> ("+count+"개)</b>");
 	});
 
+
+	$(".ea-del").click(function(){
+		$(".totalProducts").hide();
+		
+	});
 	
 
 </script>

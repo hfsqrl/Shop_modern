@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+.gRight {
+    float: right;
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+.btn_ccc {
+    margin: 1px 0;
+    padding: 0;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ccc;
+    color: #999;
+    width: 128px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.base-button-order {
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 60px;
+}
+
+.btn_000_180 {
+    margin: 1px 2px;
+    padding: 0;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #000;
+    color: #000;
+    width: 180px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    box-sizing: border-box;
+    border-radius: 100px;
+}
+
+.base-help {
+    margin: 20px 0;
+    border: 1px solid #d6d4d4;
+    line-height: 18px;
+    text-align: left;
+    
+}
+
+.inner {
+    padding: 0 9px 12px;
+}
+
+.base-help ol {
+    margin: 15px 0 0 11px;
+}
+
+.base-help ol li {
+    padding: 0 0 0 11px;
+    background: url(//img.echosting.cafe24.com/skin/base/common/ico_dash.gif) no-repeat 0 7px;
+}
+
+.base-help h3 {
+    padding: 0 6px 10px;
+    border-bottom: 1px solid #e8e7e7;
+    color: #555;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.base-help h4 {
+    margin: 22px 0 -4px;
+    color: #777;
+    font-size: 11px;
+    font-weight: normal;
+    font-weight: 500;
+}

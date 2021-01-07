@@ -18,7 +18,7 @@
 		<c:import url="../template/header.jsp"></c:import>
 		
 		<div class="container">
-				<div class="text-center">
+				<div class="text-center" style="height: 400px;">
 				<h3 style="margin-top: 60px;">MEMBER LOGIN</h3>
 				<form action="./memberLogin" method="post" class="form-horizontal" style="padding: 20px;">
 				<div>
