@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,16 +34,24 @@
 						<div class="title-box">
 							
 							<div class="form-group title-category">
-								<label for="sel1" class="title-lab">문의 선택</label>
-								<select class="form-control sel-cate" id="sel1" name="board_title">
-									<option>상품 문의</option>
-									<option>배송 문의</option>
-									<option>교환 문의</option>
-									<option>반품 문의</option>
-									<option>무통장 입금 문의</option>
-									<option>배송전 취소/변경 문의</option>
-									<option>해외배송 문의 / Shipping Q&A</option>
-								</select>
+								<c:choose>
+									<c:when test="${board ne 'notice'}">
+										<label for="sel1" class="title-lab">문의 선택</label>
+										<select class="form-control sel-cate" id="sel1" name="board_title">
+											<option>상품 문의</option>
+											<option>배송 문의</option>
+											<option>교환 문의</option>
+											<option>반품 문의</option>
+											<option>무통장 입금 문의</option>
+											<option>배송전 취소/변경 문의</option>
+											<option>해외배송 문의 / Shipping Q&A</option>
+										</select>
+									</c:when>
+									<c:otherwise>
+										<label for="sel2" class="title-lab">제목</label>
+										<input type="text" name="board_title" class="form-control title-input" id="usr">
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 						<div class="form-group writer-box">
@@ -68,14 +77,15 @@
 
 <script type="text/javascript">
 
+$(document).ready(function() {
+	/* $("#summernote").summernote('editor.insertText', '${vo.board_contents}'); */
+	
 	$("#summernote").summernote({
 		height: 500,
 		lang: 'ko-KR',
 		placeholder: '내용을 작성하세요.',
 		focus: true
 	});
-
-	$("#summernote").summernote('code', '${vo.board_contents}');
 
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
@@ -85,12 +95,14 @@
 		var contents = $("#summernote").val()
 		if(contents.trim() == '') {
 			alert("내용을 입력해주세요.")
+			location.href="./${board}Select?board_num=${board_num}"
 		} else {
 			alert("수정 완료")
 			location.href="${pageContext.request.contextPath}/${board}/${board}list"
 		}
 	})
-
+	
+});
 	
 
 </script>

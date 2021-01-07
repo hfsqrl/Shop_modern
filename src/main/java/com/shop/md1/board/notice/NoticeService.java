@@ -46,8 +46,15 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int setUpdate(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = noticeMapper.setUpdate(boardVO);
+		return result;
+	}
+	
+	@Override
+	public int setDelete(BoardVO boardVO) throws Exception {
+		int result = noticeMapper.setDelete(boardVO);
+		
+		return result;
 	}
 
 }

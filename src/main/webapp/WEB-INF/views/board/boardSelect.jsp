@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,7 @@
 							<input type="hidden" value="${vo.board_num}" name="board_num">
 							<h3>${board} num : ${vo.board_num}</h3>
 						</form>
+						
 						<div class="board-top">
 							<ul>
 								<li class="sel-title">${vo.board_title}</li>
@@ -41,11 +43,11 @@
 							<div class="btn" id="go-list" title="list">
 								list
 							</div>
-							<c:if test="${member.member_id eq vo.board_writer}">
-								<div class="btn" id="go-delete" title="delete">
+							<c:if test="${member.member_id eq vo.board_writer or member.member_id eq 'admin'}">
+								<div class="btn go-btn" id="go-delete" title="Delete">
 									delete
 								</div>
-								<div class="btn" id="go-modify" title="Modify">
+								<div class="btn go-btn" id="go-modify" title="Modify">
 									modify
 								</div>
 							</c:if>
@@ -65,19 +67,31 @@
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
 	})
 	
-	var board = '${board}'
-	var go = $(this).attr("title")
-
-	$("#frm").attr("action", board+go)
-	
+	/* var board = '${board}'
+			
 	$("#go-delete").click(function() {
-		$("#frm").attr("method", "post")
-		$("#frm").submit()
+		var num = $("#go-delete").attr("title")
+		
+		location.href="./${board}Delete?num="+num
 	})
 	
 	$("#go-modify").click(function() {
 		location.href="./${board}Modify?board_num=${vo.board_num}"
-	})
+	}) */
+
+	$(".go-btn").click(function(){
+		var board='${board}';
+		var title = $(this).attr("title");
+
+		$("#frm").attr("action", board+title);
+
+		if(title=='Delete'){
+			$("#frm").attr("method","post");
+		}
+		
+		$("#frm").submit();
+		
+	});
 	
 </script>
 

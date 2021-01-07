@@ -19,6 +19,14 @@
 		like concat('%', #{search}, '%') and board_num>0 
 	</sql>
 	
+	<update id="setUpdate" parameterType="NoticeVO">
+		update notice set board_title = #{board_title}, board_contents = #{board_contents} where board_num = #{board_num}
+	</update>
+	
+	<delete id="setDelete" parameterType="NoticeVO">
+		delete from notice where board_num = #{board_num}
+	</delete>
+	
 	<select id="getOne" parameterType="NoticeVO" resultType="NoticeVO">
 		select * from notice where board_num = #{board_num}
 	</select>
@@ -31,7 +39,7 @@
 	<select id="getList" resultType="NoticeVO" parameterType="Pager">
 		select * from notice where
 		<include refid="getSearch"></include>
-		order by board_num asc
+		order by board_num desc
 		limit #{startRow}, #{perPage}
 	</select>
 

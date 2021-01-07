@@ -21,6 +21,13 @@ public class QnaService implements BoardService {
 	private QnaMapper qnaMapper;
 	
 	@Override
+	public int setDelete(BoardVO boardVO) throws Exception {
+		int result = qnaMapper.setDelete(boardVO);
+		
+		return result;
+	}
+	
+	@Override
 	public int setUpdate(BoardVO boardVO) throws Exception {
 		int result = qnaMapper.setUpdate(boardVO);
 		return result;

@@ -47,5 +47,5 @@
 		select count(board_num) from qna where
 		<include refid="getSearch"></include>
 	</select>
-
+	
 </mapper>

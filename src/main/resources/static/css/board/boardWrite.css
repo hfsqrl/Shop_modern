@@ -130,6 +130,13 @@ table tbody .files-last-tr {
 	line-height: 2.8;
 }
 
+.title-category .title-input {
+	border: 1px solid #ddd;
+    box-shadow: none;
+    width: calc(100% - 40px);
+    margin: 0;
+}
+
 .sel-cate {
 	width: 390px;
 	font-size: 12px;

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,23 +26,32 @@
 				
 				<div class="write-box">
 					<div class="write-head">
-						<p class="title">Q&A</p>
+						<p class="title" style="text-transform: uppercase;">${board}</p>
 					</div>
 					<form id="frm" action="./${board}Write" method="post" enctype="multipart/form-data">
-						<input type="hidden" value="${vo.board_num}" name="board_num">
+						<input type="hidden" value="${vo.board_num}" name="num">
 						<div class="title-box">
 							
 							<div class="form-group title-category">
-								<label for="sel1" class="title-lab">문의 선택</label>
-								<select class="form-control sel-cate" id="sel1" name="board_title">
-									<option>상품 문의</option>
-									<option>배송 문의</option>
-									<option>교환 문의</option>
-									<option>반품 문의</option>
-									<option>무통장 입금 문의</option>
-									<option>배송전 취소/변경 문의</option>
-									<option>해외배송 문의 / Shipping Q&A</option>
-								</select>
+								<c:choose>
+									<c:when test="${board ne 'notice'}">
+										<label for="sel1" class="title-lab">문의 선택</label>
+										<select class="form-control sel-cate" id="sel1" name="board_title">
+											<option>상품 문의</option>
+											<option>배송 문의</option>
+											<option>교환 문의</option>
+											<option>반품 문의</option>
+											<option>무통장 입금 문의</option>
+											<option>배송전 취소/변경 문의</option>
+											<option>해외배송 문의 / Shipping Q&A</option>
+										</select>
+									</c:when>
+									<c:otherwise>
+										<label for="sel2" class="title-lab">제목</label>
+										<input type="text" name="board_title" class="form-control title-input" id="usr">
+									</c:otherwise>
+								</c:choose>
+								
 							</div>
 						</div>
 						<div class="form-group writer-box">
@@ -79,13 +89,15 @@
 	})
 
 	$("#btn").click(function(){
-		var contents = $(".contents-area").val()
+		
 		if(contents.trim() == '') {
 			alert("내용을 입력해주세요.")
 		}
 
-		var summer = $(".contents-area").summernote('code')
-		location.href="${pageContext.request.contextPath}/${board}/${board}List"
+		/* var summer = $(".contents-area").summernote('code') */
+		
+		/* #("#frm").submit() */
+		/* location.href="${pageContext.request.contextPath}/${board}/${board}List" */
 		
 	})
 

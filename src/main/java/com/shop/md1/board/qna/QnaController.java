@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.md1.board.BoardVO;
+import com.shop.md1.product.ProductVO;
 import com.shop.md1.util.Pager;
 
 @Controller
@@ -28,7 +29,31 @@ public class QnaController {
 		return "qna";
 	}
 	
-	
+	@PostMapping("qnaDelete")
+	public ModelAndView setDelete(BoardVO boardVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = qnaService.setDelete(boardVO);
+		
+		System.out.println("result : "+result);
+		
+		String message = "삭제 실패";
+		
+		mv.addObject("vo", boardVO);
+		
+		if(result>0) {
+			message = "삭제 완료.";
+			mv.addObject("msg",message);
+			mv.addObject("path", "./qnaList");
+			
+			mv.setViewName("common/result");
+		}
+		
+		System.out.println("qna delete");
+		
+		
+		return mv;
+	}
 	
 	@GetMapping("qnaModify")
 	public ModelAndView setUpdate(BoardVO boardVO, HttpSession session) throws Exception {
@@ -96,12 +121,13 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaList")
-	public ModelAndView getList(Pager pager) throws Exception {
+	public ModelAndView getList(Pager pager, ProductVO productVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("qna list");
 		
 		List<BoardVO> ar = qnaService.getList(pager);
 		
+		mv.addObject("dto", productVO);
 		mv.addObject("pager", pager);
 		mv.addObject("list", ar);
 		
