@@ -28,6 +28,40 @@ public class QnaController {
 		return "qna";
 	}
 	
+	
+	
+	@GetMapping("qnaModify")
+	public ModelAndView setUpdate(BoardVO boardVO, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("board/boardModify");
+		mv.addObject("vo", boardVO);
+		
+		return mv;
+	}
+	
+	@PostMapping("qnaModify")
+	public ModelAndView setUpdate(BoardVO boardVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = qnaService.setUpdate(boardVO);
+		
+		String message = "다시 수정 해주세요.";
+				
+		if(result>0) {
+			message = "수정 완료";
+		}
+		
+		mv.addObject("msg", message);
+		mv.addObject("path", "./qnaModify");
+		mv.addObject("vo", boardVO);
+		
+		mv.setViewName("common/result");
+		mv.setViewName("redirect:../qna/qnaList");
+		
+		return mv;
+	}
+	
 	@PostMapping("qnaWrite")
 	public ModelAndView setInsert(BoardVO boardVO, MultipartFile [] files, HttpSession session) throws Exception {
 		
@@ -38,13 +72,15 @@ public class QnaController {
 		String message = "접수가 완료되지 않았습니다.";
 		
 		if(result>0) {
-			message = "Write Success";
+			message = "문의 접수 완료.";
 		}
 		
 		mv.addObject("msg", message);
 		mv.addObject("path", "./qnaWrite");
+		mv.addObject("vo", boardVO);
 		
 		mv.setViewName("common/result");
+		mv.setViewName("redirect:../qna/qnaList");
 		
 		return mv;
 	}

@@ -19,8 +19,12 @@
 		like concat('%', #{search}, '%') and board_num>0 
 	</sql>
 	
+	<update id="setUpdate" parameterType="QnaVO">
+		update qna set board_title = #{board_title}, board_contents = #{board_contents} where board_num = #{board_num}
+	</update>
+	
 	<delete id="setDelete" parameterType="QnaVO">
-		delete qna where board_num = #{board_num}
+		delete from qna where board_num = #{board_num}
 	</delete>
 	
 	<select id="getOne" parameterType="QnaVO" resultType="QnaVO">

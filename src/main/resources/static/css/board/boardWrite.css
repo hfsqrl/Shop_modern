@@ -135,6 +135,13 @@ table tbody .files-last-tr {
 	font-size: 12px;
 }
 
+.note-editable {
+	text-align: left;
+}
+
+.note-toolbar {
+	text-align: left;
+}
 
 
 

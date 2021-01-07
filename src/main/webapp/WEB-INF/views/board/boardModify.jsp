@@ -27,8 +27,9 @@
 					<div class="write-head">
 						<p class="title">Q&A</p>
 					</div>
-					<form id="frm" action="./${board}Write" method="post" enctype="multipart/form-data">
+					<form id="frm" action="./${board}Modify" method="post" enctype="multipart/form-data">
 						<input type="hidden" value="${vo.board_num}" name="board_num">
+						<h3>${board} num : ${vo.board_num}</h3>
 						<div class="title-box">
 							
 							<div class="form-group title-category">
@@ -53,7 +54,7 @@
 							<c:import url="./boardWriteAddFiles.jsp"></c:import>
 							<div class="go-btns">
 								<div class="btn go-list">LIST</div>
-								<div class="go-write"><button type="submit" class="btn btn-link" id="btn">WRITE</button></div>
+								<div class="go-write"><button type="submit" class="btn btn-link" id="btn">MODIFY</button></div>
 							</div>
 						</div>
 					</form>
@@ -74,20 +75,23 @@
 		focus: true
 	});
 
+	$("#summernote").summernote('code', '${vo.board_contents}');
+
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
 	})
 
 	$("#btn").click(function(){
-		var contents = $(".contents-area").val()
+		var contents = $("#summernote").val()
 		if(contents.trim() == '') {
 			alert("내용을 입력해주세요.")
+		} else {
+			alert("수정 완료")
+			location.href="${pageContext.request.contextPath}/${board}/${board}list"
 		}
-
-		var summer = $(".contents-area").summernote('code')
-		location.href="${pageContext.request.contextPath}/${board}/${board}List"
-		
 	})
+
+	
 
 </script>
 
