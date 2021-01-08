@@ -28,6 +28,8 @@
 							</div>
 						</div>
 						<!-- 이미지 -->
+						
+						<form action="../cart/setCartInsert" method="post" id="frm">
 						<div class="detailArea">
 							<div class="infoArea">
 								<div class="product_info">
@@ -214,10 +216,12 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 															</span>
 														</p>
 													</td>
-													
+												
 													<td>
 														<div class="ea-box">
-															<input type="text" class="ea-num" style="width: 30%" value=1 id="prdCount" readonly="true">
+															<input type="text" class="ea-num" style="width: 30%" value=1 id="prdCount" readonly="true" name="cart_count">
+															<input type="hidden" value="${member.member_num}" name="member_num">
+															<input type="hidden" value="${dto.item_num}" name="item_num">
 															<a href="#none" class="ea-up">
 																<img src="../images/icon/btn_count_up.gif">
 															</a>
@@ -264,11 +268,12 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 										
 										<div class="product_action">
 											<a href="#" class="buyBtn">BUY IT NOW</a>
-											<a href="../cart/cartList" class="cartBtn">ADD TO CART</a>
+											<a href="#" class="cartBtn">ADD TO CART</a>
 										</div>
 									</div>
 								</div>
 							</div>
+							</form>
 							<!-- detail area 끝 -->
 							
 							<div class="detail_additional">
@@ -622,6 +627,11 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 
 	$(".ea-del").click(function(){
 		$(".totalProducts").hide();
+		
+	});
+
+	$(".cartBtn").click(function(){
+		$("#frm").submit();
 		
 	});
 	

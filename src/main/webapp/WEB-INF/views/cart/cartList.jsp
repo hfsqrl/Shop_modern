@@ -42,17 +42,22 @@
 								</tr>
 							</thead>
 							<tbody class="table-list">
-								
-									<tr>
-										<td>1</td>
-										<td>2</td>
-										<td>3</td>
-										<td>4</td>
-										<td>5</td>
-										<td>6</td>
-										<td>7</td>
-										<td>7</td>
-									</tr>	
+									<c:forEach items="${cart}" var="vo">
+									<tr style="line-height: 50px;">
+										
+										<td><img src="../images/product/${vo.item_image}" style="width: 70px; height: 100px;"></td>
+										<td style="line-height: 100px;">
+											${vo.item_name} / [옵션 : ${vo.item_color} / ${vo.item_size}]				
+										</td>
+										<td style="line-height: 100px;">${vo.item_price}</td>
+										<td style="line-height: 100px;">${vo.cart_count}</td>
+										<td style="line-height: 100px;">기본배송</td>
+										<td style="line-height: 100px;">무료</td>
+										<td style="line-height: 100px;">${vo.item_price}</td>
+										<td style="line-height: 100px;">선택</td>
+										
+									</tr>
+									</c:forEach>	
 							</tbody>
 							
 							<tfoot>
@@ -81,12 +86,13 @@
 								</tr>
 							</thead>
 							<tbody class="table-list">
-								
+									
 									<tr>
-										<td>KRW 85000</td>
+										<td>KRW ${sum}</td>
 										<td>+ KRW 0</td>
-										<td>= KRW 85000</td>									
-									</tr>	
+										<td>= ${sum}</td>									
+									</tr>
+									
 							</tbody>
 							
 						</table>
