@@ -69,7 +69,6 @@
 
 .search .search-kind {
 	float: left;
-	font-size: 12px;
 	height: 24px;
 	width: auto;
 }
@@ -80,6 +79,8 @@
 	margin: 0 2px;
 	border: 1px solid #888;
 	background: none;
+	font-size: 12px;
+	padding: 0;
 }
 
 .search .search-box {
@@ -94,6 +95,9 @@
 	height: 24px;
 	margin-left: 5px;
 	font-size: 12px;
+	border: 1px solid #888;
+    border-radius: 0;
+    padding: 4px 4px;
 }
 
 .search .search-box .search-btn {
@@ -103,6 +107,8 @@
 	padding: 0 5px;
 	display: inline-block;
 	font-size: 12px;
+	border: none;
+	cursor: pointer;
 }
 
 .search .write-btn {

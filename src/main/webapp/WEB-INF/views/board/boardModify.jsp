@@ -28,8 +28,8 @@
 					<div class="write-head">
 						<p class="title">Q&A</p>
 					</div>
-					<form id="frm" action="./${board}Modify" method="post" enctype="multipart/form-data">
-						<input type="hidden" value="${vo.board_num}" name="board_num">
+					<form:form modelAttribute="boardVO" id="write_frm" enctype="multipart/form-data" >
+	  					<form:hidden path="board_num" name="board_num" value="${vo.board_num}"/>
 						<h3>${board} num : ${vo.board_num}</h3>
 						<div class="title-box">
 							
@@ -59,14 +59,14 @@
 						</div>					
 						
 						<div class="write-contents">
-							<textarea id="summernote" class="contents-area" name="board_contents"></textarea>
+							<textarea id="summernote" class="contents-area" name="board_contents">${vo.board_contents}</textarea>
 							<c:import url="./boardWriteAddFiles.jsp"></c:import>
 							<div class="go-btns">
 								<div class="btn go-list">LIST</div>
 								<div class="go-write"><button type="submit" class="btn btn-link" id="btn">MODIFY</button></div>
 							</div>
 						</div>
-					</form>
+					</form:form>
 				</div>
 			
 			</div> <!-- contents -->
@@ -98,7 +98,8 @@ $(document).ready(function() {
 			location.href="./${board}Select?board_num=${board_num}"
 		} else {
 			alert("수정 완료")
-			location.href="${pageContext.request.contextPath}/${board}/${board}list"
+			/* location.href="${pageContext.request.contextPath}/${board}/${board}list" */
+			$("#write_frm").submit();
 		}
 	})
 	
