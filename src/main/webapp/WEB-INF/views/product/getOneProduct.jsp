@@ -631,7 +631,16 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 	});
 
 	$(".cartBtn").click(function(){
-		$("#frm").submit();
+
+		var size = $("#selSize").val();
+		var color = $("#selColor").val();
+
+		if(size !='' && color !=''){
+			$("#frm").submit();
+		}else{
+			alert("사이즈 혹은 색상을 선택해주세요.")	
+		}
+		
 		
 	});
 	
