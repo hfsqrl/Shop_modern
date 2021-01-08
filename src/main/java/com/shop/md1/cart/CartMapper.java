@@ -14,4 +14,6 @@ public interface CartMapper {
 	public Integer getCartPriceSum(CartVO cartVO) throws Exception;
 	
 	public int setDeleteAllCart(CartVO cartVO) throws Exception;
+	
+	public int setDeleteOneCart(CartVO cartVO) throws Exception;
 }

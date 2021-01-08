@@ -30,5 +30,10 @@ public class CartService {
 		
 		return cartMapper.setDeleteAllCart(cartVO);
 	}
+	
+	public int setDeleteOneCart(CartVO cartVO) throws Exception{
+		
+		return cartMapper.setDeleteOneCart(cartVO);
+	}
 
 }

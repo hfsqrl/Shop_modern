@@ -26,6 +26,10 @@
    		<delete id="setDeleteAllCart" parameterType="CartVO">
    			delete from cart
    		</delete>
+   		
+   		<delete id="setDeleteOneCart" parameterType="CartVO">
+   			delete from cart where cart_num = #{cart_num}
+   		</delete>
     	
     
     </mapper>

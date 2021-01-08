@@ -53,5 +53,16 @@ public class CartController {
 		mv.setViewName("redirect:./cartList");
 		return mv;
 	}
+	
+	@GetMapping("setDeleteOneCart")
+	public ModelAndView setDeleteOneCart(CartVO cartVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int ressult = cartService.setDeleteOneCart(cartVO);
+		
+		mv.setViewName("redirect:./cartList");
+		return mv;
+		
+	}
 
 }

@@ -52,10 +52,11 @@
 										<td style="line-height: 100px;">${vo.cart_count}</td>
 										<td style="line-height: 100px;">기본배송</td>
 										<td style="line-height: 100px;">무료</td>
-										<td style="line-height: 100px; width: 10%">												
+										<td style="line-height: 100px; width: 10%">	
+										<input type="hidden" value="${vo.cart_num}" id="cart_num">
 											<div>
 												<span>
-													<a href="#none" class="btn_ccc" id="carOneDel">
+													<a href="#none" class="btn_ccc">
 														DELETE
 													</a>
 												</span>
@@ -164,6 +165,13 @@
 	$("#delCart").click(function() {
 
 		location.href = "./setDeleteAllCart";
+	});
+
+	var cart_num = $("#cart_num").val();
+	
+	$(".btn_ccc").click(function() {
+
+		location.href = "./setDeleteOneCart?cart_num="+cart_num;
 	});
 
 	
