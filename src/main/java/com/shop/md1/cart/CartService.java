@@ -25,5 +25,10 @@ public class CartService {
 		
 		return cartMapper.getCartPriceSum(cartVO);
 	}
+	
+	public int setDeleteAllCart(CartVO cartVO) throws Exception{
+		
+		return cartMapper.setDeleteAllCart(cartVO);
+	}
 
 }

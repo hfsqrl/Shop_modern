@@ -31,13 +31,12 @@
 						<table class="table table-bordered board_table" >
 							<thead class="table-head">
 								<tr>
-									<th>IMAGE</th>
-									<th style="width: 30%;">PRODUCT</th>
+									<th style="width: 10%;">IMAGE</th>
+									<th style="width: 40%;">PRODUCT</th>
 									<th>PRICE</th>
 									<th>QTY</th>
 									<th>DELIVERY</th>
 									<th>CHARGE</th>
-									<th>TOTAL</th>
 									<th>CHOICE</th>
 								</tr>
 							</thead>
@@ -53,8 +52,15 @@
 										<td style="line-height: 100px;">${vo.cart_count}</td>
 										<td style="line-height: 100px;">기본배송</td>
 										<td style="line-height: 100px;">무료</td>
-										<td style="line-height: 100px;">${vo.item_price}</td>
-										<td style="line-height: 100px;">선택</td>
+										<td style="line-height: 100px; width: 10%">												
+											<div>
+												<span>
+													<a href="#none" class="btn_ccc" id="carOneDel">
+														DELETE
+													</a>
+												</span>
+											</div>										
+										</td>
 										
 									</tr>
 									</c:forEach>	
@@ -70,7 +76,7 @@
 					
 					<div class="base-button">
 						<span class="gRight">
-							<a href="#none" class="btn_ccc">
+							<a href="#none" class="btn_ccc" id="delCart">
 								장바구니 비우기
 							</a>
 						</span>
@@ -155,6 +161,10 @@
 
 <script type="text/javascript">
 
+	$("#delCart").click(function() {
+
+		location.href = "./setDeleteAllCart";
+	});
 
 	
 

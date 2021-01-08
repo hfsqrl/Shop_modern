@@ -22,6 +22,10 @@
 			left join item as B on (A.item_num = B.item_num)
 			left join member_info as C on (A.member_num = C.member_num)
    		</select>
+   		
+   		<delete id="setDeleteAllCart" parameterType="CartVO">
+   			delete from cart
+   		</delete>
     	
     
     </mapper>
