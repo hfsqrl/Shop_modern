@@ -25,7 +25,7 @@
 					<div class="select-wrap">
 						<form action="" id="frm">
 							<input type="hidden" value="${vo.board_num}" name="board_num">
-							<h3>${board} num : ${vo.board_num}</h3>
+							<%-- <h3>${board} num : ${vo.board_num}</h3> --%>
 						</form>
 						
 						<div class="board-top">

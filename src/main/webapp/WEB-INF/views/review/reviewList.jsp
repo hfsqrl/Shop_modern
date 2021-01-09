@@ -49,21 +49,21 @@
 					</div>
 					<form action="./${board}List" id="frm">
 						<input type="hidden" name="curPage" id="curPage" value=1>
-						
-						<div class="search">
+					
+						<div class="input-group search">
 							<div class="search-kind">
-								<select class="kind" id="kind" name="kind">
+								<select class="form-control kind" id="kind" name="kind">
 									<option>제목</option>
 									<option>아이디</option>
 									<option>내용</option>
 								</select>
 							</div>
 							<div class="search-box">
-								<input type="text" class="text" id="search" name="search">
-								<a href="#" class="search-btn">SEARCH</a>
+								<input type="text" class="form-control text" id="search" name="search">
+								<div class="search-btn">SEARCH</div>
 							</div>
-							<c:if test="${not empty member}">
-								<div class="write-btn" id="btn-write">
+							<c:if test="${not empty member or member.member_id eq 'admin'}">
+								<div class="form-item write-btn" id="btn-write">
 									Write
 								</div>
 							</c:if>				
@@ -93,15 +93,34 @@
 </div> <!-- wrap -->
 
 <script type="text/javascript">
-
-	$("#btn-write").click(function(){
-		location.href="${pageContext.request.contextPath}/${board}/${board}Write"
+	$("#search").val('${param.search}');
+	
+	var kind = '${param.kind}'; 
+	
+		if(kind != '') {
+		$("#kind").val(kind);
+	}
+	
+	var search_frm = $("#frm");
+	
+	$("#search-btn").on("click", function(){
+		var s_search = false;
+		if(!search-frm.find("input[name='search']").val()) {
+			alert("키워드를 입력하세요");
+		} else {
+			s_search = true;
+			search_frm.submit();
+		}
 	})
 	
 	$(".list").click(function() {
 		var curPage = ($(this).attr("title"))
 		$("#curPage").val(curPage)
 		$("#frm").submit()
+	})
+	
+	$("#btn-write").click(function(){
+		location.href="${pageContext.request.contextPath}/${board}/${board}Write"
 	})
 
 </script>

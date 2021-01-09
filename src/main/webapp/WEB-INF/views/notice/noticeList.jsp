@@ -49,20 +49,20 @@
 					<form action="./${board}List" id="frm">
 						<input type="hidden" name="curPage" id="curPage" value=1>
 					
-						<div class="search">
+						<div class="input-group search">
 							<div class="search-kind">
-								<select class="kind" id="kind" name="kind">
+								<select class="form-control kind" id="kind" name="kind">
 									<option>제목</option>
 									<option>아이디</option>
 									<option>내용</option>
 								</select>
 							</div>
 							<div class="search-box">
-								<input type="text" class="text" id="search" name="search">
-								<a href="#" class="search-btn">SEARCH</a>
+								<input type="text" class="form-control text" id="search" name="search">
+								<div class="search-btn">SEARCH</div>
 							</div>
 							<c:if test="${member.member_id eq 'admin'}">
-								<div class="write-btn" id="btn-write">
+								<div class="form-item write-btn" id="btn-write">
 									Write
 								</div>
 							</c:if>				
@@ -92,6 +92,13 @@
 </div> <!-- wrap -->
 
 <script type="text/javascript">
+	$("#search").val('${param.search}')
+	
+	var kind = '${param.kind}'
+		
+	if(kind != '') {
+		$("#kind").val(kind)
+	}
 
 	$("#btn-write").click(function(){
 		location.href="${pageContext.request.contextPath}/${board}/${board}Write"
@@ -102,7 +109,6 @@
 		$("#curPage").val(curPage)
 		$("#frm").submit()
 	})
-	
 
 </script>
 

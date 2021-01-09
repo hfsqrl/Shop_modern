@@ -30,7 +30,7 @@
 					</div>
 					<form:form modelAttribute="boardVO" id="write_frm" enctype="multipart/form-data" >
 	  					<form:hidden path="board_num" name="board_num" value="${vo.board_num}"/>
-						<h3>${board} num : ${vo.board_num}</h3>
+						<%-- <h3>${board} num : ${vo.board_num}</h3> --%>
 						<div class="title-box">
 							
 							<div class="form-group title-category">
@@ -59,7 +59,7 @@
 						</div>					
 						
 						<div class="write-contents">
-							<textarea id="summernote" class="contents-area" name="board_contents">${vo.board_contents}</textarea>
+							<textarea id="summernote" class="contents-area" name="board_contents"></textarea>
 							<c:import url="./boardWriteAddFiles.jsp"></c:import>
 							<div class="go-btns">
 								<div class="btn go-list">LIST</div>
@@ -80,12 +80,18 @@
 $(document).ready(function() {
 	/* $("#summernote").summernote('editor.insertText', '${vo.board_contents}'); */
 	
+	/* var textarea = "${vo.board_contents}" */
+	var hello = 'hello world'
+	
 	$("#summernote").summernote({
 		height: 500,
 		lang: 'ko-KR',
-		placeholder: '내용을 작성하세요.',
+		/* placeholder: '내용을 작성하세요.', */
 		focus: true
 	});
+
+
+	$("#summernote").summernote('editor.insertText', '${vo.board_contents}');
 
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"

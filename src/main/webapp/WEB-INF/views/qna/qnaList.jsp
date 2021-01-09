@@ -49,16 +49,15 @@
 							</tbody>
 						</table>
 					</div>
-					<form action="./${board}List" id="search-frm">
-						<input type="hidden" name="curPage" id="curPage" value="1">
+					<form action="./${board}List" id="frm">
+						<input type="hidden" name="curPage" id="curPage" value=1>
 						
 						<div class="input-group search">
 							<div class="search-kind">
 								<select class="form-control kind" id="kind" name="kind">
-									<option value="opt-all" id="kind-all">전체</option>
-									<option value="opt-title" id="kind-title">제목</option>
-									<option value="opt-id" id="kind-id">아이디</option>
-									<option value="opt-cont" id="kind-cont">내용</option>
+									<option>제목</option>
+									<option>아이디</option>
+									<option>내용</option>
 								</select>
 							</div>
 							<div class="search-box">
@@ -102,30 +101,28 @@
 	
  	if(kind != '') {
 		$("#kind").val(kind);
-	} else {
-		$("#kind").val("opt-all");
 	}
 
- 	var search-frm = $("#search-frm");
+ 	var search_frm = $("#frm");
 
 	$("#search-btn").on("click", function(){
 		var s_search = false;
-		if(!search_frm.find("input[name='search']").val()) {
+		if(!search-frm.find("input[name='search']").val()) {
 			alert("키워드를 입력하세요");
 		} else {
 			s_search = true;
-			search-frm.submit();
+			search_frm.submit();
 		}
-	});
-
-	$("#btn-write").click(function(){
-		location.href="${pageContext.request.contextPath}/${board}/${board}Write"
-	})
+	}) /* */
 	
 	$(".list").click(function() {
 		var curPage = ($(this).attr("title"))
 		$("#curPage").val(curPage)
 		$("#frm").submit()
+	})
+
+	$("#btn-write").click(function(){
+		location.href="${pageContext.request.contextPath}/${board}/${board}Write"
 	})
 
 </script>

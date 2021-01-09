@@ -93,11 +93,6 @@
 		if(contents.trim() == '') {
 			alert("내용을 입력해주세요.")
 		}
-
-		/* var summer = $(".contents-area").summernote('code') */
-		
-		/* #("#frm").submit() */
-		/* location.href="${pageContext.request.contextPath}/${board}/${board}List" */
 		
 	})
 
