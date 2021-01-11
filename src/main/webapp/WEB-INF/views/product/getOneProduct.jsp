@@ -28,6 +28,8 @@
 							</div>
 						</div>
 						<!-- 이미지 -->
+						
+						<form action="../cart/setCartInsert" method="post" id="frm">
 						<div class="detailArea">
 							<div class="infoArea">
 								<div class="product_info">
@@ -209,13 +211,17 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 															${dto.item_name}
 															<br>
 															-
-															<span class="color_choose"></span>
+															<span class="color_choose">
+																
+															</span>
 														</p>
 													</td>
-													
+												
 													<td>
 														<div class="ea-box">
-															<input type="text" class="ea-num" style="width: 30%" value=1 id="prdCount" readonly="true">
+															<input type="text" class="ea-num" style="width: 30%" value=1 id="prdCount" readonly="true" name="cart_count">
+															<input type="hidden" value="${member.member_num}" name="member_num">
+															<input type="hidden" value="${dto.item_num}" name="item_num">
 															<a href="#none" class="ea-up">
 																<img src="../images/icon/btn_count_up.gif">
 															</a>
@@ -223,8 +229,10 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 															<a href="#none" class="ea-down">
 																<img src="../images/icon/btn_count_down.gif">
 															</a>
+															
+
 														</div>
-													</td>
+													</td>	
 													
 													<td>
 														
@@ -233,6 +241,12 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 														
 														<input type="text" value=900 id="prdReserve" style="border: none; width: 30px;" readonly="true">원
 														
+													</td>
+													
+													<td>
+														<a href="#none" class="ea-del" style="line-height: 30px;">
+															<img src="../images/icon/btn_price_delete.gif">
+														</a>	
 													</td>
 												</tr>
 											</table>
@@ -244,8 +258,8 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 											<span style="font-size: 12px;">(수량)</span>
 											:
 											<b class="total">
-												<strong>
-													<em>KRW </em>
+												<strong id="won">
+													<em>KRW ${dto.item_price}</em>
 													
 												</strong>
 												(1개)
@@ -253,19 +267,20 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 										</div>
 										
 										<div class="product_action">
-											<a class="buyBtn">BUY IT NOW</a>
-											<a class="cartBtn">ADD TO CART</a>
+											<a href="#" class="buyBtn">BUY IT NOW</a>
+											<a href="#" class="cartBtn" onclick="location.href='../cart/cartList?member_id=${member.member_id}';">ADD TO CART</a>
 										</div>
 									</div>
 								</div>
 							</div>
+							</form>
 							<!-- detail area 끝 -->
 							
 							<div class="detail_additional">
 								<div class="prdDetail">
 									<div class="tab">
 										<ul>
-											<li id="sel1">
+											<li class="selected" id="sel1">
 												<a>디테일</a>
 											</li>
 											<li id="sel2">
@@ -286,7 +301,7 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 										<img src="../images/product_cont/${dto.item_contents_image2}">									
 									</div>
 									
-									<div class="guide_inner">
+									<div class="guide_inner" style="display: none;">
 										<ul>
 											<li class="title">배송안내</li>
 											<li class="inner">
@@ -563,35 +578,72 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 	});
 
 	$(".ea-up").click(function(){
+		
 		var count = $("#prdCount").val();
 		var price = $("#prdPrice").val();
-		var reserve = $("#prdReserve").val();
-
-		count++;
-		$("#prdCount").val(count);
-		$("#prdPrice").val(price*count);
-		$("#prdReserve").val(reserve*count);
-
-							
+		var reserve = $("#prdReserve").val()
 		
+		var price2 = '${dto.item_price}';
+		var reserve2 = '${dto.item_reserve}';
+
+		if(count <= 9){
+			count++;
+		$("#prdCount").val(count);
+		$("#prdPrice").val(price2*count);
+		$("#prdReserve").val(reserve2*count);
+		
+		}else{
+			alert("최대 수량은 10개입니다.");
+		}
+							
+		$(".total").html("<b><strong><em>KRW "+(price2*count)+ "</em></strong> ("+count+"개)</b>");
 	});
 
 	$(".ea-down").click(function(){
+
 		var count = $("#prdCount").val();
 		var price = $("#prdPrice").val();
-		var reserve = $("#prdReserve").val();
-
-		var won = count*price;
+		var reserve = $("#prdReserve").val()
 		
-		count--;
+		var price2 = '${dto.item_price}';
+		var reserve2 = '${dto.item_reserve}';
+		
+		if(count > 1) {
+			count--;
 		$("#prdCount").val(count);
+		$("#prdPrice").val(price-price2);
+		$("#prdReserve").val(reserve-reserve2);
+		
+		}else{
+			alert("최소 수량은 1개입니다.");
+			count=1;
+		}
 
-		var minus = won-price;
-
-		$("#prdPrice").val(minus);
-	
+		
+		
+		$(".total").html("<b><strong><em>KRW "+(price-price2)+ "</em></strong> ("+count+"개)</b>");
 	});
 
+
+	$(".ea-del").click(function(){
+		$(".totalProducts").hide();
+		
+	});
+
+	$(".cartBtn").click(function(){
+
+		var size = $("#selSize").val();
+		var color = $("#selColor").val();
+
+		if(size !='' && color !=''){
+			$("#frm").submit();
+			
+		}else{
+			alert("사이즈 혹은 색상을 선택해주세요.")	
+		}
+		
+		
+	});
 	
 
 </script>

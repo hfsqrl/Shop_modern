@@ -8,14 +8,14 @@
 			<div class="right_inner"> <!-- right -->
 				<ul> <!-- menu -->
 					<li>
-						<a href="#">
+						<a href="${pageContext.request.contextPath}/cart/cartList?member_id=${member.member_id}">
 							<img alt="" src="../images/index/cart.png">
 						</a>
 					</li>
 					<c:if test="${not empty member}">
 						<li>
-							<a href="#">
-								<img alt="" src="../images/index/member.png">
+							<a href="${pageContext.request.contextPath}/member/memberPage">
+								<img alt="" src="../images/index/member.png">								
 							</a>
 						</li>
 					</c:if>
@@ -23,7 +23,7 @@
 					<li style="float: right;">
 						 <div class="dropdown"><!-- style="float: left;" -->
 						 	<div class="dropbtn">
-						 		<img alt="" src="../images/index/lang.png"> 
+						 		<img alt="" src="../images/index/lang.png">
 						 	</div> 						
 	  						<div class="dropdown-content">
 	    						<a href="/?lang=ko">KOR</a>

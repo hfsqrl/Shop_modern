@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+a{
+	text-decoration: none !important;
+}
+
+a:hover {
+	color: gray;
+}
+
 .main_right .con-sel {
 	width: auto;
 	height: auto;

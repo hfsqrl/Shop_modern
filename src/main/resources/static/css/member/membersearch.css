@@ -1,11 +1,18 @@
 @charset "UTF-8";
 
+a{
+	text-decoration: none !important;
+}
 
+a:hover {
+	color: gray;
+}
 
 .member_findid{
 	border: 1px solid #ccc;
     padding: 30px 0;
     width: 1200px;
+    margin-bottom: 300px
     
 }
 

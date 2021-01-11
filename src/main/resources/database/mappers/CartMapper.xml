@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+   	<mapper namespace="com.shop.md1.cart.CartMapper">
+   		
+   		<select id="getCartList" parameterType="CartVO" resultType="CartVO">
+   			select cart_num, member_id, cart_count, item_price, item_color, item_size, item_reserve, item_image, item_name
+			from cart as A 
+			left join item as B on (A.item_num = B.item_num)
+			left join member_info as C on (A.member_num = C.member_num)
+			where member_id = #{member_id}
+   		</select>
+   		
+   		<insert id="setCartInsert" parameterType="CartVO">
+   			insert into cart(member_num, cart_count, item_num) values(#{member_num}, #{cart_count}, #{item_num})
+   		</insert>
+   		
+   		<select id="getCartPriceSum" parameterType="CartVO" resultType="Integer">
+   			select sum(item_price*cart_count) 
+			from cart as A 
+			left join item as B on (A.item_num = B.item_num)
+			left join member_info as C on (A.member_num = C.member_num)
+			where member_id = #{member_id}
+   		</select>
+   		
+   		<delete id="setDeleteAllCart" parameterType="CartVO">
+   			delete from cart
+   		</delete>
+   		
+   		<delete id="setDeleteOneCart" parameterType="CartVO">
+   			delete from cart where cart_num = #{cart_num}
+   		</delete>
+    	
+    
+    </mapper>
