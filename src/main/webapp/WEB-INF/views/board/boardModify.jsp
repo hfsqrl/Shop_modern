@@ -77,19 +77,13 @@
 
 <script type="text/javascript">
 
-$(document).ready(function() {
-	/* $("#summernote").summernote('editor.insertText', '${vo.board_contents}'); */
-	
-	/* var textarea = "${vo.board_contents}" */
-	var hello = 'hello world'
-	
+
 	$("#summernote").summernote({
 		height: 500,
 		lang: 'ko-KR',
-		/* placeholder: '내용을 작성하세요.', */
+		placeholder: '내용을 작성하세요.',
 		focus: true
 	});
-
 
 	$("#summernote").summernote('editor.insertText', '${vo.board_contents}');
 
@@ -104,12 +98,10 @@ $(document).ready(function() {
 			location.href="./${board}Select?board_num=${board_num}"
 		} else {
 			alert("수정 완료")
-			/* location.href="${pageContext.request.contextPath}/${board}/${board}list" */
 			$("#write_frm").submit();
 		}
 	})
-	
-});
+
 	
 
 </script>

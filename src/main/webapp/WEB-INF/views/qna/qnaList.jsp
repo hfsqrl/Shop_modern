@@ -103,15 +103,15 @@
 		$("#kind").val(kind);
 	}
 
- 	var search_frm = $("#frm");
+ 	var search = $("#frm");
 
-	$("#search-btn").on("click", function(){
+	$(".search-btn").click(function(){
 		var s_search = false;
-		if(!search-frm.find("input[name='search']").val()) {
+		if(!search.find("input[name='search']").val()) {
 			alert("키워드를 입력하세요");
 		} else {
 			s_search = true;
-			search_frm.submit();
+			search.submit();
 		}
 	}) /* */
 	

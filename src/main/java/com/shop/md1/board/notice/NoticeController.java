@@ -56,6 +56,8 @@ public class NoticeController {
 	public ModelAndView setUpdate(BoardVO boardVO, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
+		boardVO = noticeService.getOne(boardVO);
+		
 		mv.setViewName("board/boardModify");
 		mv.addObject("vo", boardVO);
 		

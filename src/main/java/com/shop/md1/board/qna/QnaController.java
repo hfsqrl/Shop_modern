@@ -59,6 +59,8 @@ public class QnaController {
 	public ModelAndView setUpdate(BoardVO boardVO, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
+		boardVO = qnaService.getOne(boardVO);
+		
 		mv.setViewName("board/boardModify");
 		mv.addObject("vo", boardVO);
 		
@@ -144,14 +146,7 @@ public class QnaController {
 		boardVO = qnaService.getOne(boardVO);
 		
 		mv.addObject("vo", boardVO);
-		
-		if(boardVO != null) {
-			mv.setViewName("board/boardSelect");
-		} else {
-			mv.addObject("msg", "no data");
-			mv.addObject("path", "./qnaList");
-			mv.setViewName("common/result");
-		}
+		mv.setViewName("board/boardSelect");
 		
 		return mv;
 	}
