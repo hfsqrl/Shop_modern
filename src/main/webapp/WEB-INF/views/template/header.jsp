@@ -8,7 +8,7 @@
 			<div class="right_inner"> <!-- right -->
 				<ul> <!-- menu -->
 					<li>
-						<a href="${pageContext.request.contextPath}/cart/cartList">
+						<a href="${pageContext.request.contextPath}/cart/cartList?member_id=${member.member_id}">
 							<img alt="" src="../images/index/cart.png">
 						</a>
 					</li>

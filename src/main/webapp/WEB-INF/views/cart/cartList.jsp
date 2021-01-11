@@ -165,6 +165,7 @@
 	$("#delCart").click(function() {
 
 		location.href = "./setDeleteAllCart";
+		
 	});
 
 	var cart_num = $("#cart_num").val();
@@ -172,7 +173,10 @@
 	$(".btn_ccc").click(function() {
 
 		location.href = "./setDeleteOneCart?cart_num="+cart_num;
+
+		
 	});
+
 
 	
 
