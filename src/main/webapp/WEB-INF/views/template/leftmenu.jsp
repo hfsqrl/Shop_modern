@@ -23,7 +23,7 @@
 						    <a href="${pageContext.request.contextPath}/member/memberLogout"><span>LOGOUT</span></a>
 						    <a href="${pageContext.request.contextPath}/member/memberUpdate"><span>MODIFY</span></a>
 							<a href="${pageContext.request.contextPath}/member/memberPage"><span>MY PAGE</span></a>
-							<a href="${pageContext.request.contextPath}/order/orderList"><span>ORDER</span></a>							
+							<a href="${pageContext.request.contextPath}/order/orderList?member_id=${member.member_id}"><span>ORDER</span></a>							
 						  </c:otherwise>
 						</c:choose>
 					</li>

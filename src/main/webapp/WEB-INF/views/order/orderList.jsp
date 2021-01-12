@@ -41,18 +41,18 @@
 								</tr>
 							</thead>
 							
-							<tbody class="table-list">									
+							<tbody class="table-list">
+								<c:forEach items="${order}" var="vo">									
 								<tr>
-									<td>1</td>
-									<td>2</td>
-									<td>3</td>
-									<td>4</td>
-									<td>5</td>
-									<td>6</td>
-									<td>7</td>
+									<td style="line-height: 100px;">${vo.order_num}</td>
+									<td style="line-height: 100px;"><img src="../images/product/${vo.item_image}" style="width: 70px; height: 100px;"></td>
+									<td style="line-height: 100px;">${vo.item_name}</td>
+									<td style="line-height: 100px;">${vo.cart_count}</td>
+									<td style="line-height: 100px;">${vo.item_price}</td>
+									<td style="line-height: 100px;">${vo.order_manage}</td>
+									<td style="line-height: 100px;">7</td>
 								</tr>
-								
-
+								</c:forEach>
 							</tbody>
 							
 								

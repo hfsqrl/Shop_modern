@@ -69,7 +69,7 @@ public class CartController {
 	public ModelAndView setDeleteOneCart(CartVO cartVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		int ressult = cartService.setDeleteOneCart(cartVO);
+		int result = cartService.setDeleteOneCart(cartVO);
 		
 		MemberVO memberVO = new MemberVO();
 		memberVO = (MemberVO)session.getAttribute("member");

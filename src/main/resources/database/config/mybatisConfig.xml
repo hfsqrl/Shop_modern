@@ -21,6 +21,8 @@
 		
 		<typeAlias type="com.shop.md1.cart.CartVO" alias="CartVO"/>
 		
+		<typeAlias type="com.shop.md1.order.OrderVO" alias="OrderVO"/>
+		
 		<typeAlias type="com.shop.md1.util.Pager" alias="Pager"/>
 		
 	</typeAliases>	
