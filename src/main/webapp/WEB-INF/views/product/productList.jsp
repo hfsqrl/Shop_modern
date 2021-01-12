@@ -52,12 +52,12 @@
 									
 									<div class="description">
 										<ul>
-											<li class="name" style="width: 200px;">
+											<li class="name" style="width: 98%;">
 												<h5><a href="./getOneProduct?item_num=${dto.item_num}">${dto.item_name}</a></h5>												
-												<p class="icon_best">
+												<p class="icon_best" >
 													<img src="../images/product/best_ico.gif">
 												</p>											
-												<hr style="width: 170%;">
+												<hr>
 											</li>
 											
 											<li class="price" style="display: block;">												
