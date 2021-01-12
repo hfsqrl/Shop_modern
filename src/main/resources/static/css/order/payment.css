@@ -1,0 +1,298 @@
+@charset "UTF-8";
+
+.main_right .con-pay {
+	height: auto;
+}
+
+.con-pay .cont-pay {
+	padding-top: 40px;
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
+    display: inline-block;
+}
+
+.contents .board_shape {
+	width: 100%;
+	height: auto;
+	margin: 0 0 10px 0;
+	text-transform: uppercase;
+}
+
+.contents .board_shape .board_name {
+	text-align: center;
+}
+
+.contents .board_shape .name_text {
+	padding-bottom: 40px;
+	width: 100%;
+	height: 60px;
+	font-size: 14px;
+	font-weight: 600px;
+}
+
+.contents .board_shape .board_body {
+	text-align: left;
+	width: 95%;
+    height: 610px;
+}
+
+.cont-pay .board_body .pay-box {
+	width: 90%;
+}
+
+.board_body .pay-title {
+	padding: 16px 14px 20px 14px;
+    border-bottom: 1px solid #d7d5d5;
+    margin-bottom: 10px;
+}
+
+.box-sub-title {
+	margin: 0 auto;
+	font-size: 24px;
+}
+
+.pay-box .member-radio {
+	width: 100%;
+	height: 57px;
+	padding: 14px;
+	font-size: 16px;
+	color: #666;
+}
+
+.member-radio input {
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	vertical-align: middle;
+	margin-top: 2px;
+}
+
+.member-radio label {
+	margin: 0 20px 0 7px;
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+    font-weight: 400;
+}
+
+.member-info tr {
+	width: 100%;
+	height: auto;
+}
+
+.member-info th {
+	width: 112px;
+	padding: 14px 0 14px 14px;
+	vertical-align: top;
+}
+
+.member-info .th-receiver {
+	height: 55px;
+}
+
+.col-sm-8 {
+	width: 100%;
+}
+
+.th-addr {
+	height: 155px;
+}
+
+.member-info .ness {
+	width: 6px;
+	height: 6px;
+}
+
+.member-info .control-label {
+	font-weight: 400;
+	color: #666;
+	width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.member-info #search-addr {
+	vertical-align: bottom;
+	margin: 0 14px;
+	width: 130px;
+	display: inline-block;
+}
+
+table > tbody > tr > td input {
+	margin: 10px 0;
+}
+
+.text {
+    padding: 7px;
+    border: 1px solid #d7d5d5;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.member-info select {
+	width: 30%;
+	float: left;
+	height: 40px;
+	color: #333;
+	border: 1px solid #d7d5d5;
+	margin: 0 3px 0 0;
+	padding: 0 20px 0 8px;
+}
+
+.write-cellnum {
+	display: inline-block;
+	width: 30%;
+	height: 40px;
+	padding: 0;
+}
+
+.write-cellnum .cellbox {
+	width: 100%;
+	height: 40px;
+	color: #333;
+	border: 1px solid #d7d5d5;
+	border-radius: 0;
+	margin: 0;
+}
+
+.write-email {
+	display: inline-block;
+}
+
+.emailbox {
+	display: inline-block;
+	width: 100%;
+	height: 40px;
+	color: #333;
+	border: 1px solid #d7d5d5;
+	border-radius: 0;
+	margin: 0 3px 0 0;
+	padding: 7px;
+}
+
+.at {
+	margin: 0 auto;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.member-info .sel-email {
+	width: 43%;
+	margin: 10px 0; 
+}
+
+.member-info .message-box {
+	width: 100%;
+	height: 69px;
+	color: #666;
+	padding: 14px;
+	border-top: 1px solid #d7d5d5;
+	border-bottom: 1px solid #d7d5d5;
+	position: relative;
+	background-color: #f9f9f9;
+}
+
+.message-box .sel-message {
+	width: 100%;
+}
+
+.member-info .set-main-addr {
+	width: 100%;
+	height: 58px;
+	color: #666;
+	padding: 14px;
+	position: relative;
+}
+
+.set-main-addr .check-addr {
+	margin: 0;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+}
+
+.set-main-addr label {
+	width: auto;
+	font-size: 16px;
+	font-weight: 400;
+	height: 29px;
+	margin: 0 20px 0 7px;
+	color: #666;
+	vertical-align: middle;
+}
+
+.order-prd {
+	width: 90%;
+	height: 276px;
+	margin: 0 0 10px;
+	padding: 0;
+	position: relative;
+}
+
+.order-prd .order-area {
+	width: 100%;
+	height: 167px;
+}
+
+.order-area .order-list {
+	width: 100%;
+	height: 100%;
+}
+
+.order-area .order-list .prd-info {
+	margin: 0;
+	position: relative;
+	padding: 20px 14px 15px;
+	box-sizing: border-box;
+}
+
+.prd-info .prd-box {
+	display: flex;
+	min-height: 104px;
+}
+
+.prd-box .thumbnail {
+	width: 90px;
+	height: 90px;
+	margin-right: 20px;
+	box-sizing: border-box;
+	overflow: hidden;
+	border: 1px solid #d7d5d5;
+}
+
+.prd-box .desc {
+	flex: 1;
+	margin-top: -3px;
+}
+
+.prd-box .btn-remove {
+	position: relative;
+	width: 24px;
+	height: 24px;
+	border-radius: 2px;
+	margin: 0 0 0 4px;
+	text-align: center;
+    line-height: 0.9;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

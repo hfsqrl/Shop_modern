@@ -63,6 +63,7 @@ a:hover {
 .board_body .table-list td {
 	height: 50px;
 	padding: 15px 15px;
+	vertical-align: middle;
 }
 
 .board_shape .search {

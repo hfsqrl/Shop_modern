@@ -23,7 +23,7 @@
 						    <a href="${pageContext.request.contextPath}/member/memberLogout"><span>LOGOUT</span></a>
 						    <a href="${pageContext.request.contextPath}/member/memberUpdate"><span>MODIFY</span></a>
 							<a href="${pageContext.request.contextPath}/member/memberPage"><span>MY PAGE</span></a>
-							<a href="#"><span>order</span></a>							
+							<a href="${pageContext.request.contextPath}/order/payment"><span>order</span></a>							
 						  </c:otherwise>
 						</c:choose>
 					</li>
