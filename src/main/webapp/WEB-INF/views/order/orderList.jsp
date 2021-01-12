@@ -31,13 +31,13 @@
 						<table class="table table-bordered board_table" >
 							<thead class="table-head">
 								<tr>
-									<th style="width: 10%; line-height: 25px;">주문일자<br>[주문번호]</th>
-									<th style="width: 10%; line-height: 65px;">이미지</th>
-									<th style="width: 40%; line-height: 65px;">상품정보</th>
-									<th style="line-height: 65px;">수량</th>
-									<th style="line-height: 65px;">상품구매금액</th>
-									<th style="line-height: 65px;">주문처리상태</th>
-									<th style="line-height: 65px;">취소/교환/반품</th>
+									<th style="width: 10%; line-height: 50px;">주문번호</th>
+									<th style="width: 10%; line-height: 50px;">이미지</th>
+									<th style="width: 40%; line-height: 50px;">상품정보</th>
+									<th style="line-height: 50px;">수량</th>
+									<th style="line-height: 50px;">상품구매금액</th>
+									<th style="line-height: 50px;">주문처리상태</th>
+									<th style="line-height: 50px;">주문시간</th>
 								</tr>
 							</thead>
 							
@@ -54,7 +54,7 @@
 									<td style="line-height: 100px;">${vo.cart_count}</td>
 									<td style="line-height: 100px;">${vo.item_price}</td>
 									<td style="line-height: 100px;">${vo.order_manage}</td>
-									<td style="line-height: 100px;">7</td>
+									<td style="line-height: 100px;">${vo.order_date}</td>
 								</tr>
 								</c:forEach>
 							</tbody>

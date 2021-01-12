@@ -1,6 +1,7 @@
 package com.shop.md1.order;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import lombok.Data;
 
@@ -9,7 +10,7 @@ public class OrderVO {
 	
 	//order_info 컬럼
 	private long order_num;
-	private Date order_date;
+	private Timestamp order_date;
 	private String member_name;
 	private String order_manage;
 	private long member_num;
