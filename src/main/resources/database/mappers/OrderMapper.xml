@@ -6,7 +6,7 @@
    	<mapper namespace="com.shop.md1.order.OrderMapper">
    	
    		<select id="getOrderList" parameterType="OrderVO" resultType="OrderVO">
-   			select order_num, item_image, item_name, cart_count, item_price, order_manage
+   			select order_num, item_image, item_name, cart_count, item_price, order_manage, item_size, item_color
 			from order_info as OI 
 			left join item as I on (OI.item_num = I.item_num)
 			left join member_info as MI on (OI.member_num = MI.member_num)

@@ -133,7 +133,7 @@
 				<div class="myPage_btn">
 					<ul>
 						<li>
-							<a href="#">
+							<a href="../order/orderList?member_id=${member.member_id}">
 							<span>ORDER TRACKING</span><br>
 							주문 내역 조회								
 							</a>
@@ -160,9 +160,9 @@
 					
 					<ul>
 						<li>
-							<a href="#">
-							<span>WISH LIST</span><br>
-							관심 상품							
+							<a href="../cart/cartList?member_id=${member.member_id}">
+							<span>CART</span><br>
+							장바구니						
 							</a>
 						</li>
 					</ul>

@@ -46,7 +46,11 @@
 								<tr>
 									<td style="line-height: 100px;">${vo.order_num}</td>
 									<td style="line-height: 100px;"><img src="../images/product/${vo.item_image}" style="width: 70px; height: 100px;"></td>
-									<td style="line-height: 100px;">${vo.item_name}</td>
+									<td style="line-height: 50px;">
+										${vo.item_name}
+										<br>
+										[옵션 : ${vo.item_size}/${vo.item_color}]
+									</td>
 									<td style="line-height: 100px;">${vo.cart_count}</td>
 									<td style="line-height: 100px;">${vo.item_price}</td>
 									<td style="line-height: 100px;">${vo.order_manage}</td>

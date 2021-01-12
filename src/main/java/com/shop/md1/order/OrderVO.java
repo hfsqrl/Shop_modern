@@ -23,6 +23,8 @@ public class OrderVO {
 	private long cart_count;
 	private String item_price;
 	private String member_id;
+	private String item_size;
+	private String item_color;
 	//order_info Join FK
 	
 
