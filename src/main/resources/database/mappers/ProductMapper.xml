@@ -28,8 +28,7 @@
    	  	<select id="getAccList" parameterType="ProductVO" resultType="ProductVO">
    			select * from item where item_category = 'Acc'
    		</select>
-   		
-   		   		
+   		   		   		
    	  	<select id="getBagShoesList" parameterType="ProductVO" resultType="ProductVO">
    			select * from item where item_category = 'Bag/Shoes'
    		</select>
