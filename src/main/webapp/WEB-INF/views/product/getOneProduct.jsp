@@ -259,7 +259,7 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 											:
 											<b class="total">
 												<strong id="won">
-													<em>KRW ${dto.item_price}</em>
+													<em id="wonPrice">KRW ${dto.item_price}</em>
 													
 												</strong>
 												(1개)
@@ -613,16 +613,18 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 		$("#prdCount").val(count);
 		$("#prdPrice").val(price-price2);
 		$("#prdReserve").val(reserve-reserve2);
+		$(".total").html("<b><strong><em>KRW "+(price-price2)+ "</em></strong> ("+count+"개)</b>");
 		
 		}else{
 			alert("최소 수량은 1개입니다.");
 			$("#prdCount").val(1);
 			
+			
 		}
 
 		
 		
-		$(".total").html("<b><strong><em>KRW "+(price-price2)+ "</em></strong> ("+count+"개)</b>");
+		
 	});
 
 
