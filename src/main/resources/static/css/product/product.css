@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+h5{
+	display: inline;
+	
+}
+
 a{
 	text-decoration: none !important;
 }
