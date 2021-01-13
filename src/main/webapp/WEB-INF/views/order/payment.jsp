@@ -58,10 +58,6 @@
 												<td>
 													<input type="button" id="btn-addr" class="btn" name="roadFullAddr" value="주소검색"> 
 													<input type="text" class="form-control text" id="search-addr">
-													<!-- <div class="col-sm-8 detail-addr">
-														<input type="text" class="form-control text" id="detail-addr1">
-														<input type="text" class="form-control text" id="detail-addr2">
-													</div> -->
 												</td>
 											</tr>
 											<tr><%-- 번호 입력 --%>
@@ -165,7 +161,7 @@
 									</div>
 									<div class="pay-info-box">
 										<div class="pay-info-detail">
-											<table>
+											<table style="margin-bottom: 14px;">
 												<tbody>
 													<tr>
 														<th>주문상품</th>

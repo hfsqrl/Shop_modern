@@ -92,13 +92,13 @@
 	})
 
 	$("#btn").click(function(){
-		var contents = $("#summernote").val()
-		if(contents.trim() == '') {
-			alert("내용을 입력해주세요.")
-			location.href="./${board}Select?board_num=${board_num}"
-		} else {
+		var contents = '${vo.board_contents}'
+		if(contents != '') {
 			alert("수정 완료")
 			$("#write_frm").submit();
+		} else {
+			alert("내용을 입력해주세요.")
+			/* location.href="./${board}Select?board_num=${board_num}" */
 		}
 	})
 
