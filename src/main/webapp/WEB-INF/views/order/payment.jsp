@@ -29,8 +29,6 @@
 					<div class="board_body">
 					
 						<form action="./payment" id="frm" method="post" class="form-horizontal">
-							<input type="hidden" value="${member.member_name}" name="member_num">
-							<input type="hidden" value="${ci.cart_num}" name="cart_num">
 							<div class="col-sm-8 pay-box box1">
 								<div class="pay-title">
 									<h2 class="box-sub-title">배송지</h2>
@@ -58,8 +56,8 @@
 													</label>
 												</th>
 												<td>
+													<input type="button" id="btn-addr" class="btn" name="roadFullAddr" value="주소검색"> 
 													<input type="text" class="form-control text" id="search-addr">
-													<button id="btn-addr" class="btn" name="roadFullAddr">주소검색</button>
 													<!-- <div class="col-sm-8 detail-addr">
 														<input type="text" class="form-control text" id="detail-addr1">
 														<input type="text" class="form-control text" id="detail-addr2">
@@ -74,18 +72,7 @@
 												</th>
 												<td>
 													<div class="col-sm-8 write-cellbox">
-														<select class="sel-cellnum" name="member_phone" id="cellnum">
-															<option>010</option>
-															<option>011</option>
-															<option>016</option>
-															<option>017</option>
-															<option>018</option>
-															<option>019</option>
-														</select>
-														<div class="col-sm-3 write-cellnum" style="margin: 0 3px;">
-															<input type="text" class="form-control cellbox" id="cell1">
-														</div>
-														<div class="col-sm-3 write-cellnum" style="margin: 0 0 0 3px;">
+														<div class="col-sm-3 write-cellnum">
 															<input type="text" class="form-control cellbox" id="cell2"> 
 														</div>
 													</div>
@@ -98,20 +85,8 @@
 													</label>
 												</th>
 												<td style="padding: 8px 0;">
-													<div class="col-sm-6 write-email" id="email">
+													<div class="col-sm-8 write-email" id="email">
 														<input type="text" class="form-control text emailbox" id="email1">
-													</div>
-													<p class="at">@</p>
-													<div>
-														<select class="sel-email" name="member_email" id="email2">
-															<option>-이메일 선택-</option>
-															<option>naver.com</option>
-															<option>daum.net</option>
-															<option>nate.com</option>
-															<option>hotmail.com</option>
-															<option>gmail.com</option>
-															<option>직접 입력</option>
-														</select>
 													</div>
 												</td>
 											</tr>
@@ -146,7 +121,10 @@
 												<div class="thumbnail">
 												</div>
 												<div class="desc">
-													
+													<p>상품명</p><input type="hidden" name="">
+													<p>옵션</p><input type="hidden" name="">
+													<p>수량</p><input type="hidden" name="">
+													<p>금액</p><input type="hidden" name="">
 												</div>
 												<i class="fa fa-close btn-remove" id="btn-remove" style="font-size:24px"></i>
 											</div>
