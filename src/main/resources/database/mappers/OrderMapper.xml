@@ -26,5 +26,9 @@
     		insert into order_info (order_date, member_name, order_manage, member_num, item_num, cart_num) 
     		values(now(), #{member_name}, '결제완료', #{member_num}, #{item_num}, #{cart_num})
     	</insert>
+    	
+    	<select id="getItemNum" parameterType="CartVO" resultType="CartVO">
+    		select * from cart where member_num=#{member_num}
+    	</select>
     
     </mapper>
