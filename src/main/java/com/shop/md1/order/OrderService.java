@@ -20,4 +20,9 @@ public class OrderService {
 		
 		return orderMapper.getCartItem(orderVO);
 	}
+	
+	public Integer setOrder(OrderVO orderVO) throws Exception{
+		
+		return orderMapper.setOrder(orderVO);
+	}
 }

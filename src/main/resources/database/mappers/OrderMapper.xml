@@ -21,5 +21,10 @@
 			left join member_info as MI on (C.member_num = MI.member_num)
 			where member_id = #{member_id}
     	</select>
+    	
+    	<insert id="setOrder" parameterType="OrderVO">
+    		insert into order_info (order_date, member_name, order_manage, member_num, item_num, cart_num) 
+    		values(now(), #{member_name}, '결제완료', #{member_num}, #{item_num}, #{cart_num})
+    	</insert>
     
     </mapper>
