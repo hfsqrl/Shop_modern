@@ -9,4 +9,6 @@ public interface OrderMapper {
 	
 	public List<OrderVO> getOrderList(OrderVO orderVO) throws Exception;
 
+	public OrderVO getCartItem(OrderVO orderVO) throws Exception;
+
 }

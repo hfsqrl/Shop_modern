@@ -106,7 +106,7 @@
 					</div>
 					
 					<div class="base-button-order">
-						<a href="#none" class="btn_000_180">전체상품주문</a>
+						<a href="#none" class="btn_000_180" id="allOrder">전체상품주문</a>
 						<a href="#none" class="btn_000_180">선택상품주문</a>
 					</div>
 					
@@ -153,7 +153,6 @@
 				
 					
 				</div>
-			
 			</div> <!-- contents -->
 			<c:import url="../template/footer.jsp"></c:import>
 		</div> <!-- container -->
@@ -174,6 +173,19 @@
 
 		location.href = "./setDeleteOneCart?cart_num="+cart_num;
 
+		
+	});
+
+	$("#allOrder").click(function() {
+
+		var cart = $("#cart_num").val();
+		
+		if(cart != null){
+			location.href = "../order/payment";
+		}else{
+			alert("장바구니에 제품을 담아주세요.")
+		}	
+			
 		
 	});
 

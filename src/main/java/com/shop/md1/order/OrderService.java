@@ -15,4 +15,9 @@ public class OrderService {
 		
 		return orderMapper.getOrderList(orderVO);
 	}
+	
+	public OrderVO getCartItem(OrderVO orderVO) throws Exception{
+		
+		return orderMapper.getCartItem(orderVO);
+	}
 }

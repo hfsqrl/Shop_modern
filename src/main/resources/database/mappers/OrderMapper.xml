@@ -14,5 +14,12 @@
 			where member_id = #{member_id}
    		</select>
     	
+    	<select id="getCartItem" parameterType="OrderVO" resultType="OrderVO">
+    		select item_image, item_name, cart_count, item_price, item_size, item_color, item_reserve, cart_num, cart_count
+			from item as I 
+			left join cart as C on (I.item_num = C.item_num)
+			left join member_info as MI on (C.member_num = MI.member_num)
+			where member_id = #{member_id}
+    	</select>
     
     </mapper>

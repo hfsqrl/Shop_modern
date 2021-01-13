@@ -25,9 +25,17 @@ public class OrderController {
 		
 		List<OrderVO> ar = orderService.getOrderList(orderVO);
 		
-		
 		mv.addObject("order", ar);
 		mv.setViewName("order/orderList");
+		return mv;
+	}
+	
+	@GetMapping("payment")
+	public ModelAndView getPayment() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		mv.setViewName("order/payment");
 		return mv;
 	}
 
