@@ -29,9 +29,9 @@
 					<div class="board_body">
 					
 						<form action="./payment" id="frm" method="post" class="form-horizontal">
-							<input type="text" value="${member.member_num}" name="member_num">
-							<input type="text" value="${in.item_num}" name="item_num">
-							<input type="text" value="${ci.cart_num}" name="cart_num">
+							<input type="hidden" value="${member.member_num}" name="member_num">
+							<input type="hidden" value="${in.item_num}" name="item_num">
+							<input type="hidden" value="${ci.cart_num}" name="cart_num">
 							<div class="col-sm-8 pay-box box1">
 								<div class="pay-title">
 									<h2 class="box-sub-title">배송지</h2>
@@ -284,12 +284,14 @@
 			        msg += '상점 거래ID : ' + rsp.merchant_uid;
 			        msg += '결제 금액 : ' + rsp.paid_amount;
 			        msg += '카드 승인번호 : ' + rsp.apply_num;
+			        $("#frm").submit();
 			    } else {
 			        var msg = '결제에 실패하였습니다.';
 			        msg += '에러내용 : ' + rsp.error_msg;
+			        
 			    }			    
 			    alert(msg);
-			    $("#frm").submit(); 
+			     
 			   	   
 			});
 			
