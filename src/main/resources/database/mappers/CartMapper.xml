@@ -26,7 +26,7 @@
    		</select>
    		
    		<delete id="setDeleteAllCart" parameterType="CartVO">
-   			delete from cart
+   			delete from cart where member_num = #{member_num}
    		</delete>
    		
    		<delete id="setDeleteOneCart" parameterType="CartVO">
