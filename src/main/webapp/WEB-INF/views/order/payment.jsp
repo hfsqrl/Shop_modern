@@ -29,6 +29,8 @@
 					<div class="board_body">
 					
 						<form action="./payment" id="frm" method="post" class="form-horizontal">
+							<input type="hidden" value="${member.member_name}" name="member_num">
+							<input type="hidden" value="${ci.cart_num}" name="cart_num">
 							<div class="col-sm-8 pay-box box1">
 								<div class="pay-title">
 									<h2 class="box-sub-title">배송지</h2>
@@ -144,6 +146,7 @@
 												<div class="thumbnail">
 												</div>
 												<div class="desc">
+													
 												</div>
 												<i class="fa fa-close btn-remove" id="btn-remove" style="font-size:24px"></i>
 											</div>
