@@ -181,7 +181,7 @@
 		var cart = $("#cart_num").val();
 		
 		if(cart != null){
-			location.href = "../order/payment?member_id=${member.member_id}";
+			location.href = "../order/payment?member_id=${member.member_id}&member_num=${member.member_num}";
 		}else{
 			alert("장바구니에 제품을 담아주세요.")
 		}	
