@@ -125,16 +125,6 @@ a:hover {
 	height: 100%;
 }
 
-/* 
-#header {
-	position: absolute;
-	padding-top: 60px;
-	width: 100%;
-	z-index: 99;
-	opacity: 60%;
-}
- */
-
 #header {
 	position: fixed;
     display: block;
@@ -195,38 +185,10 @@ a:hover {
     vertical-align: middle;
 } 
 
-/* #header .right_inner {
-	position: relative;
-	width: 90%;
-	height: 20px;
-	max-width: 1530px;
-	margin: 0 auto;
-	background-color: orange;
-}
-
-#header .right_inner .rightNav {
-	float: right;
-}
-
-#header .right_inner li {
-	position: relative;
-	display: inline-block;
-	margin-left: 12px;
-}
-
-#header .right_inner .rightNav .line {
-	display: inline-block;
-	height: 20px;
-	margin: 0 8px 0 20px;
-	background-color: silver;
-	opacity: 20%;
-}
- */
-
 .main_right .container {
 	position: relative;
 	width: 100%;
-	height: auto;
+	height: 100%;
 	margin-top: 80px;
 	padding-right: 0px;
 }

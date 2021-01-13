@@ -18,7 +18,7 @@
 	<div class="main_right"> <!-- container_wrap -->
 		<c:import url="../template/header.jsp"></c:import>
 		<div class="container">
-			<div class="contents">
+			<div class="contents" style="display: inline-block;">
 				<div>
 					<h3>MY PAGE</h3>
 					<div id="myOrder">
