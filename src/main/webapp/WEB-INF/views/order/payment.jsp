@@ -29,6 +29,9 @@
 					<div class="board_body">
 					
 						<form action="./payment" id="frm" method="post" class="form-horizontal">
+							<input type="text" value="${member.member_num}" name="member_num">
+							<input type="text" value="${in.item_num}" name="item_num">
+							<input type="text" value="${ci.cart_num}" name="cart_num">
 							<div class="col-sm-8 pay-box box1">
 								<div class="pay-title">
 									<h2 class="box-sub-title">배송지</h2>
@@ -45,7 +48,7 @@
 												</th>
 												<td>
 													<div class="col-sm-8" style="margin: 0;">
-														<input type="text" class="form-control text" id="receiver" name="member_name">
+														<input type="text" class="form-control text" id="receiver" value="${member.member_name}" name="member_name">
 													</div>
 												</td>
 											</tr>
@@ -56,8 +59,12 @@
 													</label>
 												</th>
 												<td>
-													<input type="button" id="btn-addr" class="btn" name="roadFullAddr" value="주소검색"> 
-													<input type="text" class="form-control text" id="search-addr">
+													<input type="button" id="btn-addr" class="btn" value="주소검색"> 
+													<input type="text" class="form-control text" id="search-addr" value="${member.roadFullAddr}" name="roadFullAddr">
+													<!-- <div class="col-sm-8 detail-addr">
+														<input type="text" class="form-control text" id="detail-addr1">
+														<input type="text" class="form-control text" id="detail-addr2">
+													</div> -->
 												</td>
 											</tr>
 											<tr><%-- 번호 입력 --%>
@@ -69,7 +76,7 @@
 												<td>
 													<div class="col-sm-8 write-cellbox">
 														<div class="col-sm-3 write-cellnum">
-															<input type="text" class="form-control cellbox" id="cell2"> 
+															<input type="text" class="form-control cellbox" id="cell2" value="${member.member_phone}"> 
 														</div>
 													</div>
 												</td>
@@ -82,7 +89,7 @@
 												</th>
 												<td style="padding: 8px 0;">
 													<div class="col-sm-8 write-email" id="email">
-														<input type="text" class="form-control text emailbox" id="email1">
+														<input type="text" class="form-control text emailbox" id="email1" value="${member.member_email}">
 													</div>
 												</td>
 											</tr>
@@ -117,10 +124,10 @@
 												<div class="thumbnail">
 												</div>
 												<div class="desc">
-													<p>상품명</p><input type="hidden" name="">
-													<p>옵션</p><input type="hidden" name="">
-													<p>수량</p><input type="hidden" name="">
-													<p>금액</p><input type="hidden" name="">
+													<p>상품명 : ${ci.item_name}</p>
+													<p>옵션 : ${ci.item_size}/${ci.item_color}</p>
+													<p>수량 : ${ci.cart_count}</p>
+													<p>금액 : ${ci.item_price}</p>
 												</div>
 												<i class="fa fa-close btn-remove" id="btn-remove" style="font-size:24px"></i>
 											</div>
@@ -137,7 +144,7 @@
 									<div class="use-mile-box">
 										<p class="head-mile">적립금</p>
 										<div class="write-mile">
-											<input type="text" class="form-control text mile" id="use-mile">
+											<input type="text" class="form-control text mile" id="use-mile" value="${ci.item_reserve}">
 											<button id="btn-mile" class="btn btn-use" name="item_reserve">전액사용</button>
 										</div>
 										<div class="min-mile">
@@ -149,7 +156,7 @@
 									</div>
 									<div class="total-pay total-mile">
 										<h3>적용금액</h3>
-										<strong>원</strong>
+										<strong>${ci.item_price} 원</strong>
 									</div>
 								</div>
 							</div>
@@ -165,21 +172,21 @@
 												<tbody>
 													<tr>
 														<th>주문상품</th>
-														<td><span id="total-price-base"> 원</span></td>
+														<td><span id="total-price-base">${ci.item_price} 원</span></td>
 													</tr>
 													<tr>
 														<th>할인/부가결제</th>
-														<td><span id="total-price-dc"> 원</span></td>
+														<td><span id="total-price-dc">0 원</span></td>
 													</tr>
 													<tr>
 														<th>배송비</th>
-														<td><span id="total-price-deli"> 원</span></td>
+														<td><span id="total-price-deli">0 원</span></td>
 													</tr>
 												</tbody>
 											</table>
 											<div class="total-pay total-payment">
 												<h3>결제금액</h3>
-												<strong>원</strong>
+												<strong>${ci.item_price} 원</strong>
 											</div>
 										</div>
 									</div>
@@ -223,7 +230,7 @@
 							
 							<div class="col-sm-8 order-fin">
 								<div class="order-fin-btn">
-									<button type="button" class="btn order-btn">결제</button>
+									<button type="button" class="btn order-btn" id="orderBtn">결제</button>
 								</div>
 							</div>
 							
@@ -237,6 +244,62 @@
 		</div> <!-- container -->
 	</div> <!-- main_right -->
 </div> <!-- wrap -->
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
+<script type="text/javascript">
+
+
+
+	$("#orderBtn").click(function(){
+
+		var name = $("#receiver").val();
+		var addr = $("#search-addr").val();
+		var phone = $("#cell2").val();
+		var email = $("#email1").val();
+		
+		if(name !='' && addr !='' && phone !='' && email != '') {
+			
+			
+			var IMP = window.IMP; // 생략가능
+			IMP.init('imp44190575'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+
+			IMP.request_pay({
+			    pg : 'inicis', // version 1.1.0부터 지원.
+			    pay_method : 'card',
+			    merchant_uid : 'merchant_' + new Date().getTime(),
+			    name : '주문명:결제테스트',
+			    amount : 101,
+			    buyer_email : email,
+			    buyer_name : name,
+			    buyer_tel : '010-3026-2039',
+			    buyer_addr : addr,
+			    buyer_postcode : '123-456',
+			    m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+			}, function(rsp) {
+			    if ( rsp.success ) {
+			        var msg = '결제가 완료되었습니다.';
+			        msg += '고유ID : ' + rsp.imp_uid;
+			        msg += '상점 거래ID : ' + rsp.merchant_uid;
+			        msg += '결제 금액 : ' + rsp.paid_amount;
+			        msg += '카드 승인번호 : ' + rsp.apply_num;
+			    } else {
+			        var msg = '결제에 실패하였습니다.';
+			        msg += '에러내용 : ' + rsp.error_msg;
+			    }			    
+			    alert(msg);
+			    $("#frm").submit(); 
+			   	   
+			});
+			
+		}else{
+			alert("필수사항을 입력해주세요.")
+		}
+		
+	});
+
+</script>
 
 </body>
 </html>
