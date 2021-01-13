@@ -33,43 +33,35 @@
 								<div class="pay-title">
 									<h2 class="box-sub-title">배송지</h2>
 								</div>
-								<div class="col-sm-8 member-radio">
-									<input id="equal" name="equal" fw-label="1" value="M" type="radio" checked>
-									<label for="equal">회원 정보와 동일</label>
-									<input id="new-deli" name="new-deli" fw-label="1" value="F" type="radio">
-									<label for="new-deli">새로운 배송지</label>      
-								</div>
+								
 								<div class="member-info">
 									<table>
 										<tbody>
 											<tr><%-- 받는사람 --%>
-												<!-- <div class="form-group"></div> -->
 												<th class="th-receiver">
 													<label class="col-sm-2 control-label" for="receiver">받는사람 
 														<span><img alt="" src="../images/ness.png" class="ness"></span>
 													</label>
 												</th>
 												<td>
-													<div class="col-sm-8">
+													<div class="col-sm-8" style="margin: 0;">
 														<input type="text" class="form-control text" id="receiver" name="member_name">
 													</div>
 												</td>
 											</tr>
 											<tr><%-- 주소 검색 --%>
-												<!-- <div class="form-group"></div> -->
 												<th class="th-addr">
 													<label class="col-sm-2 control-label" for="search-addr">주소 
 														<span><img alt="" src="../images/ness.png" class="ness"></span>
 													</label>
 												</th>
 												<td>
-													<!-- <div class="search-addr"></div> -->
 													<input type="text" class="form-control text" id="search-addr">
 													<button id="btn-addr" class="btn" name="roadFullAddr">주소검색</button>
-													<div class="col-sm-8 detail-addr">
+													<!-- <div class="col-sm-8 detail-addr">
 														<input type="text" class="form-control text" id="detail-addr1">
 														<input type="text" class="form-control text" id="detail-addr2">
-													</div>
+													</div> -->
 												</td>
 											</tr>
 											<tr><%-- 번호 입력 --%>
@@ -108,7 +100,6 @@
 														<input type="text" class="form-control text emailbox" id="email1">
 													</div>
 													<p class="at">@</p>
-													<!--  class="at">@ -->
 													<div>
 														<select class="sel-email" name="member_email" id="email2">
 															<option>-이메일 선택-</option>
@@ -158,6 +149,104 @@
 											</div>
 										</div>
 									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-8 discount">
+								<div class="discount-box">
+									<div class="pay-title">
+										<h2 class="box-sub-title">할인 / 부가결제</h2>
+									</div>
+									<div class="use-mile-box">
+										<p class="head-mile">적립금</p>
+										<div class="write-mile">
+											<input type="text" class="form-control text mile" id="use-mile">
+											<button id="btn-mile" class="btn btn-use" name="item_reserve">전액사용</button>
+										</div>
+										<div class="min-mile">
+											<p>최소 적립금 2,500원 이상일 때 사용 가능합니다.</p>
+											<p>최대 사용금액은 제한이 없습니다.</p>
+											<p>1회 구매시 적립금 최대 사용금액은 2,000원입니다.</p>
+											<p>적립금으로만 결제할 경우, 결제금액이 0으로 보여지는 것은 정상이며 [결제하기] 버튼을 누르면 주문이 완료됩니다.</p>
+										</div>
+									</div>
+									<div class="total-pay total-mile">
+										<h3>적용금액</h3>
+										<strong>원</strong>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-8 payment">
+								<div class="payment-box">
+									<div class="pay-title">
+										<h2 class="box-sub-title">결제정보</h2>
+									</div>
+									<div class="pay-info-box">
+										<div class="pay-info-detail">
+											<table>
+												<tbody>
+													<tr>
+														<th>주문상품</th>
+														<td><span id="total-price-base"> 원</span></td>
+													</tr>
+													<tr>
+														<th>할인/부가결제</th>
+														<td><span id="total-price-dc"> 원</span></td>
+													</tr>
+													<tr>
+														<th>배송비</th>
+														<td><span id="total-price-deli"> 원</span></td>
+													</tr>
+												</tbody>
+											</table>
+											<div class="total-pay total-payment">
+												<h3>결제금액</h3>
+												<strong>원</strong>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-8 pay-method">
+								<div class="method-box">
+									<div class="pay-title">
+										<h2 class="box-sub-title">결제수단</h2>
+									</div>
+									<div class="method-cont">
+										<div class="sel-method">
+											<div class="sel-meth-box">
+												<div class="sel-head">
+													<p>결제 수단 선택</p>
+												</div>
+												<div class="choice">
+													<span class="sp-meth">
+														<input type="radio" name="pay-meth">
+														<label>무통장 입금</label>
+													</span>
+													<span class="sp-meth">
+														<input type="radio" name="pay-meth">
+														<label>계좌이체</label>
+													</span>
+													<span class="sp-meth">
+														<input type="radio" name="pay-meth">
+														<label>카드 결제</label>
+													</span>
+													<span class="sp-meth">
+														<input type="radio" name="pay-meth">
+														<label>휴대폰 결제</label>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-8 order-fin">
+								<div class="order-fin-btn">
+									<button type="button" class="btn order-btn">결제</button>
 								</div>
 							</div>
 							

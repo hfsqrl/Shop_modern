@@ -20,6 +20,14 @@
 	text-transform: uppercase;
 }
 
+.col-sm-8 {
+    width: 90%;
+    height: auto;
+    margin: 0 0 10px;
+    padding: 0;
+    position: relative;
+}
+
 .contents .board_shape .board_name {
 	text-align: center;
 }
@@ -36,10 +44,6 @@
 	text-align: left;
 	width: 95%;
     height: 610px;
-}
-
-.cont-pay .board_body .pay-box {
-	width: 90%;
 }
 
 .board_body .pay-title {
@@ -92,12 +96,12 @@
 	height: 55px;
 }
 
-.col-sm-8 {
-	width: 100%;
+#receiver {
+	margin: 0;
 }
 
-.th-addr {
-	height: 155px;
+.col-sm-8 {
+	width: 100%;
 }
 
 .member-info .ness {
@@ -116,7 +120,7 @@
 
 .member-info #search-addr {
 	vertical-align: bottom;
-	margin: 0 14px;
+	margin: 0 14px 0 0;
 	width: 130px;
 	display: inline-block;
 }
@@ -231,15 +235,10 @@ table > tbody > tr > td input {
 
 .order-prd {
 	width: 90%;
-	height: 276px;
+	height: auto;
 	margin: 0 0 10px;
 	padding: 0;
 	position: relative;
-}
-
-.order-prd .order-area {
-	width: 100%;
-	height: 167px;
 }
 
 .order-area .order-list {
@@ -284,11 +283,193 @@ table > tbody > tr > td input {
     cursor: pointer;
 }
 
+.discount .use-mile-box {
+	padding: 20px 14px;
+}
 
+.use-mile-box .head-mile {
+	font-size: 17px;
+}
 
+.use-mile-box .write-mile {
+	width: 100%;
+	position: relative;
+	margin: 12px 0 0;
+	padding: 0 108px 0 0;
+	display: inline-block;
+}
 
+.write-mile .mile {
+	width: 80%;
+	position: relative;
+	display: inline-block;
+	text-align: right;
+}
 
+.write-mile .btn-use {
+	vertical-align: baseline;
+}
 
+.use-mile-box .min-mile {
+	width: 100%;
+	height: 105px;
+	margin-top: 20px;
+	padding: 8px 0 0;
+	border-top: 1px dashed #d7d5d5;
+	font-size: 13px;
+	color: #999;
+	text-align: left;
+}
+
+.total-pay {
+	padding: 16px 15px;
+    border-top: 1px solid #d7d5d5;
+    color: #333;
+    font-size: 18px;
+    background: #eff1f4;
+}
+
+.total-pay h3 {
+	margin: 0 4px 0 0;
+	color: #333;
+	font-size: 18px;
+	font-weight: bold;
+    display: inline-block;
+}
+
+.total-mile {
+	margin-bottom: 14px;
+}
+
+.total-pay strong {
+	float: right;
+	color: #508BED;
+	font-size: 18px;
+}
+
+.payment .payment-box {
+	margin-bottom: 14px;
+}
+
+.payment .pay-info-box {
+	width: 100%;
+	height: auto;
+}
+
+.pay-info-box .pay-info-detail {
+	padding: 14px;
+	position: relative;
+}
+
+.payment table tr {
+	width: 100%;
+	height: auto;
+}
+
+.payment table th {
+	width: 122px;
+	height: 32px;
+    padding: 5px 0 5px 14px;
+    vertical-align: top;
+    font-size: 16px;
+    color: #666;
+    font-weight: 400;
+}
+
+.payment table td {
+	width: 748px;
+	height: 32px;
+	padding: 5px 14px 5px 5px;
+	text-align: right;
+}
+
+.payment table td span {
+	font-size: 16px;
+	color: #666;
+}
+
+.total-payment {
+	border: none;
+}
+
+.pay-method .method-cont {
+	width: 100%;
+	height: auto;
+}
+
+.method-cont .sel-method {
+	width: 100%;
+	height: 161px;
+	padding: 14px;
+	margin: 0;
+	position: relative;
+}
+
+.sel-method .sel-meth-box {
+	position: relative;
+    margin: 10px 0 0;
+    width: 100%;
+    height: 123px;
+}
+
+.sel-method .sel-head {
+	color: #333;
+    background: #eff1f4;
+    width: 100%;
+    height: 52px;
+    font-size: 17px;
+    padding: 10px 15px;
+    font-weight: 600;
+}
+
+.sel-head p {
+	line-height: 1.9;
+}
+
+.sel-meth-box .choice {
+	width: 100%;
+	height: 71px;
+	color: #666;
+	padding: 17px 14px;
+	font-size: 16px;
+}
+
+.choice .sp-meth {
+	margin: 0 20px 7px 0;
+	height: 29px;
+}
+
+.choice span input {
+	width: 25px;
+	height: 25px;
+}
+
+.choice span label {
+	width: auto;
+	height: 29px;
+	color: #666;
+	font-size: 16px;
+	margin: 0 0 0 7px;
+	font-weight: 400;
+}
+
+.order-fin {
+	width: 97%;
+    height: 55px;
+    margin: 14px;
+}
+
+.order-fin .order-fin-btn {
+	font-size: 16px;
+	color: white;
+}
+
+.order-fin-btn .order-btn {
+	width: 100%;
+	height: 55px;
+	background-color: black;
+    font-size: 20px;
+}
 
 
 

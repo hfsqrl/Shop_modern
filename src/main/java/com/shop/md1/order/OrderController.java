@@ -30,5 +30,14 @@ public class OrderController {
 		mv.setViewName("order/orderList");
 		return mv;
 	}
+	
+	@GetMapping("payment")
+	public ModelAndView getPayment(OrderVO orderVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("order/payment");
+		
+		return mv;
+	}
 
 }
