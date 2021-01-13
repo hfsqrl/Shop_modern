@@ -64,7 +64,7 @@
 					</div>
 										
 				</div>
-			
+				
 			</div> <!-- contents -->
 			<c:import url="../template/footer.jsp"></c:import>
 		</div> <!-- container -->
