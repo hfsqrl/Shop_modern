@@ -41,9 +41,11 @@
 									<tr>
 										<td>${vo.board_num}</td>
 										<td>
+										<c:if test="${not empty item_num}">
 											<a href="./getOneProduct?item_num=${dto.item_num}">
 												<img src="../images/product/${dto.item_image}" style="width: 50px; height: 50px;">
 											</a>
+										</c:if>
 										</td>
 										<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title}</td>
 										<td>${vo.board_writer}</td>
