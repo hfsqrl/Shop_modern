@@ -267,8 +267,8 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 										</div>
 										
 										<div class="product_action">
-											<a href="#" class="buyBtn">BUY IT NOW</a>
-											<a href="#" class="cartBtn">ADD TO CART</a>
+											<a href="#" class="buyBtn order">BUY IT NOW</a>
+											<a href="#" class="cartBtn order">ADD TO CART</a>
 										</div>
 									</div>
 								</div>
@@ -633,12 +633,13 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 		
 	});
 
-	$(".cartBtn").click(function(){
+	$(".order").click(function(){
 
 		var size = $("#selSize").val();
 		var color = $("#selColor").val();
 
 		if(size !='' && color !=''){
+			alert("장바구니에 제품을 담고 결제를 진행합니다.");
 			$("#frm").submit();
 			
 		}else{
@@ -646,6 +647,9 @@ PRODUCTION : 제조자 - 모던이프 제휴업체 / 제조국 - 대한민국 / 
 			location.href = "./getOneProduct?item_num=${dto.item_num}";	
 			
 		}
+
+
+		
 		
 		
 	});

@@ -42,6 +42,8 @@
 							</thead>
 							
 							<tbody class="table-list">
+								<c:choose>
+								<c:when test="${not empty order}">
 								<c:forEach items="${order}" var="vo">									
 								<tr>
 									<td style="line-height: 100px;">${vo.order_num}</td>
@@ -57,6 +59,14 @@
 									<td style="line-height: 100px;">${vo.order_date}</td>
 								</tr>
 								</c:forEach>
+								</c:when>
+								
+								<c:otherwise>
+									<tr>
+										<td colspan="7">주문 목록이 없습니다.</td>
+									</tr>
+								</c:otherwise>
+								</c:choose>
 							</tbody>
 							
 								

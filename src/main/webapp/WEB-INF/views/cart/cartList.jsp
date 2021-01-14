@@ -41,6 +41,8 @@
 								</tr>
 							</thead>
 							<tbody class="table-list">
+									<c:choose>
+									<c:when test="${not empty cart}">
 									<c:forEach items="${cart}" var="vo">
 									<tr style="line-height: 50px;">
 										
@@ -56,15 +58,23 @@
 										<input type="hidden" value="${vo.cart_num}" id="cart_num">
 											<div>
 												<span>
-													<a href="#none" class="btn_ccc" id="delCartOne">
+													<a href="#none" class="btn_ccc delCartOne">
 														DELETE
 													</a>
 												</span>
 											</div>										
 										</td>
 										
-									</tr>
-									</c:forEach>	
+									</tr>		
+									</c:forEach>
+									</c:when>
+									
+									<c:otherwise>
+										<tr>
+											<td colspan="7">카트에 담겨있는 상품이 없습니다.</td>
+										</tr>
+									</c:otherwise>
+									</c:choose>		
 							</tbody>
 							
 							<tfoot>
@@ -169,7 +179,7 @@
 
 	var cart_num = $("#cart_num").val();
 	
-	$("#delCartOne").click(function() {
+	$(".delCartOne").click(function() {
 
 		location.href = "./setDeleteOneCart?cart_num="+cart_num;
 
