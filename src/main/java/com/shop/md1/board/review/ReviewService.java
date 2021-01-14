@@ -21,6 +21,12 @@ public class ReviewService implements BoardService {
 	private ReviewMapper reviewMapper;
 	
 	@Override
+	public int setReply(BoardVO boardVO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
 	public List<BoardVO> getList(Pager pager) throws Exception {
 		pager.makeRow();
 		
@@ -31,7 +37,7 @@ public class ReviewService implements BoardService {
 	}
 	
 	@Override
-	public int setInsert(BoardVO boardVO, MultipartFile [] files, HttpSession session) throws Exception {
+	public int setInsert(BoardVO boardVO) throws Exception {
 		int result = reviewMapper.setInsert(boardVO);
 		return result;
 	}

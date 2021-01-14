@@ -51,6 +51,11 @@
 									modify
 								</div>
 							</c:if>
+							<c:if test="${member.member_id eq 'admin' or member.member_id eq vo.board_writer and board eq 'qna'}">
+								<div class="btn go-reply" id="go-reply" title="Reply">
+									Reply
+								</div>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -66,18 +71,6 @@
 	$("#go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
 	})
-	
-	/* var board = '${board}'
-			
-	$("#go-delete").click(function() {
-		var num = $("#go-delete").attr("title")
-		
-		location.href="./${board}Delete?num="+num
-	})
-	
-	$("#go-modify").click(function() {
-		location.href="./${board}Modify?board_num=${vo.board_num}"
-	}) */
 
 	$(".go-btn").click(function(){
 		var board='${board}';
@@ -92,6 +85,10 @@
 		$("#frm").submit();
 		
 	});
+
+	$("#go-reply").click(function() {
+		location.href="../${board}/${board}Reply?board_num=${vo.board_num}"
+	})
 	
 </script>
 

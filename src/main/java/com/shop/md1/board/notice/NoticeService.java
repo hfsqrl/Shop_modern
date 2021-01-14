@@ -21,6 +21,12 @@ public class NoticeService implements BoardService {
 	private NoticeMapper noticeMapper;
 	
 	@Override
+	public int setReply(BoardVO boardVO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
 	public List<BoardVO> getList(Pager pager) throws Exception {
 		pager.makeRow();
 		
@@ -31,7 +37,7 @@ public class NoticeService implements BoardService {
 	}
 	
 	@Override
-	public int setInsert(BoardVO boardVO, MultipartFile [] files, HttpSession session) throws Exception {
+	public int setInsert(BoardVO boardVO) throws Exception {
 		
 		int result = noticeMapper.setInsert(boardVO);
 		
