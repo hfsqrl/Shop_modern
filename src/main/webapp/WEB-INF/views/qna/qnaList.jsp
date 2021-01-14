@@ -40,7 +40,11 @@
 								<c:forEach items="${list}" var="vo">
 									<tr>
 										<td>${vo.board_num}</td>
-										<td><a href="./getOneProduct?item_num=${dto.item_num}">${dto.item_name}</a></td>
+										<td>
+											<a href="./getOneProduct?item_num=${dto.item_num}">
+												<img src="../images/product/${dto.item_image}" style="width: 50px; height: 50px;">
+											</a>
+										</td>
 										<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title}</td>
 										<td>${vo.board_writer}</td>
 										<td>${vo.regDate}</td>

@@ -123,13 +123,13 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaList")
-	public ModelAndView getList(Pager pager) throws Exception {
+	public ModelAndView getList(Pager pager, ProductVO productVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("qna list");
 		
 		List<BoardVO> ar = qnaService.getList(pager);
 		
-//		mv.addObject("dto", productVO);
+		mv.addObject("dto", productVO);
 		mv.addObject("pager", pager);
 		mv.addObject("list", ar);
 		
