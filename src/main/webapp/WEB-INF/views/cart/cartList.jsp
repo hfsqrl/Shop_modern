@@ -56,7 +56,7 @@
 										<input type="hidden" value="${vo.cart_num}" id="cart_num">
 											<div>
 												<span>
-													<a href="#none" class="btn_ccc" id="delCartOne">
+													<a href="#none" class="btn_ccc delCartOne">
 														DELETE
 													</a>
 												</span>
@@ -169,7 +169,7 @@
 
 	var cart_num = $("#cart_num").val();
 	
-	$("#delCartOne").click(function() {
+	$(".delCartOne").click(function() {
 
 		location.href = "./setDeleteOneCart?cart_num="+cart_num;
 

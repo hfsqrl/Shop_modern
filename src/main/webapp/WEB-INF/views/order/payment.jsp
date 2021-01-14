@@ -28,7 +28,7 @@
 					</div>
 					<div class="board_body">
 					
-						<form action="./payment" id="frm" method="post" class="form-horizontal">
+						<form action="./payment" id="frm" method="post" class="form-horizontal" name="form">
 							<input type="hidden" value="${member.member_num}" name="member_num">
 							<input type="hidden" value="${in.item_num}" name="item_num">
 							<input type="hidden" value="${ci.cart_num}" name="cart_num">
@@ -59,7 +59,7 @@
 													</label>
 												</th>
 												<td>
-													<input type="button" id="btn-addr" class="btn" value="주소검색"> 
+													<input type="button" id="btn-addr" class="btn" value="주소검색" onclick="goPopup();"> 
 													<input type="text" class="form-control text" id="search-addr" value="${member.roadFullAddr}" name="roadFullAddr">
 													<!-- <div class="col-sm-8 detail-addr">
 														<input type="text" class="form-control text" id="detail-addr1">
@@ -122,12 +122,13 @@
 										<div class="prd-info">
 											<div class="prd-box">
 												<div class="thumbnail">
+													<img alt="" src="../images/product/${ci.item_image}">
 												</div>
 												<div class="desc">
 													<p>상품명 : ${ci.item_name}</p>
 													<p>옵션 : ${ci.item_size}/${ci.item_color}</p>
-													<p>수량 : ${ci.cart_count}</p>
-													<p>금액 : ${ci.item_price}</p>
+													<p>수량 : <input type="text" id="count" style="border: none;" value="${ci.cart_count}" readonly="true"></p>
+													<p>금액 : <input type="text" id="price" style="border: none;" value="${ci.item_price}" readonly="true"></p>
 												</div>
 												<i class="fa fa-close btn-remove" id="btn-remove" style="font-size:24px"></i>
 											</div>
@@ -145,7 +146,7 @@
 										<p class="head-mile">적립금</p>
 										<div class="write-mile">
 											<input type="text" class="form-control text mile" id="use-mile" value="${ci.item_reserve}">
-											<button id="btn-mile" class="btn btn-use" name="item_reserve">전액사용</button>
+											<button type="button" id="btn-mile" class="btn btn-use" name="item_reserve">전액사용</button>
 										</div>
 										<div class="min-mile">
 											<p>최소 적립금 2,500원 이상일 때 사용 가능합니다.</p>
@@ -156,7 +157,7 @@
 									</div>
 									<div class="total-pay total-mile">
 										<h3>적용금액</h3>
-										<strong>${ci.item_price} 원</strong>
+										<strong><input type="text" id="price2" style="border: none; text-align: right; background-color: #eff1f4;" value="${ci.item_price}" readonly="true"> 원</strong>
 									</div>
 								</div>
 							</div>
@@ -172,7 +173,7 @@
 												<tbody>
 													<tr>
 														<th>주문상품</th>
-														<td><span id="total-price-base">${ci.item_price} 원</span></td>
+														<td><span id="total-price-base"><input type="text" id="price3" style="border: none; text-align: right;" value="${ci.item_price}" readonly="true"> 원</span></td>
 													</tr>
 													<tr>
 														<th>할인/부가결제</th>
@@ -186,7 +187,7 @@
 											</table>
 											<div class="total-pay total-payment">
 												<h3>결제금액</h3>
-												<strong>${ci.item_price} 원</strong>
+												<strong><input type="text" id="price4" style="border: none; text-align: right; background-color: #eff1f4;" value="${ci.item_price}" readonly="true"> 원</strong>
 											</div>
 										</div>
 									</div>
@@ -245,12 +246,67 @@
 	</div> <!-- main_right -->
 </div> <!-- wrap -->
 
+<script type="text/javascript">
+//도로명 주소
+
+function goPopup(){
+// 주소검색을 수행할 팝업 페이지를 호출합니다.
+// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+var pop = window.open("../member/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+
+// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+//var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+}
+
+
+function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+	document.form.roadFullAddr.value = roadFullAddr;
+	document.form.roadAddrPart1.value = roadAddrPart1;
+	document.form.roadAddrPart2.value = roadAddrPart2;
+	document.form.addrDetail.value = addrDetail;
+	document.form.engAddr.value = engAddr;
+	document.form.jibunAddr.value = jibunAddr;
+	document.form.zipNo.value = zipNo;
+	document.form.admCd.value = admCd;
+	document.form.rnMgtSn.value = rnMgtSn;
+	document.form.bdMgtSn.value = bdMgtSn;
+	document.form.detBdNmList.value = detBdNmList;
+	/** 2017년 2월 추가제공 **/
+	document.form.bdNm.value = bdNm;
+	document.form.bdKdcd.value = bdKdcd;
+	document.form.siNm.value = siNm;
+	document.form.sggNm.value = sggNm;
+	document.form.emdNm.value = emdNm;
+	document.form.liNm.value = liNm;
+	document.form.rn.value = rn;
+	document.form.udrtYn.value = udrtYn;
+	document.form.buldMnnm.value = buldMnnm;
+	document.form.buldSlno.value = buldSlno;
+	document.form.mtYn.value = mtYn;
+	document.form.lnbrMnnm.value = lnbrMnnm;
+	document.form.lnbrSlno.value = lnbrSlno;
+	/** 2017년 3월 추가제공 **/
+	document.form.emdNo.value = emdNo;
+	
+}
+
+//도로명 주소
+</script>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
 <script type="text/javascript">
 
-
+	var count = $("#count").val();
+	var price = $("#price").val();
+	
+	$("#price").val(count*price);
+	$("#price2").val(count*price);
+	$("#price3").val(count*price);
+	$("#price4").val(count*price);
+	
 
 	$("#orderBtn").click(function(){
 
@@ -273,7 +329,7 @@
 			    amount : 101,
 			    buyer_email : email,
 			    buyer_name : name,
-			    buyer_tel : '010-3026-2039',
+			    buyer_tel : phone,
 			    buyer_addr : addr,
 			    buyer_postcode : '123-456',
 			    m_redirect_url : 'https://www.yourdomain.com/payments/complete'
@@ -300,6 +356,8 @@
 		}
 		
 	});
+
+
 
 </script>
 
