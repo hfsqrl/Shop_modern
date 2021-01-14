@@ -41,6 +41,8 @@
 								</tr>
 							</thead>
 							<tbody class="table-list">
+									<c:choose>
+									<c:when test="${not empty cart}">
 									<c:forEach items="${cart}" var="vo">
 									<tr style="line-height: 50px;">
 										
@@ -63,8 +65,16 @@
 											</div>										
 										</td>
 										
-									</tr>
-									</c:forEach>	
+									</tr>		
+									</c:forEach>
+									</c:when>
+									
+									<c:otherwise>
+										<tr>
+											<td colspan="7">카트에 담겨있는 상품이 없습니다.</td>
+										</tr>
+									</c:otherwise>
+									</c:choose>		
 							</tbody>
 							
 							<tfoot>
