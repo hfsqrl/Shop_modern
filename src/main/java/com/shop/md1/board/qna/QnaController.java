@@ -127,10 +127,11 @@ public class QnaController {
 	}
 	
 	@PostMapping("qnaWrite")
-	public ModelAndView setInsert(@Valid BoardVO boardVO, BindingResult bindingResult) throws Exception {
+	public ModelAndView setInsert(BoardVO boardVO, HttpSession session) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
 		int result = qnaService.setInsert(boardVO);
+		result = qnaService.setRefUpdate(boardVO);
 		
 		System.out.println("Result : "+result);
 		String message = "접수가 완료되지 않았습니다.";

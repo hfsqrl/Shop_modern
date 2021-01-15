@@ -7,5 +7,7 @@ import com.shop.md1.board.BoardVO;
 
 @Mapper
 public interface QnaMapper extends BoardMapper {
+	
+	public int setRefUpdate(BoardVO boardVO) throws Exception;
 
 }

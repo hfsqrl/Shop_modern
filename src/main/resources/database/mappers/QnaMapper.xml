@@ -17,6 +17,7 @@
 			</otherwise>
 		</choose>
 		like concat('%', #{search}, '%') and board_num>0
+		<!-- like concat('%', #{search}, '%') -->
 	</sql>
 	
 	<insert id="setReply" parameterType="QnaVO">
@@ -41,15 +42,24 @@
 		select * from qna where board_num = #{board_num}
 	</select>
 	
-	<insert id="setInsert" parameterType="QnaVO">
-		insert into qna (board_title, board_writer, board_contents, regDate, ref, step, depth, item_num) 
-		values (#{board_title}, #{board_writer}, #{board_contents}, sysdate(), 0, 0, 0, 1)
+	<insert id="setInsert" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="board_num">
+		insert into qna (board_num, board_title, board_writer, board_contents, regDate, ref, step, depth, item_num) 
+		values (#{board_num}, #{board_title}, #{board_writer}, #{board_contents}, sysdate(), #{board_num}, 0, 0, 1)
 	</insert>	
+	
+	<update id="setRefUpdate" parameterType="BoardVO">
+		update qna set ref=#{board_num} where board_num = #{board_num}
+	</update>
 
 	<select id="getList" resultType="QnaVO" parameterType="Pager">
-			select * from qna where 
+			select * from qna where
+			<!-- select * from
+			(select rownum R, N.* from 
+			(select * from qna where --> 
 			<include refid="getSearch"></include>
-			order by board_num desc
+			<!-- order by ref desc, step asc) N)
+			where R between #{startRow} and #{lastRow} -->
+			order by ref desc, step asc
 			limit #{startRow}, #{perPage}
 	</select>
 	

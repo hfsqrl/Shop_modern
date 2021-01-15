@@ -85,7 +85,14 @@
 		focus: true
 	});
 
-	$("#summernote").summernote('editor.insertText', '${vo.board_contents}');
+	var ele = $("#summernote").val();
+
+	oriText = ele.innerHTML;  // 아래와 같은 문자열이 저장됨
+	oriText = '${vo.board_contents}';
+
+	newText = oriText.replace(/(<([^>]+)>)/ig,"");
+
+	$("#summernote").summernote('editor.insertText', newText);
 
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"

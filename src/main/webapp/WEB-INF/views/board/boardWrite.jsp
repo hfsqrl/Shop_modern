@@ -29,12 +29,12 @@
 						<p class="title" style="text-transform: uppercase;">${board}</p>
 					</div>
 					<form id="frm" action="./${board}Write" method="post" enctype="multipart/form-data">
-						<input type="hidden" value="${vo.board_num}" name="num">
+						<%-- <input type="text" value="${vo.board_num}" name="board_num"> --%>
 						<div class="title-box">
 							
 							<div class="form-group title-category">
 								<c:choose>
-									<c:when test="${board ne 'notice'}">
+									<c:when test="${board eq 'notice'}">
 										<label for="sel1" class="title-lab">문의 선택</label>
 										<select class="form-control sel-cate" id="sel1" name="board_title">
 											<option>상품 문의</option>

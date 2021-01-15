@@ -22,5 +22,6 @@ public interface BoardService {
 	public int setDelete(BoardVO boardVO) throws Exception;
 	
 	public int setReply(BoardVO boardVO) throws Exception;
+	
 
 }

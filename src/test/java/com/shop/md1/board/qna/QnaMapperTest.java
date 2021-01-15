@@ -14,6 +14,10 @@ class QnaMapperTest {
 	@Autowired
 	private QnaMapper qnaMapper;
 	
+//	void setRefUpdate() throws Exception {
+//		
+//	}
+	
 	@Test
 	void setReplyTest() throws Exception {
 		QnaVO qnaVO = new QnaVO();

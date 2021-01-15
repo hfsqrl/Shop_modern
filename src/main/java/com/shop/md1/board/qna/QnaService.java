@@ -20,6 +20,12 @@ public class QnaService implements BoardService {
 	@Autowired
 	private QnaMapper qnaMapper;
 	
+	public int setRefUpdate(BoardVO boardVO) throws Exception {
+		int result = qnaMapper.setRefUpdate(boardVO);
+		
+		return result;
+	}
+	
 	public int setReply(BoardVO boardVO) throws Exception {
 		int result = qnaMapper.setReply(boardVO);
 		

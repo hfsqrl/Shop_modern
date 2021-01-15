@@ -12,6 +12,7 @@ public class Pager {
 	private long perPage;
 	
 	private long startRow;
+	private long lastRow;
 	
 	private long startNum;
 	private long lastNum;
@@ -47,7 +48,9 @@ public class Pager {
 	}
 	
 	public void makeRow() {
-		this.startRow =  (this.getCurPage()-1)*perPage;
+//		this.startRow =  (this.getCurPage()-1)*perPage;
+		this.startRow =  (this.getCurPage()-1)*this.getPerPage();
+		this.lastRow = this.getCurPage()*this.getPerPage();
 	}
 	
 	public void makePage(long totalCount) {

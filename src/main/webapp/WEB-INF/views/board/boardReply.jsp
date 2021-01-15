@@ -85,7 +85,25 @@
 		focus: true
 	});
 
-	$("#summernote").summernote('editor.insertText', '${vo.board_contents}');
+	var ele = $("#summernote").val();
+
+	oriText = ele.innerHTML;  // 아래와 같은 문자열이 저장됨
+	oriText = '${vo.board_contents}';
+
+	newText = oriText.replace(/(<([^>]+)>)/ig,"");
+
+	$("#summernote").summernote('editor.insertText', newText);
+/* 
+	var data='${vo.board_contents}';
+	while(data.startsWith('<p><br></p>')){
+	data=data.replace('<p><br></p>','')
+	};
+
+	while(data.endsWith('<p><br></p>')){
+	data=data.replace(new RegExp('<p><br></p>$'),'')
+	};
+	console.log(data);
+ */
 
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
