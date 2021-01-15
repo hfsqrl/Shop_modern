@@ -30,7 +30,7 @@
 						
 						<div class="board-top">
 							<ul>
-								<li class="sel-title">${vo.board_title}</li>
+								<li class="sel-title">[ ${vo.board_title} ] ${vo.board_title2}</li>
 								<li>posted by : ${vo.board_writer}</li>
 							</ul>
 						</div>

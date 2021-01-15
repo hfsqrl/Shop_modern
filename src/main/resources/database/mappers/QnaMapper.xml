@@ -17,13 +17,12 @@
 			</otherwise>
 		</choose>
 		like concat('%', #{search}, '%') and board_num>0
-		<!-- like concat('%', #{search}, '%') -->
 	</sql>
 	
 	<insert id="setReply" parameterType="QnaVO">
-		insert into qna (board_title, board_writer, board_contents, regDate, ref, step, depth)
+		insert into qna (board_title, board_title2, board_writer, board_contents, regDate, ref, step, depth)
 		values (
-		#{board_title}, #{board_writer}, #{board_contents}, sysdate(),
+		#{board_title}, #{board_title2}, #{board_writer}, #{board_contents}, sysdate(),
 		(select ref from qna q1 where board_num=#{board_num}), 
 		(select step+1 from qna q1 where board_num=#{board_num}), 
 		(select depth+1 from qna q1 where board_num=#{board_num})
@@ -31,7 +30,7 @@
 	</insert>
 	
 	<update id="setUpdate" parameterType="QnaVO">
-		update qna set board_title = #{board_title}, board_contents = #{board_contents} where board_num = #{board_num}
+		update qna set board_title = #{board_title}, board_title2 = #{board_title2}, board_contents = #{board_contents} where board_num = #{board_num}
 	</update>
 	
 	<delete id="setDelete" parameterType="QnaVO">
@@ -43,8 +42,8 @@
 	</select>
 	
 	<insert id="setInsert" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="board_num">
-		insert into qna (board_num, board_title, board_writer, board_contents, regDate, ref, step, depth, item_num) 
-		values (#{board_num}, #{board_title}, #{board_writer}, #{board_contents}, sysdate(), #{board_num}, 0, 0, 1)
+		insert into qna (board_num, board_title, board_title2, board_writer, board_contents, regDate, ref, step, depth) 
+		values (#{board_num}, #{board_title}, #{board_title2}, #{board_writer}, #{board_contents}, sysdate(), #{board_num}, 0, 0)
 	</insert>	
 	
 	<update id="setRefUpdate" parameterType="BoardVO">
@@ -53,12 +52,7 @@
 
 	<select id="getList" resultType="QnaVO" parameterType="Pager">
 			select * from qna where
-			<!-- select * from
-			(select rownum R, N.* from 
-			(select * from qna where --> 
 			<include refid="getSearch"></include>
-			<!-- order by ref desc, step asc) N)
-			where R between #{startRow} and #{lastRow} -->
 			order by ref desc, step asc
 			limit #{startRow}, #{perPage}
 	</select>

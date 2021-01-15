@@ -34,17 +34,31 @@
 							
 							<div class="form-group title-category">
 								<c:choose>
-									<c:when test="${board eq 'notice'}">
+									<c:when test="${board eq 'qna'}">
 										<label for="sel1" class="title-lab">문의 선택</label>
-										<select class="form-control sel-cate" id="sel1" name="board_title">
-											<option>상품 문의</option>
-											<option>배송 문의</option>
-											<option>교환 문의</option>
-											<option>반품 문의</option>
-											<option>무통장 입금 문의</option>
-											<option>배송전 취소/변경 문의</option>
-											<option>해외배송 문의 / Shipping Q&A</option>
+											<select class="form-control sel-cate" id="sel1" name="board_title">
+												<option>상품 문의</option>
+												<option>배송 문의</option>
+												<option>교환 문의</option>
+												<option>반품 문의</option>
+												<option>무통장 입금 문의</option>
+												<option>배송전 취소/변경 문의</option>
+												<option>해외배송 문의 / Shipping Q&A</option>
+											</select>
+										<label for="sel2" class="title-lab t-qna">제목</label>
+										<input type="text" name="board_title2" class="form-control title-input" id="usr">
+									</c:when>
+									<c:when test="${board eq 'review'}">
+										<label for="sel1" class="title-lab">별점</label>
+										<select class="form-control sel-cate point" id="sel1" name="board_title">
+											<option>★</option>
+											<option>★★</option>
+											<option>★★★</option>
+											<option>★★★★</option>
+											<option>★★★★★</option>
 										</select>
+										<label for="sel2" class="title-lab">제목</label>
+										<input type="text" name="board_title2" class="form-control title-input" id="usr">
 									</c:when>
 									<c:otherwise>
 										<label for="sel2" class="title-lab">제목</label>

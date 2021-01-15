@@ -9,6 +9,6 @@ import lombok.Data;
 @Data
 public class ReviewVO extends BoardVO {
 	
-	private long item_num;
+	private String board_title2;
 
 }

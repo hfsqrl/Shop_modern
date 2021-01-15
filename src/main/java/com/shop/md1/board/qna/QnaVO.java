@@ -11,6 +11,8 @@ import lombok.Data;
 @Data
 public class QnaVO extends BoardVO {
 	
+	private String board_title2;
+	
 	private Date regDate;
 	private long ref;
 	private long step;
