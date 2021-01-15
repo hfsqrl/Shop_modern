@@ -30,22 +30,38 @@
 							<thead class="table-head">
 								<tr>
 									<th style="width: 6%;">no.</th>
-									<th style="width: 13%;">product</th>
 									<th style="width: auto;">title</th>
 									<th style="width: 14%;">posted by</th>
 									<th style="width: 12%;">date</th>
 								</tr>
 							</thead>
 							<tbody class="table-list">
-								<c:forEach items="${list}" var="vo">
-									<tr>
-										<td>${vo.board_num}</td>
-										<td><a href="./getOneProduct?item_num=${dto.item_num}">${dto.item_name}</a></td>
-										<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title}</td>
-										<td>${vo.board_writer}</td>
-										<td>${vo.regDate}</td>
-									</tr>
-								</c:forEach>
+								<c:choose>
+									<c:when test="${not empty list}">
+										<c:forEach items="${list}" var="vo">
+											<tr>
+												<td>${vo.board_num}</td>
+												<td>
+													<a href="${board}Select?board_num=${vo.board_num}">
+														<c:catch>
+										  					<c:forEach begin="1" end="${vo.depth}">--</c:forEach>
+										  				</c:catch>
+										  				${vo.board_title}<%-- , ${vo.ref}, ${vo.step}, ${vo.depth} --%>
+										  			</a>
+												</td>
+												<td>${vo.board_writer}</td>
+												<td>${vo.regDate}</td>
+											</tr>
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<tr>
+											<td colspan="4">
+												Empty
+											</td>
+										</tr>
+									</c:otherwise>
+								</c:choose>
 							</tbody>
 						</table>
 					</div>
@@ -55,9 +71,9 @@
 						<div class="input-group search">
 							<div class="search-kind">
 								<select class="form-control kind" id="kind" name="kind">
-									<option>제목</option>
-									<option>아이디</option>
-									<option>내용</option>
+									<option value="title">제목</option>
+									<option value="writer">아이디</option>
+									<option value="contents">내용</option>
 								</select>
 							</div>
 							<div class="search-box">
@@ -72,19 +88,21 @@
 						</div>
 					</form>
 					<div class="page">
-						<ol>
-							<c:if test="${pager.before}">
-								<li><a href="#" class="list" title="${pager.startNum-1}"><<</a></li>
-							</c:if>
-							  
-							<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-								<li><a href="#" class="list" title="${i}">${i}</a></li>
-							</c:forEach>
-							  
-							<c:if test="${pager.after}">
-								<li><a href="#" class="list" title="${pager.lastNum+1}">>></a></li>
-							</c:if>
-						</ol>
+						<c:if test="${not empty list}">
+							<ol>
+								<c:if test="${pager.before}">
+									<li><a href="#" class="list" title="${pager.startNum-1}"><<</a></li>
+								</c:if>
+								  
+								<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+									<li><a href="#" class="list" title="${i}">${i}</a></li>
+								</c:forEach>
+								  
+								<c:if test="${pager.after}">
+									<li><a href="#" class="list" title="${pager.lastNum+1}">>></a></li>
+								</c:if>
+							</ol>
+						</c:if>
 					</div>
 				</div>
 			
@@ -113,7 +131,7 @@
 			s_search = true;
 			search.submit();
 		}
-	}) /* */
+	})
 	
 	$(".list").click(function() {
 		var curPage = ($(this).attr("title"))

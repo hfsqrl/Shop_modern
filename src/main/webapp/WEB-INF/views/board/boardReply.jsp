@@ -26,15 +26,16 @@
 				
 				<div class="write-box">
 					<div class="write-head">
-						<p class="title" style="text-transform: uppercase;">${board}</p>
+						<p class="title">Q&A</p>
 					</div>
-					<form id="frm" action="./${board}Write" method="post" enctype="multipart/form-data">
-						<%-- <input type="text" value="${vo.board_num}" name="board_num"> --%>
+					<form:form modelAttribute="boardVO" id="reply_frm" enctype="multipart/form-data" >
+	  					<form:hidden path="board_num" name="board_num" value="${vo.board_num}"/>
+						<%-- <h3>${board} num : ${vo.board_num}</h3> --%>
 						<div class="title-box">
 							
 							<div class="form-group title-category">
 								<c:choose>
-									<c:when test="${board eq 'notice'}">
+									<c:when test="${board ne 'notice'}">
 										<label for="sel1" class="title-lab">문의 선택</label>
 										<select class="form-control sel-cate" id="sel1" name="board_title">
 											<option>상품 문의</option>
@@ -51,7 +52,6 @@
 										<input type="text" name="board_title" class="form-control title-input" id="usr">
 									</c:otherwise>
 								</c:choose>
-								
 							</div>
 						</div>
 						<div class="form-group writer-box">
@@ -63,10 +63,10 @@
 							<c:import url="./boardWriteAddFiles.jsp"></c:import>
 							<div class="go-btns">
 								<div class="btn go-list">LIST</div>
-								<div class="go-write"><button type="submit" class="btn btn-link" id="btn">WRITE</button></div>
+								<div class="go-write"><button type="submit" class="btn btn-link" id="btn">REPLY</button></div>
 							</div>
 						</div>
-					</form>
+					</form:form>
 				</div>
 			
 			</div> <!-- contents -->
@@ -77,6 +77,7 @@
 
 <script type="text/javascript">
 
+
 	$("#summernote").summernote({
 		height: 500,
 		lang: 'ko-KR',
@@ -84,17 +85,42 @@
 		focus: true
 	});
 
+	var ele = $("#summernote").val();
+
+	oriText = ele.innerHTML;  // 아래와 같은 문자열이 저장됨
+	oriText = '${vo.board_contents}';
+
+	newText = oriText.replace(/(<([^>]+)>)/ig,"");
+
+	$("#summernote").summernote('editor.insertText', newText);
+/* 
+	var data='${vo.board_contents}';
+	while(data.startsWith('<p><br></p>')){
+	data=data.replace('<p><br></p>','')
+	};
+
+	while(data.endsWith('<p><br></p>')){
+	data=data.replace(new RegExp('<p><br></p>$'),'')
+	};
+	console.log(data);
+ */
+
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
 	})
 
 	$("#btn").click(function(){
-		
-		if(contents.trim() == '') {
+		var contents = '${vo.board_contents}'
+		if(contents != '') {
+			alert("수정 완료")
+			$("#write_frm").submit();
+		} else {
 			alert("내용을 입력해주세요.")
+			/* location.href="./${board}Select?board_num=${board_num}" */
 		}
-		
 	})
+
+	
 
 </script>
 

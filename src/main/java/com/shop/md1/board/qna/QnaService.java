@@ -20,6 +20,18 @@ public class QnaService implements BoardService {
 	@Autowired
 	private QnaMapper qnaMapper;
 	
+	public int setRefUpdate(BoardVO boardVO) throws Exception {
+		int result = qnaMapper.setRefUpdate(boardVO);
+		
+		return result;
+	}
+	
+	public int setReply(BoardVO boardVO) throws Exception {
+		int result = qnaMapper.setReply(boardVO);
+		
+		return result;
+	}
+	
 	@Override
 	public int setDelete(BoardVO boardVO) throws Exception {
 		int result = qnaMapper.setDelete(boardVO);
@@ -44,7 +56,7 @@ public class QnaService implements BoardService {
 	}
 	
 	@Override
-	public int setInsert(BoardVO boardVO, MultipartFile[] files, HttpSession session) throws Exception {
+	public int setInsert(BoardVO boardVO) throws Exception {
 		int result = qnaMapper.setInsert(boardVO);
 		
 		return result;

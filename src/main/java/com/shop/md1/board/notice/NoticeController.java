@@ -3,9 +3,11 @@ package com.shop.md1.board.notice;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -109,10 +111,10 @@ public class NoticeController {
 	}
 	
 	@PostMapping("noticeWrite")
-	public ModelAndView setInsert(BoardVO boardVO, MultipartFile [] files, HttpSession session) throws Exception {
+	public ModelAndView setInsert(@Valid BoardVO boardVO, BindingResult bindingResult) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		int result = noticeService.setInsert(boardVO, files, session);
+		int result = noticeService.setInsert(boardVO);
 		
 		System.out.println("Result : "+result);
 		String message = "공지사항 등록 실패";

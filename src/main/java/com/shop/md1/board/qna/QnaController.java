@@ -3,9 +3,11 @@ package com.shop.md1.board.qna;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +29,41 @@ public class QnaController {
 	@ModelAttribute(name = "board")
 	public String getBoard() {
 		return "qna";
+	}
+	
+	@GetMapping("qnaReply")
+	public ModelAndView setReply(BoardVO boardVO, QnaVO qnaVO, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		boardVO = qnaService.getOne(boardVO);
+		
+		mv.addObject("vo", boardVO);
+		
+		mv.setViewName("board/boardReply");
+		
+		return mv;
+	}
+	
+	@PostMapping("qnaReply")
+	public ModelAndView setReply(BoardVO boardVO, QnaVO qnaVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = qnaService.setReply(boardVO);
+
+		String message = "다시 답글을 수정 해주세요.";
+				
+		if(result>0) {
+			message = "답글 수정 완료";
+		}
+		
+		mv.addObject("msg", message);
+		mv.addObject("path", "./qnaReply");
+		mv.addObject("vo", boardVO);
+		
+		mv.setViewName("common/result");
+		mv.setViewName("redirect:../qna/qnaList");
+		
+		return mv;
 	}
 	
 	@PostMapping("qnaDelete")
@@ -90,10 +127,11 @@ public class QnaController {
 	}
 	
 	@PostMapping("qnaWrite")
-	public ModelAndView setInsert(BoardVO boardVO, MultipartFile [] files, HttpSession session) throws Exception {
+	public ModelAndView setInsert(BoardVO boardVO, HttpSession session) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
-		int result = qnaService.setInsert(boardVO, files, session);
+		int result = qnaService.setInsert(boardVO);
+		result = qnaService.setRefUpdate(boardVO);
 		
 		System.out.println("Result : "+result);
 		String message = "접수가 완료되지 않았습니다.";
@@ -129,7 +167,6 @@ public class QnaController {
 		
 		List<BoardVO> ar = qnaService.getList(pager);
 		
-//		mv.addObject("dto", productVO);
 		mv.addObject("pager", pager);
 		mv.addObject("list", ar);
 		

@@ -36,13 +36,24 @@
 								</tr>
 							</thead>
 							<tbody class="table-list">
-								<c:forEach items="${list}" var="vo">
-									<tr>
-										<td>${vo.board_num}</td>
-										<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title}</td>
-										<td>${vo.board_writer}</td>
-									</tr>
-								</c:forEach>
+							<c:choose>
+									<c:when test="${not empty list}">
+										<c:forEach items="${list}" var="vo">
+											<tr>
+												<td>${vo.board_num}</td>
+												<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title}</td>
+												<td>${vo.board_writer}</td>
+											</tr>
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<tr>
+											<td colspan="3">
+												Empty
+											</td>
+										</tr>
+									</c:otherwise>
+								</c:choose>
 							</tbody>
 						</table>
 					</div>
@@ -69,19 +80,21 @@
 						</div>
 					</form>
 					<div class="page">
-						<ol>
-							<c:if test="${pager.before}">
-								<li><a href="#" class="list" title="${pager.startNum-1}"><<</a></li>
-							</c:if>
-							  
-							<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-								<li><a href="#" class="list" title="${i}">${i}</a></li>
-							</c:forEach>
-							  
-							<c:if test="${pager.after}">
-								<li><a href="#" class="list" title="${pager.lastNum+1}">>></a></li>
-							</c:if>
-						</ol>
+						<c:if test="${not empty list}">
+							<ol>
+								<c:if test="${pager.before}">
+									<li><a href="#" class="list" title="${pager.startNum-1}"><<</a></li>
+								</c:if>
+								  
+								<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+									<li><a href="#" class="list" title="${i}">${i}</a></li>
+								</c:forEach>
+								  
+								<c:if test="${pager.after}">
+									<li><a href="#" class="list" title="${pager.lastNum+1}">>></a></li>
+								</c:if>
+							</ol>
+						</c:if>
 					</div>
 				</div>
 			

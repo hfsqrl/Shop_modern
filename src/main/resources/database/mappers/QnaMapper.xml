@@ -6,18 +6,29 @@
 <mapper namespace="com.shop.md1.board.qna.QnaMapper">
 	<sql id="getSearch">
 		<choose>
-			<when test="kind == 'board_title'">
+			<when test="kind == 'title'">
 				board_title
 			</when>
-			<when test="kind == 'board_writer'">
+			<when test="kind == 'writer'">
 				 board_writer
 			</when>
 			<otherwise>
 				board_contents
 			</otherwise>
 		</choose>
-		like concat('%', #{search}, '%') and board_num>0 
+		like concat('%', #{search}, '%') and board_num>0
+		<!-- like concat('%', #{search}, '%') -->
 	</sql>
+	
+	<insert id="setReply" parameterType="QnaVO">
+		insert into qna (board_title, board_writer, board_contents, regDate, ref, step, depth)
+		values (
+		#{board_title}, #{board_writer}, #{board_contents}, sysdate(),
+		(select ref from qna q1 where board_num=#{board_num}), 
+		(select step+1 from qna q1 where board_num=#{board_num}), 
+		(select depth+1 from qna q1 where board_num=#{board_num})
+		)
+	</insert>
 	
 	<update id="setUpdate" parameterType="QnaVO">
 		update qna set board_title = #{board_title}, board_contents = #{board_contents} where board_num = #{board_num}
@@ -31,16 +42,25 @@
 		select * from qna where board_num = #{board_num}
 	</select>
 	
-	<insert id="setInsert" parameterType="QnaVO">
-		insert into qna (board_title, board_writer, board_contents, regDate, ref, step, depth, item_num) 
-		values (#{board_title}, #{board_writer}, #{board_contents}, sysdate(), 0, 0, 0, 1)
+	<insert id="setInsert" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="board_num">
+		insert into qna (board_num, board_title, board_writer, board_contents, regDate, ref, step, depth, item_num) 
+		values (#{board_num}, #{board_title}, #{board_writer}, #{board_contents}, sysdate(), #{board_num}, 0, 0, 1)
 	</insert>	
+	
+	<update id="setRefUpdate" parameterType="BoardVO">
+		update qna set ref=#{board_num} where board_num = #{board_num}
+	</update>
 
 	<select id="getList" resultType="QnaVO" parameterType="Pager">
 			select * from qna where
+			<!-- select * from
+			(select rownum R, N.* from 
+			(select * from qna where --> 
 			<include refid="getSearch"></include>
-			order by board_num desc
-			limit #{startRow}, #{perPage}	
+			<!-- order by ref desc, step asc) N)
+			where R between #{startRow} and #{lastRow} -->
+			order by ref desc, step asc
+			limit #{startRow}, #{perPage}
 	</select>
 	
 	<select id="getCount" resultType="Long" parameterType="Pager">
