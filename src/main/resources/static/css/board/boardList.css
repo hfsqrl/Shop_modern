@@ -66,6 +66,10 @@ a:hover {
 	vertical-align: middle;
 }
 
+.td-title {
+	text-align: left;
+}
+
 .board_shape .search {
 	position: relative;
 	display: inline-block;

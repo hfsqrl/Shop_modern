@@ -51,7 +51,7 @@
 									modify
 								</div>
 							</c:if>
-							<c:if test="${member.member_id eq 'admin' or member.member_id eq vo.board_writer and board eq 'qna'}">
+							<c:if test="${not empty member and board ne 'notice'}">
 								<div class="btn go-reply" id="go-reply" title="Reply">
 									Reply
 								</div>

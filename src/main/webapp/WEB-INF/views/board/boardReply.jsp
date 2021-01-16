@@ -47,7 +47,7 @@
 											<option>해외배송 문의 / Shipping Q&A</option>
 										</select>
 										<label for="sel2" class="title-lab ti-cate">제목</label>
-										<input type="text" name="board_title2" class="form-control title-input" id="usr">
+										<input type="text" name="board_title2" class="form-control title-input" value="${vo.board_title2}" id="usr">
 									</c:when>
 									<c:when test="${board eq 'review'}">
 										<label for="sel1" class="title-lab">별점</label>
@@ -59,7 +59,7 @@
 											<option>★★★★★</option>
 										</select>
 										<label for="sel2" class="title-lab">제목</label>
-										<input type="text" name="board_title2" class="form-control title-input" id="usr">
+										<input type="text" name="board_title2" class="form-control title-input re" value="${vo.board_title2}" id="usr">
 									</c:when>
 									<c:otherwise>
 										<label for="sel1" class="title-lab">말머리 선택</label>
@@ -97,11 +97,9 @@
 
 <script type="text/javascript">
 
-
 	$("#summernote").summernote({
 		height: 500,
 		lang: 'ko-KR',
-		placeholder: '내용을 작성하세요.',
 		focus: true
 	});
 
@@ -113,17 +111,6 @@
 	newText = oriText.replace(/(<([^>]+)>)/ig,"");
 
 	$("#summernote").summernote('editor.insertText', newText);
-/* 
-	var data='${vo.board_contents}';
-	while(data.startsWith('<p><br></p>')){
-	data=data.replace('<p><br></p>','')
-	};
-
-	while(data.endsWith('<p><br></p>')){
-	data=data.replace(new RegExp('<p><br></p>$'),'')
-	};
-	console.log(data);
- */
 
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"

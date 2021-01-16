@@ -19,24 +19,46 @@
 		like concat('%', #{search}, '%') and board_num>0 
 	</sql>
 	
+	<insert id="setReply" parameterType="ReviewVO">
+		insert into review (board_title, board_title2, board_writer, board_contents, regDate, ref, step, depth)
+		values (
+		#{board_title}, #{board_title2}, #{board_writer}, #{board_contents}, sysdate(),
+		(select ref from review rv where board_num=#{board_num}), 
+		(select step+1 from review rv where board_num=#{board_num}), 
+		(select depth+1 from review rv where board_num=#{board_num})
+		)
+	</insert>
+	
+	<update id="setUpdate" parameterType="ReviewVO">
+		update review set board_title = #{board_title}, board_title2 = #{board_title2}, board_contents = #{board_contents} where board_num = #{board_num}
+	</update>
+	
+	<update id="setRefUpdate" parameterType="BoardVO">
+		update review set ref=#{board_num} where board_num = #{board_num}
+	</update>
+	
+	<delete id="setDelete" parameterType="ReviewVO">
+		delete from review where board_num = #{board_num}
+	</delete>
+	
 	<select id="getOne" parameterType="ReviewVO" resultType="ReviewVO">
 		select * from review where board_num = #{board_num}
 	</select>
 	
 	<insert id="setInsert" parameterType="ReviewVO">
-		insert into review (board_title, board_title2, board_writer, board_contents) 
-		values (#{board_title}, #{board_title2}, #{board_writer}, #{board_contents})
+		insert into review (board_title, board_title2, board_writer, board_contents, regDate, ref, step, depth) 
+		values (#{board_title}, #{board_title2}, #{board_writer}, #{board_contents}, sysdate(), #{board_num}, 0, 0)
 	</insert>	
 
 	<select id="getList" resultType="ReviewVO" parameterType="Pager">
 			select * from review where
 			<include refid="getSearch"></include>
-			order by board_num desc
+			order by ref desc, step asc
 			limit #{startRow}, #{perPage}	
 	</select>
 	
 	<select id="getCount" resultType="Long" parameterType="Pager">
-		select count(board_num) from qna where
+		select count(board_num) from review where
 		<include refid="getSearch"></include>
 	</select>
 

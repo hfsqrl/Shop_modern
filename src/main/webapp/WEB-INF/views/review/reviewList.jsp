@@ -41,8 +41,11 @@
 										<c:forEach items="${list}" var="vo">
 											<tr>
 												<td>${vo.board_num}</td>
-												<td>
+												<td class="td-title">
 													<a href="${board}Select?board_num=${vo.board_num}">
+														<c:catch>
+										  					<c:forEach begin="1" end="${vo.depth}">Re : </c:forEach>
+										  				</c:catch>
 										  				[ ${vo.board_title} ] ${vo.board_title2}
 										  			</a>
 												</td>

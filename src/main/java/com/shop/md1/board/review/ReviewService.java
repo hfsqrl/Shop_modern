@@ -20,10 +20,15 @@ public class ReviewService implements BoardService {
 	@Autowired
 	private ReviewMapper reviewMapper;
 	
+	public int setRefUpdate(BoardVO boardVO) throws Exception {
+		int result = reviewMapper.setRefUpdate(boardVO); 
+		
+		return result;
+	}
 	
 	public int setReply(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = reviewMapper.setReply(boardVO);
+		return result;
 	}
 	
 	@Override
@@ -44,20 +49,20 @@ public class ReviewService implements BoardService {
 	
 	@Override
 	public BoardVO getOne(BoardVO boardVO) throws Exception {
-
+		
 		return reviewMapper.getOne(boardVO);
 	}
 
 	@Override
 	public int setUpdate(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = reviewMapper.setUpdate(boardVO);
+		return result;
 	}
 	
 	@Override
 	public int setDelete(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = reviewMapper.setDelete(boardVO);
+		return result;
 	}
 
 }
