@@ -7,7 +7,7 @@
 	<sql id="getSearch">
 		<choose>
 			<when test="kind == 'title'">
-				board_title
+				board_title2
 			</when>
 			<when test="kind == 'writer'">
 				 board_writer

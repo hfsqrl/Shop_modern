@@ -20,11 +20,6 @@ public class NoticeService implements BoardService {
 	@Autowired
 	private NoticeMapper noticeMapper;
 	
-	@Override
-	public int setReply(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 	@Override
 	public List<BoardVO> getList(Pager pager) throws Exception {

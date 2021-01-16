@@ -41,7 +41,10 @@
 										<c:forEach items="${list}" var="vo">
 											<tr>
 												<td>${vo.board_num}</td>
-												<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title}</td>
+												<c:if test="${board_title eq '   '}">
+													<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title2}</td>
+												</c:if>
+												<td><a href="${board}Select?board_num=${vo.board_num}">[ ${vo.board_title} ] ${vo.board_title2}</td>
 												<td>${vo.board_writer}</td>
 											</tr>
 										</c:forEach>
@@ -63,9 +66,9 @@
 						<div class="input-group search">
 							<div class="search-kind">
 								<select class="form-control kind" id="kind" name="kind">
-									<option>제목</option>
-									<option>아이디</option>
-									<option>내용</option>
+									<option value="title">제목</option>
+									<option value="writer">아이디</option>
+									<option value="contents">내용</option>
 								</select>
 							</div>
 							<div class="search-box">

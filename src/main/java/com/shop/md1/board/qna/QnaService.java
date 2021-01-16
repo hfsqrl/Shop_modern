@@ -26,6 +26,7 @@ public class QnaService implements BoardService {
 		return result;
 	}
 	
+	
 	public int setReply(BoardVO boardVO) throws Exception {
 		int result = qnaMapper.setReply(boardVO);
 		

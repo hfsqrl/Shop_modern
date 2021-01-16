@@ -48,9 +48,6 @@ public class NoticeController {
 			mv.setViewName("common/result");
 		}
 		
-		
-//		mv.setViewName("redirect:../notice/noticeList");
-		
 		return mv;
 	}
 	
@@ -96,7 +93,6 @@ public class NoticeController {
 		
 		mv.addObject("pager", pager);
 		mv.addObject("list", ar);
-//		mv.addObject("board", "notice");
 		
 		mv.setViewName("notice/noticeList");
 		return mv;
@@ -105,8 +101,11 @@ public class NoticeController {
 	@GetMapping("noticeWrite")
 	public ModelAndView setInsert(BoardVO boardVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		
 		System.out.println("notice write");
+		
 		mv.setViewName("board/boardWrite");
+		
 		return mv;
 	}
 	

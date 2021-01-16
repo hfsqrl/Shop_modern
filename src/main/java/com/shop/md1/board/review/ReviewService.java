@@ -20,7 +20,7 @@ public class ReviewService implements BoardService {
 	@Autowired
 	private ReviewMapper reviewMapper;
 	
-	@Override
+	
 	public int setReply(BoardVO boardVO) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;

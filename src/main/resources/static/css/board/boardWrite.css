@@ -156,6 +156,14 @@ table tbody .files-last-tr {
     margin-bottom: 14px;
 }
 
+.ti-cate {
+	padding-left: 28px;
+}
+
+.ti-head {
+	padding-left: 40px;
+}
+
 .point {
 	width: 110px;
 }

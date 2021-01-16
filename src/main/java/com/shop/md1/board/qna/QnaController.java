@@ -32,7 +32,7 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaReply")
-	public ModelAndView setReply(BoardVO boardVO, QnaVO qnaVO, HttpSession session) throws Exception {
+	public ModelAndView setReply(BoardVO boardVO, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		boardVO = qnaService.getOne(boardVO);
@@ -45,7 +45,7 @@ public class QnaController {
 	}
 	
 	@PostMapping("qnaReply")
-	public ModelAndView setReply(BoardVO boardVO, QnaVO qnaVO) throws Exception {
+	public ModelAndView setReply(BoardVO boardVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		int result = qnaService.setReply(boardVO);

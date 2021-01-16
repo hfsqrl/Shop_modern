@@ -36,16 +36,16 @@
 								<c:choose>
 									<c:when test="${board eq 'qna'}">
 										<label for="sel1" class="title-lab">문의 선택</label>
-											<select class="form-control sel-cate" id="sel1" name="board_title">
-												<option>상품 문의</option>
-												<option>배송 문의</option>
-												<option>교환 문의</option>
-												<option>반품 문의</option>
-												<option>무통장 입금 문의</option>
-												<option>배송전 취소/변경 문의</option>
-												<option>해외배송 문의 / Shipping Q&A</option>
-											</select>
-										<label for="sel2" class="title-lab t-qna">제목</label>
+										<select class="form-control sel-cate" id="sel1" name="board_title">
+											<option>상품 문의</option>
+											<option>배송 문의</option>
+											<option>교환 문의</option>
+											<option>반품 문의</option>
+											<option>무통장 입금 문의</option>
+											<option>배송전 취소/변경 문의</option>
+											<option>해외배송 문의 / Shipping Q&A</option>
+										</select>
+										<label for="sel2" class="title-lab ti-cate">제목</label>
 										<input type="text" name="board_title2" class="form-control title-input" id="usr">
 									</c:when>
 									<c:when test="${board eq 'review'}">
@@ -61,8 +61,14 @@
 										<input type="text" name="board_title2" class="form-control title-input" id="usr">
 									</c:when>
 									<c:otherwise>
-										<label for="sel2" class="title-lab">제목</label>
-										<input type="text" name="board_title" class="form-control title-input" id="usr">
+										<label for="sel1" class="title-lab">말머리 선택</label>
+										<select class="form-control sel-cate heading" id="sel1" name="board_title">
+											<option>뉴스</option>
+											<option>이벤트</option>
+											<option>긴급 공지</option>
+										</select>
+										<label for="sel2" class="title-lab ti-head">제목</label>
+										<input type="text" name="board_title2" class="form-control title-input" id="usr">
 									</c:otherwise>
 								</c:choose>
 								

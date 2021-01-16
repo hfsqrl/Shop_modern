@@ -43,7 +43,7 @@
 												<td>${vo.board_num}</td>
 												<td>
 													<a href="${board}Select?board_num=${vo.board_num}">
-										  				${vo.board_title}
+										  				[ ${vo.board_title} ] ${vo.board_title2}
 										  			</a>
 												</td>
 												<td>${vo.board_writer}</td>

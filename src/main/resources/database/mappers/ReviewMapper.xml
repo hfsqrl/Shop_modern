@@ -6,10 +6,10 @@
 <mapper namespace="com.shop.md1.board.review.ReviewMapper">
 	<sql id="getSearch">
 		<choose>
-			<when test="kind == 'board_title'">
-				board_title
+			<when test="kind == 'title'">
+				board_title2
 			</when>
-			<when test="kind == 'board_writer'">
+			<when test="kind == 'writer'">
 				 board_writer
 			</when>
 			<otherwise>
@@ -20,7 +20,7 @@
 	</sql>
 	
 	<select id="getOne" parameterType="ReviewVO" resultType="ReviewVO">
-		select * from reivew where board_num = #{board_num}
+		select * from review where board_num = #{board_num}
 	</select>
 	
 	<insert id="setInsert" parameterType="ReviewVO">

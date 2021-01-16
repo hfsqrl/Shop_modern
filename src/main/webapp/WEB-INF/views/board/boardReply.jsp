@@ -26,7 +26,7 @@
 				
 				<div class="write-box">
 					<div class="write-head">
-						<p class="title">Q&A</p>
+						<p class="title" style="text-transform: uppercase;">${board}</p>
 					</div>
 					<form:form modelAttribute="boardVO" id="reply_frm" enctype="multipart/form-data" >
 	  					<form:hidden path="board_num" name="board_num" value="${vo.board_num}"/>
@@ -35,7 +35,7 @@
 							
 							<div class="form-group title-category">
 								<c:choose>
-									<c:when test="${board ne 'notice'}">
+									<c:when test="${board eq 'qna'}">
 										<label for="sel1" class="title-lab">문의 선택</label>
 										<select class="form-control sel-cate" id="sel1" name="board_title">
 											<option>상품 문의</option>
@@ -46,10 +46,30 @@
 											<option>배송전 취소/변경 문의</option>
 											<option>해외배송 문의 / Shipping Q&A</option>
 										</select>
+										<label for="sel2" class="title-lab ti-cate">제목</label>
+										<input type="text" name="board_title2" class="form-control title-input" id="usr">
+									</c:when>
+									<c:when test="${board eq 'review'}">
+										<label for="sel1" class="title-lab">별점</label>
+										<select class="form-control sel-cate point" id="sel1" name="board_title">
+											<option>★</option>
+											<option>★★</option>
+											<option>★★★</option>
+											<option>★★★★</option>
+											<option>★★★★★</option>
+										</select>
+										<label for="sel2" class="title-lab">제목</label>
+										<input type="text" name="board_title2" class="form-control title-input" id="usr">
 									</c:when>
 									<c:otherwise>
-										<label for="sel2" class="title-lab">제목</label>
-										<input type="text" name="board_title" class="form-control title-input" id="usr">
+										<label for="sel1" class="title-lab">말머리 선택</label>
+										<select class="form-control sel-cate heading" id="sel1" name="board_title">
+											<option>뉴스</option>
+											<option>이벤트</option>
+											<option>긴급 공지</option>
+										</select>
+										<label for="sel2" class="title-lab ti-head">제목</label>
+										<input type="text" name="board_title2" class="form-control title-input" id="usr">
 									</c:otherwise>
 								</c:choose>
 							</div>
