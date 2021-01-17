@@ -29,7 +29,7 @@
 						<table class="table table-bordered board_table">
 							<thead class="table-head">
 								<tr>
-									<th style="width: 6%;">no.</th>
+									<th style="width: 8%;">no.</th>
 									<th style="width: auto;">title</th>
 									<th style="width: 14%;">posted by</th>
 									<th style="width: 12%;">date</th>

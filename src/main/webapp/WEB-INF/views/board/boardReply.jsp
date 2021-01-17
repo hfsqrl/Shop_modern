@@ -110,7 +110,7 @@
 
 	newText = oriText.replace(/(<([^>]+)>)/ig,"");
 
-	$("#summernote").summernote('editor.insertText', newText);
+	$("#summernote").summernote('editor.insertText', '작성자 : ${vo.board_writer}' + newText);
 
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
