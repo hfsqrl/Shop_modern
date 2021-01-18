@@ -25,13 +25,6 @@ public class InterceptorConfig implements WebMvcConfigurer{
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		
-		// 적용할 Interceptor 등록
-		//registry.addInterceptor(customInterceptor)
-		// Interceptor에서 사용할 URL 작성
-		//.addPathPatterns("/notice/**")
-		//.addPathPatterns(patterns)
-		//Interceptor에서 제외할 URL 작성
-		//.excludePathPatterns("/notice/noticeWrite");
 		
 		registry.addInterceptor(noticeAdminInterceptor)
 		.addPathPatterns("/notice/noticeWrite");
