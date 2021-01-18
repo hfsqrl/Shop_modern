@@ -127,10 +127,10 @@ public class QnaController {
 	}
 	
 	@PostMapping("qnaWrite")
-	public ModelAndView setInsert(BoardVO boardVO, HttpSession session) throws Exception {
+	public ModelAndView setInsert(BoardVO boardVO, MultipartFile [] files) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
-		int result = qnaService.setInsert(boardVO);
+		int result = qnaService.setInsert(boardVO, files);
 		result = qnaService.setRefUpdate(boardVO);
 		
 		System.out.println("Result : "+result);

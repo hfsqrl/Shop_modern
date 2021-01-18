@@ -110,10 +110,10 @@ public class NoticeController {
 	}
 	
 	@PostMapping("noticeWrite")
-	public ModelAndView setInsert(@Valid BoardVO boardVO, BindingResult bindingResult) throws Exception {
+	public ModelAndView setInsert(BoardVO boardVO, MultipartFile [] files) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		int result = noticeService.setInsert(boardVO);
+		int result = noticeService.setInsert(boardVO, files);
 		
 		System.out.println("Result : "+result);
 		String message = "공지사항 등록 실패";

@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.md1.board.BoardService;
 import com.shop.md1.board.BoardVO;
+import com.shop.md1.board.file.BoardFileVO;
 import com.shop.md1.util.Pager;
 
 @Service
@@ -57,7 +58,7 @@ public class QnaService implements BoardService {
 	}
 	
 	@Override
-	public int setInsert(BoardVO boardVO) throws Exception {
+	public int setInsert(BoardVO boardVO, MultipartFile [] files) throws Exception {
 		int result = qnaMapper.setInsert(boardVO);
 		
 		return result;
@@ -67,6 +68,12 @@ public class QnaService implements BoardService {
 	public BoardVO getOne(BoardVO boardVO) throws Exception {
 
 		return qnaMapper.getOne(boardVO);
+	}
+
+	@Override
+	public BoardFileVO getFile(BoardFileVO boardFileVO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

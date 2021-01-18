@@ -37,6 +37,9 @@
 						<div class="board-contents">
 							<div class="con-view">
 								${vo.board_contents}
+								<c:forEach items="${vo.files}" var="file">
+									<p><a href="#">${file.oriName}</a></p> <!-- -->
+								</c:forEach>
 							</div>
 						</div>
 						<div class="re-list">

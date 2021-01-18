@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.md1.board.BoardVO;
@@ -122,10 +123,10 @@ public class ReviewController {
 	}
 	
 	@PostMapping("reviewWrite")
-	public ModelAndView setInsert(BoardVO boardVO, HttpSession session) throws Exception {
+	public ModelAndView setInsert(BoardVO boardVO, MultipartFile [] files) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		int result = reviewService.setInsert(boardVO);
+		int result = reviewService.setInsert(boardVO, files);
 		result = reviewService.setRefUpdate(boardVO);
 		
 		String message = "리뷰 등록에 실패하였습니다.";

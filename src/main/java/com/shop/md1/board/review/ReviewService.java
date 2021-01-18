@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.md1.board.BoardService;
 import com.shop.md1.board.BoardVO;
+import com.shop.md1.board.file.BoardFileVO;
 import com.shop.md1.util.Pager;
 
 @Service
@@ -19,6 +20,12 @@ public class ReviewService implements BoardService {
 	
 	@Autowired
 	private ReviewMapper reviewMapper;
+	
+	@Override
+	public BoardFileVO getFile(BoardFileVO boardFileVO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	public int setRefUpdate(BoardVO boardVO) throws Exception {
 		int result = reviewMapper.setRefUpdate(boardVO); 
@@ -42,7 +49,7 @@ public class ReviewService implements BoardService {
 	}
 	
 	@Override
-	public int setInsert(BoardVO boardVO) throws Exception {
+	public int setInsert(BoardVO boardVO, MultipartFile [] files) throws Exception {
 		int result = reviewMapper.setInsert(boardVO);
 		return result;
 	}

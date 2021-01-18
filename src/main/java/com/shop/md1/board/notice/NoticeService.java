@@ -1,16 +1,21 @@
 package com.shop.md1.board.notice;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.md1.board.BoardService;
 import com.shop.md1.board.BoardVO;
+import com.shop.md1.board.file.BoardFileVO;
+import com.shop.md1.util.FileManager;
+import com.shop.md1.util.FilePathGenerator;
 import com.shop.md1.util.Pager;
 
 @Service
@@ -20,6 +25,14 @@ public class NoticeService implements BoardService {
 	@Autowired
 	private NoticeMapper noticeMapper;
 	
+	@Autowired
+	private FilePathGenerator filePathGenerator;
+	
+	@Autowired
+	private FileManager fileManager;
+	
+	@Value("${board.notice.filePath}")
+	private String filePath;
 	
 	@Override
 	public List<BoardVO> getList(Pager pager) throws Exception {
@@ -32,9 +45,33 @@ public class NoticeService implements BoardService {
 	}
 	
 	@Override
-	public int setInsert(BoardVO boardVO) throws Exception {
+	public int setInsert(BoardVO boardVO, MultipartFile [] files) throws Exception {
 		
 		int result = noticeMapper.setInsert(boardVO);
+		System.out.println("num : "+boardVO.getBoard_num());
+		
+		File file = filePathGenerator.getUseResourceLoader(this.filePath);
+		
+		for(MultipartFile multipartFile: files) {
+			
+			if(multipartFile.getSize()==0) {
+				continue;
+			}
+			
+			String fileName = fileManager.saveFileCopy(multipartFile, file); 
+			
+			BoardFileVO boardFileVO = new BoardFileVO();
+			
+			boardFileVO.setBoard_num(boardVO.getBoard_num());
+			boardFileVO.setOriName(multipartFile.getOriginalFilename());
+			boardFileVO.setFileName(fileName);
+			//fileVO.setNum(2000);
+			
+			result = noticeMapper.setInsertFile(boardFileVO);
+			
+			System.out.println(fileName);
+			
+		}		
 		
 		return result;
 	}
@@ -56,6 +93,12 @@ public class NoticeService implements BoardService {
 		int result = noticeMapper.setDelete(boardVO);
 		
 		return result;
+	}
+
+	@Override
+	public BoardFileVO getFile(BoardFileVO boardFileVO) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeMapper.getFile(boardFileVO);
 	}
 
 }

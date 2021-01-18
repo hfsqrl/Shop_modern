@@ -6,7 +6,7 @@ import lombok.Data;
 public class BoardFileVO {
 	
 	private long fnum;
-	private long num;
+	private long board_num;
 	private String fileName;
 	private String oriName;
 

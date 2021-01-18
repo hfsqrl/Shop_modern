@@ -27,9 +27,25 @@
 		delete from notice where board_num = #{board_num}
 	</delete>
 	
-	<select id="getOne" parameterType="NoticeVO" resultType="NoticeVO">
-		select * from notice where board_num = #{board_num}
+	<select id="getOne" parameterType="NoticeVO" resultMap="GetOneResult">
+		select n.*, nf.*
+		from notice n left join noticefiles nf
+		on n.board_num = nf.board_num
+		where n.board_num = #{board_num}
 	</select>
+	
+	<resultMap type="NoticeVO" id="GetOneResult">
+		<id column="board_num" property="board_num"/>
+		<result column="board_writer" property="board_writer"/>
+		<result column="board_title" property="board_title"/>
+		<result column="board_title2" property="board_title2"/>
+		<result column="board_contents" property="board_contents"/>
+		<collection property="files" javaType="java.util.List" ofType="BoardFileVO">
+			<id column="fnum" property="fnum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
 	
 	<select id="getCount" resultType="Long" parameterType="Pager">
 		select count(board_num) from notice where
@@ -43,9 +59,18 @@
 		limit #{startRow}, #{perPage}
 	</select>
 
-	<insert id="setInsert" parameterType="NoticeVO">
+	<insert id="setInsert" parameterType="NoticeVO" useGeneratedKeys="true" keyProperty="board_num">
 		insert into notice (board_title, board_title2, board_writer, board_contents) 
 		values (#{board_title}, #{board_title2}, #{board_writer}, #{board_contents})
 	</insert>
+	
+	<insert id="setInsertFile" parameterType="BoardFileVO">
+		insert into noticefiles (board_num, fileName, oriName)
+		values (#{board_num}, #{fileName}, #{oriName})
+	</insert>
+	
+	<select id="getFile" parameterType="BoardFileVO" resultType="BoardFileVO">
+		select * from noticefiles where fnum = #{fnum}
+	</select>
 
 </mapper>
