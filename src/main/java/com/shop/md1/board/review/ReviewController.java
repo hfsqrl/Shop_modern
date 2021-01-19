@@ -1,10 +1,12 @@
 package com.shop.md1.board.review;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.md1.board.BoardVO;
+import com.shop.md1.board.file.BoardFileVO;
 import com.shop.md1.util.Pager;
 
 @Controller
@@ -26,6 +29,52 @@ public class ReviewController {
 	@ModelAttribute(name = "board")
 	public String getBoard() {
 		return "review";
+	}
+	
+	@Value("${board.review.filePath}")
+	private String filePath;
+	
+	
+	@GetMapping("reviewFileDown")
+	public ModelAndView getReviewFileDown(BoardFileVO boardFileVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		boardFileVO = reviewService.getFile(boardFileVO);
+		
+		mv.addObject("fileVO", boardFileVO);
+		mv.addObject("filePath", filePath);
+		mv.setViewName("fileDown");
+		
+		return mv;
+	}
+	
+	@PostMapping("summernote")
+	public ModelAndView summernote(MultipartFile file)throws Exception{
+		ModelAndView mv = new ModelAndView();
+
+		String fileName = reviewService.summernote(file);
+		System.out.println("UUID경로명----------"+fileName);
+		
+		String name = File.separator+"upload"+File.separator+"review"+File.separator+fileName;
+		
+		System.out.println(name);
+		
+		mv.addObject("msg", name);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
+	@PostMapping("summernoteDelete")
+	public ModelAndView summernoteDelete(String file, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		boolean result = reviewService.summernoteDelete(file, session);
+		
+		mv.addObject("msg", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
 	}
 	
 	@PostMapping("reviewReply")
@@ -128,6 +177,9 @@ public class ReviewController {
 		
 		int result = reviewService.setInsert(boardVO, files);
 		result = reviewService.setRefUpdate(boardVO);
+		
+		System.out.println("result : "+result);
+		System.out.println("review write page");
 		
 		String message = "리뷰 등록에 실패하였습니다.";
 		

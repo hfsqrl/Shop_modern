@@ -34,6 +34,32 @@ public class NoticeService implements BoardService {
 	@Value("${board.notice.filePath}")
 	private String filePath;
 	
+	
+	public String summernote(MultipartFile file)throws Exception {
+		
+		File files = filePathGenerator.getUseResourceLoader(this.filePath);
+		
+		System.out.println("uuid전경로명-------"+files);
+		
+		String fileName = fileManager.saveFileCopy(file, files);
+		
+		return fileName;
+	}
+	
+	public boolean summernoteDelete(String file, HttpSession session)throws Exception {
+		String path = session.getServletContext().getRealPath("/upload/notice");
+		
+		File file2 = new File(path, file);
+		
+		boolean result = false;
+		
+		if(file2.exists()) {
+			result=file2.delete();
+		}
+		
+		return result;
+	}	
+	
 	@Override
 	public List<BoardVO> getList(Pager pager) throws Exception {
 		pager.makeRow();
@@ -65,9 +91,8 @@ public class NoticeService implements BoardService {
 			boardFileVO.setBoard_num(boardVO.getBoard_num());
 			boardFileVO.setOriName(multipartFile.getOriginalFilename());
 			boardFileVO.setFileName(fileName);
-			//fileVO.setNum(2000);
 			
-			result = noticeMapper.setInsertFile(boardFileVO);
+			noticeMapper.setInsertFile(boardFileVO);
 			
 			System.out.println(fileName);
 			
@@ -97,7 +122,7 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public BoardFileVO getFile(BoardFileVO boardFileVO) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return noticeMapper.getFile(boardFileVO);
 	}
 

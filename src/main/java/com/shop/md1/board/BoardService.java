@@ -23,5 +23,5 @@ public interface BoardService {
 	public int setDelete(BoardVO boardVO) throws Exception;
 	
 	public BoardFileVO getFile(BoardFileVO boardFileVO) throws Exception;
-
+	
 }

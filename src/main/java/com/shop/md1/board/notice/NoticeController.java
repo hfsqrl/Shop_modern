@@ -1,11 +1,13 @@
 package com.shop.md1.board.notice;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.md1.board.BoardVO;
+import com.shop.md1.board.file.BoardFileVO;
 import com.shop.md1.util.Pager;
 
 @Controller
@@ -25,9 +28,54 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	@Value("${board.notice.filePath}")
+	private String filePath;
+	
 	@ModelAttribute(name = "board")
 	public String getBoard() {
 		return "notice";
+	}
+	
+	@GetMapping("noticeFileDown")
+	public ModelAndView getNoticeFileDown(BoardFileVO boardFileVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		boardFileVO = noticeService.getFile(boardFileVO);
+		
+		mv.addObject("fileVO", boardFileVO);
+		mv.addObject("filePath", filePath);
+		mv.setViewName("fileDown");
+		
+		return mv;
+	}
+	
+	@PostMapping("summernote")
+	public ModelAndView summernote(MultipartFile file)throws Exception{
+		ModelAndView mv = new ModelAndView();
+
+		String fileName = noticeService.summernote(file);
+		System.out.println("UUID경로명----------"+fileName);
+		
+		String name = File.separator+"upload"+File.separator+"notice"+File.separator+fileName;
+		
+		System.out.println(name);
+		
+		mv.addObject("msg", name);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
+	@PostMapping("summernoteDelete")
+	public ModelAndView summernoteDelete(String file, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		boolean result = noticeService.summernoteDelete(file, session);
+		
+		mv.addObject("msg", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
 	}
 	
 	@PostMapping("noticeDelete")

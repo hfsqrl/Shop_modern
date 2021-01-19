@@ -41,14 +41,39 @@
 		delete from review where board_num = #{board_num}
 	</delete>
 	
-	<select id="getOne" parameterType="ReviewVO" resultType="ReviewVO">
-		select * from review where board_num = #{board_num}
+	<select id="getOne" parameterType="ReviewVO" resultMap="GetOneResult">
+		select r.*, rf.* 
+		from review r left join reviewfiles rf
+		on r.board_num = rf.board_num 
+		where r.board_num = #{board_num}
 	</select>
 	
-	<insert id="setInsert" parameterType="ReviewVO">
+	<resultMap type="ReviewVO" id="GetOneResult">
+		<id column="board_num" property="board_num"/>
+		<result column="board_writer" property="board_writer"/>
+		<result column="board_title" property="board_title"/>
+		<result column="board_title2" property="board_title2"/>
+		<result column="board_contents" property="board_contents"/>
+		<result column="regDate" property="regDate" javaType="java.sql.Date"/>
+		<result column="ref" property="ref"/>
+		<result column="step" property="step"/>
+		<result column="depth" property="depth"/>
+		<collection property="files" javaType="java.util.List" ofType="BoardFileVO">
+			<id column="fnum" property="fnum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
+	
+	<insert id="setInsert" parameterType="ReviewVO" useGeneratedKeys="true" keyProperty="board_num">
 		insert into review (board_title, board_title2, board_writer, board_contents, regDate, ref, step, depth) 
 		values (#{board_title}, #{board_title2}, #{board_writer}, #{board_contents}, sysdate(), #{board_num}, 0, 0)
-	</insert>	
+	</insert>
+	
+	<insert id="setInsertFile" parameterType="BoardFileVO">
+		insert into reviewfiles (board_num, fileName, oriName)
+		values (#{board_num}, #{fileName}, #{oriName})
+	</insert>
 
 	<select id="getList" resultType="ReviewVO" parameterType="Pager">
 			select * from review where
@@ -60,6 +85,10 @@
 	<select id="getCount" resultType="Long" parameterType="Pager">
 		select count(board_num) from review where
 		<include refid="getSearch"></include>
+	</select>
+	
+	<select id="getFile" parameterType="BoardFileVO" resultType="BoardFileVO">
+		select * from reviewfiles where fnum = #{fnum}
 	</select>
 
 </mapper>

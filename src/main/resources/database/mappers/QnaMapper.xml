@@ -37,14 +37,43 @@
 		delete from qna where board_num = #{board_num}
 	</delete>
 	
-	<select id="getOne" parameterType="QnaVO" resultType="QnaVO">
-		select * from qna where board_num = #{board_num}
+	<select id="getOne" parameterType="QnaVO" resultMap="GetOneResult">
+		select q.*, qf.* 
+		from qna q left join qnafiles qf
+		on q.board_num = qf.board_num
+		where q.board_num = #{board_num}
 	</select>
+	
+	<resultMap type="QnaVO" id="GetOneResult">
+		<id column="board_num" property="board_num"/>
+		<result column="board_writer" property="board_writer"/>
+		<result column="board_title" property="board_title"/>
+		<result column="board_title2" property="board_title2"/>
+		<result column="board_contents" property="board_contents"/>
+		<result column="regDate" property="regDate" javaType="java.sql.Date"/>
+		<result column="ref" property="ref"/>
+		<result column="step" property="step"/>
+		<result column="depth" property="depth"/>
+		<collection property="files" javaType="java.util.List" ofType="BoardFileVO">
+			<id column="fnum" property="fnum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
 	
 	<insert id="setInsert" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="board_num">
 		insert into qna (board_num, board_title, board_title2, board_writer, board_contents, regDate, ref, step, depth) 
 		values (#{board_num}, #{board_title}, #{board_title2}, #{board_writer}, #{board_contents}, sysdate(), #{board_num}, 0, 0)
-	</insert>	
+	</insert>
+	
+	<insert id="setInsertFile" parameterType="BoardFileVO">
+		insert into qnafiles (board_num, fileName, oriName)
+		values (#{board_num}, #{fileName}, #{oriName})
+	</insert>
+	
+	<select id="getFile" parameterType="BoardFileVO" resultType="BoardFileVO">
+		select * from qnafiles where fnum = #{fnum}
+	</select>
 	
 	<update id="setRefUpdate" parameterType="BoardVO">
 		update qna set ref=#{board_num} where board_num = #{board_num}

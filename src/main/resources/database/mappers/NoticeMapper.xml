@@ -20,7 +20,7 @@
 	</sql>
 	
 	<update id="setUpdate" parameterType="NoticeVO">
-		update notice set board_title = #{board_title}, #{board_title2}, board_contents = #{board_contents} where board_num = #{board_num}
+		update notice set board_title = #{board_title}, board_title2 = #{board_title2}, board_contents = #{board_contents} where board_num = #{board_num}
 	</update>
 	
 	<delete id="setDelete" parameterType="NoticeVO">
@@ -72,5 +72,6 @@
 	<select id="getFile" parameterType="BoardFileVO" resultType="BoardFileVO">
 		select * from noticefiles where fnum = #{fnum}
 	</select>
+
 
 </mapper>

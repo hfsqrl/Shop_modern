@@ -46,7 +46,7 @@
 														<c:catch>
 										  					<c:forEach begin="1" end="${vo.depth}">Re : </c:forEach>
 										  				</c:catch>
-										  				[ ${vo.board_title} ] ${vo.board_title2}<%-- , ${vo.ref}, ${vo.step}, ${vo.depth} --%>
+										  				[ ${vo.board_title} ] ${vo.board_title2}  <%-- R: ${vo.ref}, S: ${vo.step}, D: ${vo.depth} --%>
 										  			</a>
 												</td>
 												<td>${vo.board_writer}</td>
@@ -121,9 +121,9 @@
 		$("#kind").val(kind);
 	}
 
- 	var search = $("#frm");
 
 	$(".search-btn").click(function(){
+	 	var search = $("#frm");
 		var s_search = false;
 		if(!search.find("input[name='search']").val()) {
 			alert("키워드를 입력하세요");
@@ -132,6 +132,7 @@
 			search.submit();
 		}
 	})
+	
 	
 	$(".list").click(function() {
 		var curPage = ($(this).attr("title"))

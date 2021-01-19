@@ -63,6 +63,7 @@
 									<c:otherwise>
 										<label for="sel1" class="title-lab">말머리 선택</label>
 										<select class="form-control sel-cate heading" id="sel1" name="board_title">
+											<option>필독!</option>
 											<option>뉴스</option>
 											<option>이벤트</option>
 											<option>긴급 공지</option>
@@ -101,20 +102,79 @@
 		height: 500,
 		lang: 'ko-KR',
 		placeholder: '내용을 작성하세요.',
-		focus: true
+		focus: true,
+		callbacks: {
+			onImageUpload:function(files, editor, welEditable){
+				var formData = new FormData();	    
+				formData.append('file', files[0]); 
+				 
+				$.ajax({
+					data: formData,
+				    type: "POST",
+				    url: 'summernote',
+				    cache: false,
+				    contentType: false,
+				    enctype: 'multipart/form-data',
+				    processData: false,
+					success:function(data){
+						data = data.trim();
+						$("#summernote").summernote('editor.insertImage', data);
+					}
+				 })
+			 },
+			 
+			 onMediaDelete:function(files){
+				 var fileName = $(files[0]).attr("src");
+				fileName = fileName.substring(fileName.lastIndexOf("\\")+1);
+				
+				$.ajax({
+					type:"POST",
+					url : "./summernoteDelete",
+					data: {
+						file:fileName
+					},
+					success:function(data){
+						alert(data);
+					}
+				
+				}) 
+			 }
+		 }
 	});
+
+	var emptyCheckResult = true;
+	$("#btn").click(function(){
+		emptyCheck();
+		if(emptyCheckResult){
+			$("#frm").submit();
+		}
+	});
+
+	function emptyCheck(){
+		emptyCheckResult=true;
+		$(".title-input").each(function(){
+			var data = $(this).val();
+			if(data==''){
+				emptyCheckResult=false;
+				var title = '제목';
+				alert(title+"을 입력하세요");
+			}
+		});
+
+		/* $("#.contents-area").each(function(){
+			var contents = $(this).val();
+			if(contents=='') {
+				emptyCheckResult=false;
+				var area = '내용';
+				alert(area+"을 입력하세요");
+			}
+		}); */
+	}
 
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
 	})
 
-	$("#btn").click(function(){
-		
-		if(contents.trim() == '') {
-			alert("내용을 입력해주세요.")
-		}
-		
-	})
 
 </script>
 

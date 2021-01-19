@@ -30,7 +30,12 @@
 						
 						<div class="board-top">
 							<ul>
-								<li class="sel-title">[ ${vo.board_title} ] ${vo.board_title2}</li>
+								<li class="sel-title">
+									<c:catch>
+					  					<c:forEach begin="1" end="${vo.depth}">Re : </c:forEach>
+					  				</c:catch>
+									[ ${vo.board_title} ] ${vo.board_title2}
+								</li>
 								<li>posted by : ${vo.board_writer}</li>
 							</ul>
 						</div>
@@ -38,7 +43,7 @@
 							<div class="con-view">
 								${vo.board_contents}
 								<c:forEach items="${vo.files}" var="file">
-									<p><a href="#">${file.oriName}</a></p> <!-- -->
+									<p>첨부파일 : <a href="${board}FileDown?fnum=${file.fnum}">${file.oriName}</a></p> 
 								</c:forEach>
 							</div>
 						</div>
