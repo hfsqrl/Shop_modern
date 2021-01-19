@@ -183,11 +183,12 @@ public class QnaController {
 		result = qnaService.setRefUpdate(boardVO);
 		
 		System.out.println("Result : "+result);
-		String message = "접수가 완료되지 않았습니다.";
+		String message = null;
+		message = "접수가 완료되지 않았습니다.";
 		
 		if(result>0) {
 			message = "문의 접수 완료.";
-		}
+		} 
 		
 		mv.addObject("msg", message);
 		mv.addObject("path", "./qnaWrite");

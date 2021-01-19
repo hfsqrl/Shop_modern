@@ -37,26 +37,23 @@
 							</thead>
 							<tbody class="table-list">
 							<c:choose>
-									<c:when test="${not empty list}">
-										<c:forEach items="${list}" var="vo">
-											<tr>
-												<td>${vo.board_num}</td>
-												<c:if test="${board_title eq '   '}">
-													<td><a href="${board}Select?board_num=${vo.board_num}">${vo.board_title2}</td>
-												</c:if>
-												<td><a href="${board}Select?board_num=${vo.board_num}">[ ${vo.board_title} ] ${vo.board_title2}</td>
-												<td>${vo.board_writer}</td>
-											</tr>
-										</c:forEach>
-									</c:when>
-									<c:otherwise>
+								<c:when test="${not empty list}">
+									<c:forEach items="${list}" var="vo">
 										<tr>
-											<td colspan="3">
-												Empty
-											</td>
+											<td>${vo.board_num}</td>
+											<td><a href="${board}Select?board_num=${vo.board_num}">[ ${vo.board_title} ] ${vo.board_title2}</td>
+											<td>${vo.board_writer}</td>
 										</tr>
-									</c:otherwise>
-								</c:choose>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<tr>
+										<td colspan="3">
+											Empty
+										</td>
+									</tr>
+								</c:otherwise>
+							</c:choose>
 							</tbody>
 						</table>
 					</div>

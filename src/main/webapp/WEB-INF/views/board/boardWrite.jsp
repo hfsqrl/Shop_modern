@@ -143,11 +143,13 @@
 	});
 
 	var emptyCheckResult = true;
+	
 	$("#btn").click(function(){
 		emptyCheck();
-		if(emptyCheckResult){
+		if(!emptyCheckResult){
 			$("#frm").submit();
 		}
+		location.href="${pageContext.request.contextPath}/${board}/${board}Write"
 	});
 
 	function emptyCheck(){
@@ -161,19 +163,20 @@
 			}
 		});
 
-		/* $("#.contents-area").each(function(){
+		$(".contents-area").each(function(){
 			var contents = $(this).val();
 			if(contents=='') {
 				emptyCheckResult=false;
 				var area = '내용';
 				alert(area+"을 입력하세요");
 			}
-		}); */
+		}); /* */
 	}
 
 	$(".go-list").click(function() {
 		location.href="${pageContext.request.contextPath}/${board}/${board}List"
 	})
+	
 
 
 </script>
