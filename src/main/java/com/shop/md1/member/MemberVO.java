@@ -51,9 +51,6 @@ public class MemberVO {
 	private String member_refund_name;
 	private String member_refund_bank;
 	private long member_refund_account;
-
 	private int member_clause_agg;
-	
 	private int member_pi_agg;
-
 }

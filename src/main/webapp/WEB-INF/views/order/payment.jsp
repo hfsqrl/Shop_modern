@@ -309,14 +309,12 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 	
 
 	$("#orderBtn").click(function(){
-
 		var name = $("#receiver").val();
 		var addr = $("#search-addr").val();
 		var phone = $("#cell2").val();
 		var email = $("#email1").val();
 		
 		if(name !='' && addr !='' && phone !='' && email != '') {
-			
 			
 			var IMP = window.IMP; // 생략가능
 			IMP.init('imp44190575'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
@@ -343,18 +341,13 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			        $("#frm").submit();
 			    } else {
 			        var msg = '결제에 실패하였습니다.';
-			        msg += '에러내용 : ' + rsp.error_msg;
-			        
+			        msg += '에러내용 : ' + rsp.error_msg;			        
 			    }			    
-			    alert(msg);
-			     
-			   	   
-			});
-			
+			    alert(msg);   	   
+			});			
 		}else{
 			alert("필수사항을 입력해주세요.")
-		}
-		
+		}	
 	});
 
 

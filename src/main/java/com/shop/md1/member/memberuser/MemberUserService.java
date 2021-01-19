@@ -72,8 +72,7 @@ public class MemberUserService implements MemberService{
 		if(mv4 != null) {
 			bindingResult.rejectValue("roadFullAddr", "address.equal");
 		}
-		
-		
+			
 		return result;
 	}
 	
