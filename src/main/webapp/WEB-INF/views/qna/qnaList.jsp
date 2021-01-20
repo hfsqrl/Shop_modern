@@ -46,7 +46,7 @@
 														<c:catch>
 										  					<c:forEach begin="1" end="${vo.depth}">Re : </c:forEach>
 										  				</c:catch>
-										  				[ ${vo.board_title} ] ${vo.board_title2}  <%-- R: ${vo.ref}, S: ${vo.step}, D: ${vo.depth} --%>
+										  				[ ${vo.board_title} ] ${vo.board_title2}    //    R : ${vo.ref}, S : ${vo.step}, D : ${vo.depth}  <%--  --%>
 										  			</a>
 												</td>
 												<td>${vo.board_writer}</td>

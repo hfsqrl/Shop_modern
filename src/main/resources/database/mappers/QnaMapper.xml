@@ -26,6 +26,9 @@
 		(select ref from qna q1 where board_num=#{board_num}), 
 		(select step+1 from qna q1 where board_num=#{board_num}), 
 		(select depth+1 from qna q1 where board_num=#{board_num})
+		<!-- #{ref},
+		#{step} + 1,
+		#{depth} +1 -->
 		)
 	</insert>
 	
@@ -76,7 +79,9 @@
 	</select>
 	
 	<update id="setRefUpdate" parameterType="BoardVO">
-		update qna set ref=#{board_num} where board_num = #{board_num}
+		<!-- update qna set ref=#{board_num} where board_num = #{board_num} -->
+		update qna set ref=#{ref}, step=step+1 where board_num = #{board_num} and step > #{step}
+		
 	</update>
 
 	<select id="getList" resultType="QnaVO" parameterType="Pager">
