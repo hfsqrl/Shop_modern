@@ -1,0 +1,230 @@
+CREATE TABLE `cart` (
+  `cart_num` bigint NOT NULL AUTO_INCREMENT,
+  `member_num` bigint NOT NULL,
+  `cart_count` int NOT NULL,
+  `item_num` bigint NOT NULL,
+  PRIMARY KEY (`cart_num`),
+  KEY `CART_NUM_FK_idx` (`member_num`),
+  KEY `CART_INUM_FK_idx` (`item_num`),
+  CONSTRAINT `CART_INUM_FK` FOREIGN KEY (`item_num`) REFERENCES `item` (`item_num`) ON DELETE CASCADE,
+  CONSTRAINT `CART_MNUM_FK` FOREIGN KEY (`member_num`) REFERENCES `member_info` (`member_num`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `item` (
+  `item_num` bigint NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(255) NOT NULL,
+  `item_category` varchar(45) NOT NULL,
+  `item_price` varchar(45) NOT NULL,
+  `item_size` varchar(45) DEFAULT NULL,
+  `item_color` varchar(45) DEFAULT NULL,
+  `item_reserve` bigint NOT NULL,
+  `item_image` varchar(45) NOT NULL,
+  `item_contents_image` varchar(45) DEFAULT '0',
+  `item_contents_image2` varchar(45) DEFAULT '0',
+  PRIMARY KEY (`item_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `member_info` (
+  `member_num` bigint NOT NULL AUTO_INCREMENT,
+  `member_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `member_pw` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `member_ask` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `member_answer` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `member_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `roadFullAddr` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `member_phone` varchar(255) NOT NULL,
+  `member_sms_agg` int DEFAULT NULL,
+  `member_email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `member_email_agg` int DEFAULT NULL,
+  `member_birth` date DEFAULT NULL,
+  `member_region` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `member_refund_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `member_refund_bank` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `member_refund_account` bigint DEFAULT NULL,
+  `member_clause_agg` int DEFAULT NULL,
+  `member_pi_agg` int DEFAULT NULL,
+  PRIMARY KEY (`member_num`),
+  UNIQUE KEY `member_address_UNIQUE` (`roadFullAddr`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `notice` (
+  `board_num` bigint NOT NULL AUTO_INCREMENT,
+  `board_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `board_title2` varchar(255) NOT NULL,
+  `board_writer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `board_contents` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`board_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `noticefiles` (
+  `fnum` bigint NOT NULL AUTO_INCREMENT,
+  `board_num` bigint NOT NULL,
+  `fileName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `oriName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  PRIMARY KEY (`fnum`),
+  KEY `board_num_idx` (`board_num`),
+  CONSTRAINT `NOTICE_NUM_FK` FOREIGN KEY (`board_num`) REFERENCES `notice` (`board_num`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `order_info` (
+  `order_num` bigint NOT NULL AUTO_INCREMENT,
+  `order_date` timestamp NOT NULL,
+  `member_name` varchar(45) NOT NULL,
+  `order_manage` varchar(45) NOT NULL,
+  `member_num` bigint NOT NULL,
+  `item_num` bigint NOT NULL,
+  `cart_num` bigint DEFAULT NULL,
+  PRIMARY KEY (`order_num`),
+  KEY `ORDER_MNUM_FK_idx` (`member_num`),
+  KEY `ORDER_INUM_FK_idx` (`item_num`),
+  KEY `ORDER_FNUM_FK_idx` (`cart_num`),
+  CONSTRAINT `ORDER_FNUM_FK` FOREIGN KEY (`cart_num`) REFERENCES `cart` (`cart_num`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `ORDER_INUM_FK` FOREIGN KEY (`item_num`) REFERENCES `item` (`item_num`),
+  CONSTRAINT `ORDER_MNUM_FK` FOREIGN KEY (`member_num`) REFERENCES `member_info` (`member_num`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `payment` (
+  `payment_order_total` bigint NOT NULL AUTO_INCREMENT,
+  `payment_total` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `payment_way` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `order_num` bigint NOT NULL,
+  `member_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`payment_order_total`),
+  KEY `PAY_ONUM_FK_idx` (`order_num`),
+  KEY `PAY_ADDR_FK_idx` (`member_address`),
+  CONSTRAINT `PAY_ADDR_FK` FOREIGN KEY (`member_address`) REFERENCES `member_info` (`roadFullAddr`) ON DELETE CASCADE,
+  CONSTRAINT `PAY_ONUM_FK` FOREIGN KEY (`order_num`) REFERENCES `order_info` (`order_num`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `qna` (
+  `board_num` bigint NOT NULL AUTO_INCREMENT,
+  `board_writer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `board_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `board_title2` varchar(255) NOT NULL,
+  `board_contents` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `regDate` date NOT NULL,
+  `ref` bigint NOT NULL,
+  `step` bigint NOT NULL,
+  `depth` bigint NOT NULL,
+  PRIMARY KEY (`board_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `qnafiles` (
+  `fnum` bigint NOT NULL AUTO_INCREMENT,
+  `board_num` bigint DEFAULT NULL,
+  `fileName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `oriName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  PRIMARY KEY (`fnum`),
+  KEY `board_num_idx` (`board_num`),
+  CONSTRAINT `QF_NUM_FK` FOREIGN KEY (`board_num`) REFERENCES `qna` (`board_num`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `review` (
+  `board_num` bigint NOT NULL AUTO_INCREMENT,
+  `board_writer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `board_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `board_title2` varchar(255) NOT NULL,
+  `board_contents` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `regDate` date NOT NULL,
+  `ref` bigint NOT NULL,
+  `step` bigint NOT NULL,
+  `depth` bigint NOT NULL,
+  PRIMARY KEY (`board_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `reviewfiles` (
+  `fnum` bigint NOT NULL AUTO_INCREMENT,
+  `board_num` bigint NOT NULL,
+  `fileName` varchar(255) DEFAULT NULL,
+  `oriName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`fnum`),
+  KEY `RV_NUM_FK_idx` (`board_num`),
+  CONSTRAINT `RV_NUM_FK` FOREIGN KEY (`board_num`) REFERENCES `review` (`board_num`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `shop_address` (
+  `shop_address` varchar(255) NOT NULL,
+  `shop_lat` double NOT NULL,
+  `shop_lon` double NOT NULL,
+  `shop_num` int NOT NULL,
+  PRIMARY KEY (`shop_num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+# Outer insert
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('버논 올 헤링본 자켓', 'Outer', '89000', 900, 'prd_1.png');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('라드 울 싱글 코트', 'Outer', '78000', 800, 'prd_2.png');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('비드 올 더블 코트', 'Outer', '79000', 800, 'prd_3.png');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('울 래글런 맥 코트', 'Outer', '144000', 1400, 'prd_4.png');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('스탠 덕다운 숏패딩', 'Outer', '86000', 900, 'prd_5.png');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('베를린 울 자켓', 'Outer', '104000', 1000, 'prd_6.png');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('테이츠 무스탕', 'Outer', '89000', 900, 'prd_7.png');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('헤링본 울 로브 코트', 'Outer', '133000', 1300, 'prd_8.png');
+# Outer insert
+
+# Top insert
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('비든 울 카라 니트', 'Top', '38000', 380, 'prd_top_1.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('덴스 램스울 헨리넥 니트', 'Top', '38000', 380, 'prd_top_2.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('베색 아가일 울 니트', 'Top', '38000', 380, 'prd_top_3.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('캐셔 울 집업 니트', 'Top', '62000', 620, 'prd_top_4.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('리든 울 래글런 니트', 'Top', '49000', 490, 'prd_top_5.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('로블 히찌 울 니트', 'Top', '34000', 340, 'prd_top_6.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('로든 캐시미어 래글런 니트', 'Top', '30000', 300, 'prd_top_7.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('애리조나 기모 맨투맨', 'Top', '29000', 290, 'prd_top_8.jpg');
+# Top insert
+
+# Shirts insert
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('어텀 옥스퍼드 셔츠', 'Shirts', '35000', 400, 'prd_shirts_1.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('울 헤비 체크 셔츠 자켓', 'Shirts', '61000', 610, 'prd_shirts_2.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('엘로 체크 셔츠', 'Shirts', '46000', 460, 'prd_shirts_3.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('도브 베이직 셔츠', 'Shirts', '32000', 320, 'prd_shirts_4.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('리드 체크 셔츠', 'Shirts', '37000', 370, 'prd_shirts_5.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('브론 베이직 코튼 셔츠', 'Shirts', '38000', 380, 'prd_shirts_6.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('슬로 원포켓 셔츠', 'Shirts', '38000', 380, 'prd_shirts_7.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('루즈핏 워싱 코튼 셔츠', 'Shirts', '30000', 300, 'prd_shirts_8.jpg');
+# Shirts insert
+
+# Pants insert
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('아넬 울 밴딩 슬랙스', 'Pants', '40000', 400, 'prd_pants_1.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('윈디 사이드 밴딩 울 슬랙스', 'Pants', '38000', 380, 'prd_pants_2.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('뮤트 밴딩 코튼 팬츠', 'Pants', '29000', 290, 'prd_pants_3.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('미드 울 와이드 슬랙스', 'Pants', '38000', 380, 'prd_pants_4.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('로더 워싱 데님 팬츠', 'Pants', '35000', 350, 'prd_pants_5.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('얼리 레귤러 크림진', 'Pants', '36000', 360, 'prd_pants_6.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('쿼즈 히든 밴딩 슬랙스', 'Pants', '32000', 400, 'prd_pants_7.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('로던 울 슬랙스', 'Pants', '34000', 340, 'prd_pants_8.jpg');
+# Pants insert
+
+# Suit insert
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('로던 울 수트', 'Suit', '80000', 800, 'prd_suit_1.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('커먼 체크 더블 수트', 'Suit', '79000', 790, 'prd_suit_2.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('프로치 체크 수트', 'Suit', '82000', 820, 'prd_suit_3.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('모나코 울 수트', 'Suit', '87000', 870, 'prd_suit_4.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('파티클 울 수트', 'Suit', '87000', 870, 'prd_suit_5.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('마일드 체크 수트', 'Suit', '75000', 750, 'prd_suit_6.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('애드 투버튼 수트', 'Suit', '82000', 820, 'prd_suit_7.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('비긴 투버튼 와이드 세트', 'Suit', '77000', 770, 'prd_suit_8.jpg');
+# Suit insert
+
+# Acc insert
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('샌드 스웨이드 벨트', 'Acc', '28000', 280, 'prd_acc_1.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('맥스 레더 벨트', 'Acc', '23000', 230, 'prd_acc_2.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('모노 레더 벨트', 'Acc', '24000', 240, 'prd_acc_3.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('로쉐 레더 벨트', 'Acc', '24000', 240, 'prd_acc_4.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('드위 레더 벨트', 'Acc', '24000', 240, 'prd_acc_5.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('나인 레더 벨트', 'Acc', '22000', 220, 'prd_acc_6.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('카이 레더 벨트', 'Acc', '24000', 240, 'prd_acc_7.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('모던이프 가죽 키 링', 'Acc', '35000', 350, 'prd_acc_8.jpg');
+# Acc insert
+
+# Bag/Shoes insert
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('워트 더비 슈즈', 'Bag/Shoes', '125000', 1250, 'prd_bagshoes_1.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('탐스 레더 첼시 부츠', 'Bag/Shoes', '150000', 1500, 'prd_bagshoes_2.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('플럼 스니커즈', 'Bag/Shoes', '117000', 1170, 'prd_bagshoes_3.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('스웨이드 페니로퍼', 'Bag/Shoes', '120000', 1200, 'prd_bagshoes_4.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('제이 스니커즈', 'Bag/Shoes', '61000', 610, 'prd_bagshoes_5.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('파커 더비 슈즈', 'Bag/Shoes', '61000', 610, 'prd_bagshoes_6.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('커먼 스니커즈', 'Bag/Shoes', '119000', 1190, 'prd_bagshoes_7.jpg');
+insert into item (item_name, item_category, item_price, item_reserve, item_image) values('로니 벨크로 로퍼', 'Bag/Shoes', '48000', 480, 'prd_bagshoes_8.jpg');
+# Bag/Shoes insert
+
+commit;
